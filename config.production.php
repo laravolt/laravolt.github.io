@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'baseUrl' => 'https://my-jigsaw-docs.com',
+    'baseUrl' => 'https://laravolt.dev',
     'production' => true,
 
     // DocSearch credentials

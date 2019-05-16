@@ -15,7 +15,7 @@ This starter template comes pre-loaded with [Tailwind CSS](https://tailwindcss.c
 ```scss
 // source/_assets/sass/main.scss
 
-@tailwind preflight;
+@tailwind base;
 @tailwind components;
 
 // Code syntax highlighting,
