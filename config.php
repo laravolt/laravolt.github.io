@@ -3,8 +3,8 @@
 return [
     'baseUrl' => '',
     'production' => false,
-    'siteName' => 'Docs Starter Template',
-    'siteDescription' => 'Beautiful docs powered by Jigsaw',
+    'siteName' => 'Laravolt',
+    'siteDescription' => 'Platform untuk mengembangkan sistem informasi dalam 2 minggu',
 
     // Algolia DocSearch credentials
     'docsearchApiKey' => '',
