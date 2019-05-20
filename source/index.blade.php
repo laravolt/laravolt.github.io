@@ -11,7 +11,7 @@
             <p class="text-lg">Laravolt menyediakan fitur standard sebuah sistem informasi. Arsitektur Laravolt memaksamu berpikir modular sehingga sebuah fitur (modul) bisa digunakan di proyek lain dengan mudah. </p>
 
             <div class="flex my-10">
-                <a href="/docs/getting-started" title="{{ $page->siteName }} getting started" class="bg-indigo-700 hover:bg-indigo-800 text-white hover:text-white rounded mr-4 py-2 px-6">Coba Sekarang</a>
+                <a href="/docs/getting-started" title="{{ $page->siteName }} getting started" class="bg-indigo-700 hover:bg-indigo-800 text-white hover:text-white rounded mr-4 py-2 px-6">Baca Dokumentasi</a>
 
                 <a href="https://jigsaw.tighten.co" title="Jigsaw by Tighten" class="border border-indigo-700 hover:border-indigo-900 text-indigo-700 hover:text-indigo-800 rounded py-2 px-6">Kenapa Laravolt?</a>
             </div>
