@@ -28,7 +28,7 @@ Apakah kamu bagian dari "mereka"?
 
 Laravolt adalah sebuah **_platform_** untuk membangun sistem informasi yang telah disesuaikan dengan karakteristik **pengguna** di Indonesia.
 
-Sebagai sebuah platform, maka Laravolt bukan hanya kumpulan baris kode, yang ditulis bersama-sama oleh para kontributor lalu di-*packaging* sedemikian dan diberi nama. Laravolt bukan sekedar template admin yang bisa dipakai berulang-ulang. Laravolt bukan hanya sekumpulan *library* yang telah teruji di medan tempur sehingga kamu bisa dengan tenang memakainya. Laravolt bukan hanya gimmick dan branding dari [Javan](htts://javan.co.id).
+Sebagai sebuah platform, maka Laravolt bukan hanya kumpulan baris kode, yang ditulis bersama-sama oleh para kontributor lalu di-*packaging* sedemikian dan diberi nama. Laravolt bukan sekedar template admin yang bisa dipakai berulang-ulang. Laravolt bukan hanya sekumpulan *library* yang telah teruji di medan tempur sehingga kamu bisa dengan tenang memakainya. Laravolt bukan hanya gimmick dan branding dari [Javan](https://javan.co.id).
 
 Lebih daripada itu, Laravolt adalah:
 
