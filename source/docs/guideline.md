@@ -8,10 +8,15 @@ section: content
 # Guideline
 
 ## Coding Standard
+[TBD]
 
 ## Coding Guideline
+[TBD]
 
 ## Git
+
+### Workflow
+[TBD]
 
 ### Penamaan Branch
 
