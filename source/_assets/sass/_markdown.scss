@@ -1,0 +1,159 @@
+.markdown {
+  a {
+    @apply .no-underline;
+    @apply .text-purple-600;
+
+    &:hover {
+      @apply .text-purple-700;
+      @apply .underline;
+    }
+  }
+
+  blockquote {
+    @apply .border-gray-500;
+    @apply .border-l-4;
+    @apply .my-4;
+    @apply .px-6;
+    @apply .py-2;
+    @apply .text-gray-500;
+
+    > p {
+      @apply .m-0;
+    }
+  }
+
+  code {
+    @apply .bg-gray-300;
+    @apply .inline;
+    @apply .leading-normal;
+    @apply .text-gray-700;
+    @apply .text-sm;
+    @apply .w-4/5;
+
+    padding: 3px 7px;
+  }
+
+  h1 {
+    @apply .mb-4;
+    @apply .mt-10;
+
+    &:first-child {
+      @apply .mt-6;
+    }
+  }
+
+  h2 {
+    @apply .mb-4;
+    @apply .mt-10;
+
+    &:first-child {
+      @apply .mt-6;
+    }
+  }
+
+  h3 {
+    @apply .mb-4;
+    @apply .mt-10;
+
+    &:first-child {
+      @apply .mt-6;
+    }
+  }
+
+  h4 {
+    @apply .font-bold;
+  }
+
+  h5 {
+    @apply .text-gray-600;
+    @apply .uppercase;
+    @apply .text-base;
+    @apply .font-bold;
+  }
+
+  hr {
+    @apply .border;
+    @apply .border-gray-500;
+    @apply .mb-4;
+    @apply .mt-10;
+  }
+
+  img {
+    @apply .max-w-full;
+  }
+
+  li {
+    @apply .mb-3;
+
+    > ul {
+      @apply .pl-4;
+    }
+  }
+
+  ol {
+    @apply .my-4;
+    @apply .pl-4;
+
+    list-style-type: decimal;
+  }
+
+  ul {
+    @apply .my-4;
+    @apply .pl-2;
+  }
+
+  p {
+    @apply .leading-normal;
+    @apply .my-5;
+    @apply .text-purple-600;
+    @apply .text-base;
+  }
+
+  pre {
+    @apply .bg-gray-400;
+    @apply .leading-normal;
+    @apply .mb-8;
+    @apply .mt-4;
+    @apply .overflow-x-auto;
+    @apply .px-4;
+    @apply .pt-2;
+    @apply .pb-3;
+    @apply .rounded;
+
+    max-width: 43em; // prevent code snippets from breaking width
+
+    > code {
+      @apply .bg-transparent;
+      @apply .inline;
+      @apply .p-0;
+    }
+  }
+
+  pre + blockquote {
+    @apply .mt-6;
+  }
+
+  ul {
+    > li {
+      @apply .leading-normal;
+      @apply .mb-2;
+      @apply .ml-4;
+      @apply .pb-1;
+      @apply .text-purple-600;
+      @apply .pl-5;
+    }
+
+    > li::before {
+      @apply .absolute;
+      @apply .bg-center;
+      @apply .bg-cover;
+      @apply .h-4;
+      @apply .-ml-6;
+      @apply .mt-1;
+      @apply .w-4;
+
+      background-image: url('/assets/img/icon-arrow.svg');
+      content: '';
+    }
+  }
+}

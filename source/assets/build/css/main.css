@@ -999,6 +999,165 @@ pre code {
   }
 }
 
+.markdown a {
+  text-decoration: none;
+  color: #805ad5;
+}
+
+.markdown a:hover {
+  color: #6b46c1;
+  text-decoration: underline;
+}
+
+.markdown blockquote {
+  border-color: #a0aec0;
+  border-left-width: 4px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  color: #a0aec0;
+}
+
+.markdown blockquote > p {
+  margin: 0;
+}
+
+.markdown code {
+  background-color: #e2e8f0;
+  display: inline;
+  line-height: 1.5;
+  color: #4a5568;
+  font-size: 0.875rem;
+  width: 80%;
+  padding: 3px 7px;
+}
+
+.markdown h1 {
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+}
+
+.markdown h1:first-child {
+  margin-top: 1.5rem;
+}
+
+.markdown h2 {
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+}
+
+.markdown h2:first-child {
+  margin-top: 1.5rem;
+}
+
+.markdown h3 {
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+}
+
+.markdown h3:first-child {
+  margin-top: 1.5rem;
+}
+
+.markdown h4 {
+  font-weight: 700;
+}
+
+.markdown h5 {
+  color: #718096;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.markdown hr {
+  border-width: 1px;
+  border-color: #a0aec0;
+  margin-bottom: 1rem;
+  margin-top: 2.5rem;
+}
+
+.markdown img {
+  max-width: 100%;
+}
+
+.markdown li {
+  margin-bottom: 0.75rem;
+}
+
+.markdown li > ul {
+  padding-left: 1rem;
+}
+
+.markdown ol {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 1rem;
+  list-style-type: decimal;
+}
+
+.markdown ul {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-left: 0.5rem;
+}
+
+.markdown p {
+  line-height: 1.5;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  color: #805ad5;
+  font-size: 1rem;
+}
+
+.markdown pre {
+  background-color: #cbd5e0;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  margin-top: 1rem;
+  overflow-x: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.75rem;
+  border-radius: 0.25rem;
+  max-width: 43em;
+}
+
+.markdown pre > code {
+  background-color: transparent;
+  display: inline;
+  padding: 0;
+}
+
+.markdown pre + blockquote {
+  margin-top: 1.5rem;
+}
+
+.markdown ul > li {
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  margin-left: 1rem;
+  padding-bottom: 0.25rem;
+  color: #805ad5;
+  padding-left: 1.25rem;
+}
+
+.markdown ul > li::before {
+  position: absolute;
+  background-position: center;
+  background-size: cover;
+  height: 1rem;
+  margin-left: -1.5rem;
+  margin-top: 0.25rem;
+  width: 1rem;
+  background-image: url("/assets/img/icon-arrow.svg");
+  content: "";
+}
+
 .appearance-none{
   -webkit-appearance: none;
      -moz-appearance: none;
