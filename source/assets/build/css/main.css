@@ -901,9 +901,9 @@ pre code {
     margin-top: 0.25rem;
     padding-left: 0;
     padding-right: 1rem;
-    padding-top: 0;
+    padding-top: 1.5rem;
     box-shadow: none;
-    width: 25%;
+    width: 40%;
   }
 }
 
