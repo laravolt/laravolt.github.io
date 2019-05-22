@@ -11,6 +11,7 @@ mix.webpackConfig({
         build.browserSync(),
         build.watch([
             'config.php',
+            'navigation.php',
             'source/**/*.md',
             'source/**/*.php',
             'source/**/*.scss',
