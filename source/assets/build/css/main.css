@@ -888,7 +888,6 @@ pre code {
   padding-left: 1rem;
   padding-right: 1rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  width: auto;
 }
 
 @media (min-width: 1024px) {
@@ -915,6 +914,10 @@ pre code {
   margin-top: 0;
   color: #1a202c;
   font-size: 0.875rem;
+}
+
+.documentation {
+  max-width: 36rem;
 }
 
 .docsearch-input {
