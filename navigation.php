@@ -5,8 +5,17 @@ return [
     'Installation'           => 'docs/installation',
     'Building Application'   => 'docs/building-application',
     'Customizing The UI'     => 'docs/customizing-the-ui',
+    'Guideline'              => [
+        'url'      => 'docs/guidelines',
+        'children' => [
+            'Coding Standard' => 'docs/guidelines/coding-standard',
+            'Git'             => 'docs/guidelines/git',
+            'Model'           => 'docs/guidelines/model',
+            'View'            => 'docs/guidelines/view',
+            'Controller'      => 'docs/guidelines/controller',
+        ],
+    ],
     'Deployment'             => 'docs/deployment',
-    'Guideline'              => 'docs/guideline',
     'Troubleshooting'        => 'docs/troubleshooting',
     'Packages Documentation' => [
         'url'      => 'docs/packages',
