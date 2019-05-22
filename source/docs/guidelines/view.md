@@ -7,7 +7,7 @@ section: content
 
 # View
 
-1. View tidak boleh mengandung *logic*.
+1. View tidak boleh mengandung *logic*. Pindahkan *logic* ke ***[helper](/docs/snippets/membuat-helper)*** atau ***Model***.
 2. Jika view sudah terlalu kompleks, manfaatkan `@include` dan `@component` untuk memecahnya.
 3. Manfaatkan ***Service Injection*** ketika:
    - View akan dipakai di beberapa tempat.

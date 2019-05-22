@@ -1,11 +1,11 @@
 <?php
 
 return [
-    'Introduction'           => 'docs/introduction',
-    'Installation'           => 'docs/installation',
-    'Building Application'   => 'docs/building-application',
-    'Customizing The UI'     => 'docs/customizing-the-ui',
-    'Guideline'              => [
+    'Introduction'         => 'docs/introduction',
+    'Installation'         => 'docs/installation',
+    'Building Application' => 'docs/building-application',
+    'Customizing The UI'   => 'docs/customizing-the-ui',
+    'Guideline'            => [
         'url'      => 'docs/guidelines',
         'children' => [
             'Coding Standard' => 'docs/guidelines/coding-standard',
@@ -15,20 +15,26 @@ return [
             'Controller'      => 'docs/guidelines/controller',
         ],
     ],
-    'Deployment'             => 'docs/deployment',
-    'Troubleshooting'        => 'docs/troubleshooting',
-    'Packages Documentation' => [
-        'url'      => 'docs/packages',
+    'Deployment'           => 'docs/deployment',
+    'Troubleshooting'      => 'docs/troubleshooting',
+    'Snippets'             => [
+        'url'      => 'docs/snippets',
         'children' => [
-            'ACL'           => 'docs/acl',
-            'Auth'          => 'docs/auth',
-            'Avatar'        => 'docs/avatar',
-            'Indonesia'     => 'docs/indonesia',
-            'Password'      => 'docs/password',
-            'Semantic Form' => 'docs/semantic-form',
-            'Setting'       => 'docs/setting',
-            'Suitable'      => 'docs/suitable',
-            'Thunderclap'   => 'docs/thunderclap',
+            'Membuat Helper' => 'docs/snippets/membuat-helper',
         ],
-    ],
+    ]
+    // 'Packages Documentation' => [
+    //     'url'      => 'docs/packages',
+    //     'children' => [
+    //         'ACL'           => 'docs/acl',
+    //         'Auth'          => 'docs/auth',
+    //         'Avatar'        => 'docs/avatar',
+    //         'Indonesia'     => 'docs/indonesia',
+    //         'Password'      => 'docs/password',
+    //         'Semantic Form' => 'docs/semantic-form',
+    //         'Setting'       => 'docs/setting',
+    //         'Suitable'      => 'docs/suitable',
+    //         'Thunderclap'   => 'docs/thunderclap',
+    //     ],
+    // ],
 ];
