@@ -10,5 +10,5 @@ section: content
 1. View tidak boleh mengandung *logic*.
 2. Jika view sudah terlalu kompleks, manfaatkan `@include` dan `@component` untuk memecahnya.
 3. Manfaatkan ***Service Injection*** ketika:
-   1. View akan dipakai di beberapa tempat.
-   2. Ada bagian view yang kadang perlu ditampilkan kadang tidak, tergantung role atau kondisi lainnya.
+   - View akan dipakai di beberapa tempat.
+   - Ada bagian view yang kadang perlu ditampilkan kadang tidak, tergantung role atau kondisi lainnya.
