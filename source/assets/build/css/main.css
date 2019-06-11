@@ -740,7 +740,6 @@ body {
 }
 
 a {
-  font-weight: 600;
   text-decoration: none;
   color: #4c51bf;
 }
@@ -906,14 +905,20 @@ pre code {
   }
 }
 
+.nav-menu .lvl-0 {
+  margin-bottom: 2rem;
+}
+
 .nav-menu__item {
   display: block;
   list-style-type: none;
   text-decoration: none;
-  margin-bottom: 0.75rem;
   margin-top: 0;
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   color: #1a202c;
-  font-size: 0.875rem;
 }
 
 .documentation {

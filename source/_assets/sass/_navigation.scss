@@ -20,14 +20,18 @@
         @apply .shadow-none;
         @apply .w-2/5;
     }
+
+    .lvl-0 {
+        @apply .mb-8;
+    }
 }
 
 .nav-menu__item {
     @apply .block;
     @apply .list-none;
     @apply .no-underline;
-    @apply .mb-3;
     @apply .mt-0;
+    @apply .py-1;
+    @apply .px-2;
     @apply .text-gray-900;
-    @apply .text-sm;
 }

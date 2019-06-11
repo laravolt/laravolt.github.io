@@ -1,12 +1,15 @@
 <?php
 
 return [
-    'Introduction'         => 'docs/introduction',
-    'Installation'         => 'docs/installation',
-    'Building Application' => 'docs/building-application',
-    'Customizing The UI'   => 'docs/customizing-the-ui',
-    'Guideline'            => [
-        'url'      => 'docs/guidelines',
+    'Getting Started'        => [
+        'children' => [
+            'Introduction'         => 'docs/introduction',
+            'Installation'         => 'docs/installation',
+            'Building Application' => 'docs/building-application',
+            'Customizing The UI'   => 'docs/customizing-the-ui',
+        ],
+    ],
+    'Guideline'              => [
         'children' => [
             'Coding Standard' => 'docs/guidelines/coding-standard',
             'Git'             => 'docs/guidelines/git',
@@ -15,16 +18,14 @@ return [
             'Controller'      => 'docs/guidelines/controller',
         ],
     ],
-    'Deployment'           => 'docs/deployment',
-    'Troubleshooting'      => 'docs/troubleshooting',
-    'Snippets'             => [
-        'url'      => 'docs/snippets',
+    // 'Deployment'           => 'docs/deployment',
+    // 'Troubleshooting'      => 'docs/troubleshooting',
+    'Snippets'               => [
         'children' => [
             'Membuat Helper' => 'docs/snippets/membuat-helper',
         ],
     ],
     'Packages Documentation' => [
-        'url'      => 'docs/packages',
         'children' => [
             // 'ACL'           => 'docs/acl',
             // 'Auth'          => 'docs/auth',
@@ -34,7 +35,7 @@ return [
             // 'Semantic Form' => 'docs/semantic-form',
             // 'Setting'       => 'docs/setting',
             // 'Suitable'      => 'docs/suitable',
-            'Thunderclap'   => 'docs/packages/thunderclap',
+            'Thunderclap' => 'docs/packages/thunderclap',
         ],
     ],
 ];
