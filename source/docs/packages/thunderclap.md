@@ -49,5 +49,6 @@ Template yang tersedia saat ini dibuat khusus untuk admin panel laravolt. Untuk 
 ```
 
 3. Buat template baru di folder `stubs/custom`. Cara paling cepat adalah dengan menyalin dari template bawaan thunderclap yang bisa ditemukan di `vendor/laravolt/thunderclap/stubs/laravolt`.
+4. Pastikan semua file diakhiri dengan sufiks `.stub`, sesuai dengan template bawaan.
 
-4. Jalankan kembali `php artisan laravolt:clap`.
+5. Jalankan kembali `php artisan laravolt:clap`.
