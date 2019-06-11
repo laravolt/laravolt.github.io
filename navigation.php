@@ -22,19 +22,19 @@ return [
         'children' => [
             'Membuat Helper' => 'docs/snippets/membuat-helper',
         ],
-    ]
-    // 'Packages Documentation' => [
-    //     'url'      => 'docs/packages',
-    //     'children' => [
-    //         'ACL'           => 'docs/acl',
-    //         'Auth'          => 'docs/auth',
-    //         'Avatar'        => 'docs/avatar',
-    //         'Indonesia'     => 'docs/indonesia',
-    //         'Password'      => 'docs/password',
-    //         'Semantic Form' => 'docs/semantic-form',
-    //         'Setting'       => 'docs/setting',
-    //         'Suitable'      => 'docs/suitable',
-    //         'Thunderclap'   => 'docs/thunderclap',
-    //     ],
-    // ],
+    ],
+    'Packages Documentation' => [
+        'url'      => 'docs/packages',
+        'children' => [
+            // 'ACL'           => 'docs/acl',
+            // 'Auth'          => 'docs/auth',
+            // 'Avatar'        => 'docs/avatar',
+            // 'Indonesia'     => 'docs/indonesia',
+            // 'Password'      => 'docs/password',
+            // 'Semantic Form' => 'docs/semantic-form',
+            // 'Setting'       => 'docs/setting',
+            // 'Suitable'      => 'docs/suitable',
+            'Thunderclap'   => 'docs/packages/thunderclap',
+        ],
+    ],
 ];
