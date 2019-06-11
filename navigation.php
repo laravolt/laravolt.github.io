@@ -25,7 +25,7 @@ return [
             'Membuat Helper' => 'docs/snippets/membuat-helper',
         ],
     ],
-    'Packages Documentation' => [
+    'Packages' => [
         'children' => [
             // 'ACL'           => 'docs/acl',
             // 'Auth'          => 'docs/auth',
