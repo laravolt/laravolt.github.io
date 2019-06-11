@@ -880,28 +880,30 @@ pre code {
   margin-top: -3rem;
   margin-left: -2rem;
   margin-right: -2rem;
-  background-color: #cbd5e0;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   padding-top: 2rem;
   padding-left: 1rem;
   padding-right: 1rem;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  text-align: center;
+  background-color: #fff;
 }
 
 @media (min-width: 1024px) {
   .nav-menu {
     margin-left: -1rem;
     margin-right: -1rem;
-    background-color: transparent;
     display: block;
     border-bottom-width: 0;
+    background-color: transparent;
     margin-top: 0.25rem;
     padding-left: 0;
     padding-right: 1rem;
     padding-top: 1.5rem;
     box-shadow: none;
     width: 40%;
+    text-align: left;
   }
 }
 

@@ -1,24 +1,26 @@
 .nav-menu {
     @apply .-mt-12;
     @apply .-mx-8;
-    @apply .bg-gray-400;
     @apply .mb-8;
     @apply .pb-4;
     @apply .pt-8;
     @apply .px-4;
     @apply .shadow;
+    @apply .text-center;
+    @apply .bg-white;
 
     @screen lg {
         @apply .-mx-4;
-        @apply .bg-transparent;
         @apply .block;
         @apply .border-b-0;
+        @apply .bg-transparent;
         @apply .mt-1;
         @apply .pl-0;
         @apply .pr-4;
         @apply .pt-6;
         @apply .shadow-none;
         @apply .w-2/5;
+        @apply .text-left;
     }
 
     .lvl-0 {
