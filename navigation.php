@@ -34,8 +34,8 @@ return [
             // 'Password'      => 'docs/password',
             // 'Semantic Form' => 'docs/semantic-form',
             // 'Setting'       => 'docs/setting',
-            'Suitable'    => 'docs/packages/suitable',
-            'Thunderclap' => 'docs/packages/thunderclap',
+            'Suitable'    => 'docs/suitable',
+            'Thunderclap' => 'docs/thunderclap',
         ],
     ],
 ];

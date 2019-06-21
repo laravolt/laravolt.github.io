@@ -36,7 +36,14 @@ module.exports = {
             notify: false,
             port: port,
             proxy: proxy,
-            server: proxy ? null : { baseDir: 'build_' + env + '/' },
+            host: proxy,
+            server: proxy ? null : {
+                baseDir: 'build_' + env + '/',
+                serveStaticOptions: {
+                    extensions: ['html']
+                }
+            },
+            baseDir: "docs"
         },
         {
             reload: false,

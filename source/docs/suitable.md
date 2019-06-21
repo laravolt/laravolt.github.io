@@ -21,7 +21,7 @@ Semua pengolahan data dilakukan di server side tanpa bantuan Javascript. Untuk m
 
 ## Penggunaan
 
-Ada 2 cara menampilkan tabel menggunakan Suitable, yaitu sebagai HTML Builder atau sebagai TableView. Sebagai HTML Builder, kamu langsung memanggil helper class `Suitable` untuk mendefinisikan tabel yang ingin dihasilkan. Builder hanya bertugas menghasilkan `string` HTML. Titik. 
+Ada 2 cara menampilkan tabel menggunakan Suitable, yaitu sebagai HTML Builder atau sebagai TableView. Sebagai HTML Builder, kamu langsung memanggil helper class `Suitable` untuk mendefinisikan tabel yang ingin dihasilkan. Builder hanya bertugas menghasilkan `string` HTML. Titik.
 
 Sedangkan sebagai TableView, sebuah tabel direpresentasikan dalam sebuah kelas `TableView` dimana kelas ini selain bertanggung jawab menghasilkan string HTML juga dapat digunakan untuk memanipulasi response dari `Controller`, misalnya untuk menghasilkan file PDF atau spreadsheet.
 
@@ -97,18 +97,57 @@ Suitable::source($users)
 
 ##### Custom Cell View
 
-```php
+###### File resources/views/custom-cell.blade.php
 
+```php
+// Variable $data secara otomatis tersedia, merupakan item (object Eloquent) untuk row tersebut
+Cusom cell untuk user dengan ID {{ $data->getKey() }}
 ```
 
+**Perhatian:** Tidak perlu menambahkan tag `<td>` karena Suitable akan menambahkannya secara otomatis.
 
+###### Panggil custom cell view
+
+```php
+Suitable::source($users)
+  ->columns([
+    'id',
+    ['header' => 'Nama', 'field' => 'name'],
+    ['header' => 'Custom Cell', 'view' => 'custom-cell'],
+  ])
+  ->render()
+```
+
+![image-20190622010510594](../../assets/uploads/image-20190622010510594.png)
 
 ##### Custom Row View
 
-```php
+###### File resources/views/custom-row.blade.php
 
+```html
+<tr>
+    <td rowspan="2">{{ $data->getKey() }}</td>
+    <td><strong>{{ $data->name }}</strong></td>
+</tr>
+<tr>
+    <td>{{ $data->email }}</td>
+</tr>
 ```
 
 
+
+###### Panggil `row()`
+
+```php
+Suitable::source($users)
+  ->columns([
+    'id',
+    'Name/Email',
+  ])
+  ->row('custom-row')
+  ->render()
+```
+
+![image-20190622011826523](../../assets/uploads/image-20190622011826523.png)
 
 ### TableView

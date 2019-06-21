@@ -8,7 +8,7 @@ mix.setPublicPath('source/assets/build/');
 mix.webpackConfig({
     plugins: [
         build.jigsaw,
-        build.browserSync(),
+        build.browserSync("localhost:8888"),
         build.watch([
             'config.php',
             'navigation.php',
