@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'Getting Started'        => [
+    'Getting Started' => [
         'children' => [
             'Introduction'         => 'docs/introduction',
             'Installation'         => 'docs/installation',
@@ -9,7 +9,7 @@ return [
             'Customizing The UI'   => 'docs/customizing-the-ui',
         ],
     ],
-    'Guideline'              => [
+    'Guideline'       => [
         'children' => [
             'Coding Standard' => 'docs/guidelines/coding-standard',
             'Git'             => 'docs/guidelines/git',
@@ -20,12 +20,12 @@ return [
     ],
     // 'Deployment'           => 'docs/deployment',
     // 'Troubleshooting'      => 'docs/troubleshooting',
-    'Snippets'               => [
+    'Snippets'        => [
         'children' => [
             'Membuat Helper' => 'docs/snippets/membuat-helper',
         ],
     ],
-    'Packages' => [
+    'Packages'        => [
         'children' => [
             // 'ACL'           => 'docs/acl',
             // 'Auth'          => 'docs/auth',
@@ -34,7 +34,7 @@ return [
             // 'Password'      => 'docs/password',
             // 'Semantic Form' => 'docs/semantic-form',
             // 'Setting'       => 'docs/setting',
-            // 'Suitable'      => 'docs/suitable',
+            'Suitable'    => 'docs/packages/suitable',
             'Thunderclap' => 'docs/packages/thunderclap',
         ],
     ],
