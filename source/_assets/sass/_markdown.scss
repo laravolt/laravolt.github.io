@@ -1,36 +1,16 @@
 .markdown {
-  a {
-    @apply .no-underline;
-    @apply .text-purple-600;
-
-    &:hover {
-      @apply .text-purple-700;
-      @apply .underline;
-    }
+  .hljs {
+    @apply .text-gray-100;
+    @apply .p-4;
   }
 
-  blockquote {
-    @apply .border-gray-500;
-    @apply .border-l-4;
-    @apply .my-4;
-    @apply .px-6;
-    @apply .py-2;
-    @apply .text-gray-500;
-
-    > p {
-      @apply .m-0;
-    }
+  .hljs-comment {
+    @apply .text-gray-600;
   }
-
-  code {
-    @apply .bg-gray-300;
-    @apply .inline;
-    @apply .leading-normal;
-    @apply .text-gray-700;
-    @apply .text-sm;
-    @apply .w-4/5;
-
-    padding: 3px 7px;
+  .language-html {
+    .hljs-attr {
+      color: #ff9800;
+    }
   }
 
   h1 {
@@ -71,6 +51,18 @@
     @apply .font-bold;
   }
 
+  h6 {
+    background: #1C1D21;
+    color: #7f8ea5;
+    padding: 1em;
+    border-bottom: 1px solid #111;
+    font-size: .75em;
+    font-weight: 600;
+    @apply .rounded-t;
+    @apply .mb-0;
+    margin-top: 1rem;
+  }
+
   hr {
     @apply .border;
     @apply .border-gray-500;
@@ -105,31 +97,23 @@
   p {
     @apply .leading-normal;
     @apply .my-5;
-    @apply .text-base;
   }
-
   pre {
-    @apply .bg-gray-400;
-    @apply .leading-normal;
-    @apply .mb-8;
-    @apply .mt-4;
-    @apply .overflow-x-auto;
-    @apply .px-4;
-    @apply .pt-2;
-    @apply .pb-3;
+    background-color: #1C1D21;
+    color: #FFFFFF;
+    @apply .shadow-md;
     @apply .rounded;
-
-    max-width: 43em; // prevent code snippets from breaking width
-
-    > code {
-      @apply .bg-transparent;
-      @apply .inline;
-      @apply .p-0;
+    code {
+      background-color: transparent;
+      border: none;
     }
   }
-
   pre + blockquote {
     @apply .mt-6;
+  }
+
+  h6 + pre {
+    @apply .rounded-t-none;
   }
 
   ul {

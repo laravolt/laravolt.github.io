@@ -29,16 +29,17 @@ Sedangkan sebagai TableView, sebuah tabel direpresentasikan dalam sebuah kelas `
 
 Penggunaan paling sederhana Suitable adalah sebagai HTML builder, dimana Suitable dapat menghasilkan tag HTML untuk menampilkan data dalam bentuk tabel. Output yang dihasilkan, setelah memanggil method `render()`, hanyalah string biasa. Oleh karena itu, pemanggilan Suitable bisa dilakukan dimana saja.
 
-**Langsung dipanggil di view**
+###### resources/views/users/index.blade.php
 
 ```php
 {!! Suitable::source($data)->render() !!}
 ```
 
-**Build di controller, ditampilkan di view**
+##### Build di controller, ditampilkan di view:
+
+###### UserController.php
 
 ```php
-// UserController.php
 public function index()
 {
   	$data = \App\User::all();
@@ -46,8 +47,11 @@ public function index()
 
   return view('users.index');
 }
+```
 
-// resources/views/users/index.blade.php
+###### resources/views/users/index.blade.php
+
+```php
 {!! $table !!}
 ```
 
@@ -97,16 +101,16 @@ Suitable::source($users)
 
 ##### Custom Cell View
 
-###### File resources/views/custom-cell.blade.php
+###### resources/views/custom-cell.blade.php
 
 ```php
 // Variable $data secara otomatis tersedia, merupakan item (object Eloquent) untuk row tersebut
-Cusom cell untuk user dengan ID {{ $data->getKey() }}
+Custom cell untuk user dengan ID {{ $data->getKey() }}
 ```
 
 **Perhatian:** Tidak perlu menambahkan tag `<td>` karena Suitable akan menambahkannya secara otomatis.
 
-###### Panggil custom cell view
+###### resouces/views/index.blade.php
 
 ```php
 Suitable::source($users)
@@ -122,7 +126,9 @@ Suitable::source($users)
 
 ##### Custom Row View
 
-###### File resources/views/custom-row.blade.php
+Jika ingin membuat struktur row yang kompleks, maka bisa memanfaatkan method `row(string $view)`. Dengan custom row, maka struktur tabel bisa dikreasikan sebebas mungkin, misalnya melakukan merge cell dengan `rowspan`.
+
+###### resources/views/custom-row.blade.php
 
 ```html
 <tr>
@@ -136,7 +142,7 @@ Suitable::source($users)
 
 
 
-###### Panggil `row()`
+###### resources/views/index.blade.php
 
 ```php
 Suitable::source($users)

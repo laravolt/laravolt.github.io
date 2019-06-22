@@ -1,17 +1,20 @@
-/* a11y-light theme */
+/* 
 
-/* Based on the Tomorrow Night Eighties theme: https://github.com/isagalaev/highlight.js/blob/master/src/styles/tomorrow-night-eighties.css */
+An Old Hope – Star Wars Syntax (c) Gustavo Costa <gusbemacbe@gmail.com>
+Original theme - Ocean Dark Theme – by https://github.com/gavsiu
+Based on Jesse Leite's Atom syntax theme 'An Old Hope' – https://github.com/JesseLeite/an-old-hope-syntax-atom
 
-/* @author: ericwbailey */
+*/
 
-/* Comment */
+/* Death Star Comment */
 
 .hljs-comment,
-.hljs-quote {
-  color: #696969;
+.hljs-quote 
+{
+  color: #B6B18B;
 }
 
-/* Red */
+/* Darth Vader */
 
 .hljs-variable,
 .hljs-template-variable,
@@ -20,11 +23,12 @@
 .hljs-selector-id,
 .hljs-selector-class,
 .hljs-regexp,
-.hljs-deletion {
-  color: #d91e18;
+.hljs-deletion 
+{
+  color: #EB3C54;
 }
 
-/* Orange */
+/* Threepio */
 
 .hljs-number,
 .hljs-built_in,
@@ -33,78 +37,63 @@
 .hljs-type,
 .hljs-params,
 .hljs-meta,
-.hljs-link {
-  color: #aa5d00;
+.hljs-link 
+{
+  color: #E7CE56;
 }
 
-/* Yellow */
+/* Luke Skywalker */
 
-.hljs-attribute {
-  color: #aa5d00;
+.hljs-attribute 
+{
+  color: #EE7C2B;
 }
 
-/* Green */
+/* Obi Wan Kenobi */
 
 .hljs-string,
 .hljs-symbol,
 .hljs-bullet,
-.hljs-addition {
-  color: #008000;
+.hljs-addition 
+{
+  color: #4FB4D7;
 }
 
-/* Blue */
+/* Yoda */
 
 .hljs-title,
-.hljs-section {
-  color: #007faa;
+.hljs-section 
+{
+  color: #78BB65;
 }
 
-/* Purple */
+/* Mace Windu */
 
 .hljs-keyword,
-.hljs-selector-tag {
-  color: #7928a1;
+.hljs-selector-tag 
+{
+  color: #B45EA4;
 }
 
-.hljs {
+/* Millenium Falcon */
+
+.hljs 
+{
   display: block;
   overflow-x: auto;
-  background: #fefefe;
-  color: #545454;
+  background: #1C1D21;
+  color: #c0c5ce;
   padding: 0.5em;
 }
 
-.hljs-emphasis {
+.hljs-emphasis 
+{
   font-style: italic;
 }
 
-.hljs-strong {
+.hljs-strong 
+{
   font-weight: bold;
-}
-
-@media screen and (-ms-high-contrast: active) {
-  .hljs-addition,
-  .hljs-attribute,
-  .hljs-built_in,
-  .hljs-builtin-name,
-  .hljs-bullet,
-  .hljs-comment,
-  .hljs-link,
-  .hljs-literal,
-  .hljs-meta,
-  .hljs-number,
-  .hljs-params,
-  .hljs-string,
-  .hljs-symbol,
-  .hljs-type,
-  .hljs-quote {
-    color: highlight;
-  }
-
-  .hljs-keyword,
-    .hljs-selector-tag {
-    font-weight: bold;
-  }
 }
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
@@ -761,25 +750,15 @@ blockquote {
 }
 
 code {
-  background-color: #cbd5e0;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
   padding-top: 1px;
   padding-bottom: 1px;
   border-radius: 0.25rem;
   font-size: 0.875rem;
-}
-
-code.hljs {
-  background-color: transparent;
-  padding: 0;
-}
-
-code.hljs .hljs-comment,
-code.hljs .hljs-keyword,
-code.hljs .hljs-meta {
-  font-weight: 400;
-  font-style: normal;
+  background-color: #e9eff3;
+  font-size: 0.8em;
+  border: 1px dashed #b9c6d1;
 }
 
 h1,
@@ -856,24 +835,6 @@ ul {
 p {
   margin-top: 1.5rem;
   margin-bottom: 1.5rem;
-}
-
-pre {
-  background-color: #cbd5e0;
-  line-height: 2;
-  margin-top: 1.5rem;
-  margin-bottom: 1.5rem;
-  overflow-x: auto;
-  padding: 1rem;
-  border-radius: 0.25rem;
-  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  font-size: 1rem;
-}
-
-pre code {
-  background-color: transparent;
-  display: block;
-  padding: 0;
 }
 
 .nav-menu {
@@ -1005,40 +966,17 @@ pre code {
   }
 }
 
-.markdown a {
-  text-decoration: none;
-  color: #805ad5;
+.markdown .hljs {
+  color: #f7fafc;
+  padding: 1rem;
 }
 
-.markdown a:hover {
-  color: #6b46c1;
-  text-decoration: underline;
+.markdown .hljs-comment {
+  color: #718096;
 }
 
-.markdown blockquote {
-  border-color: #a0aec0;
-  border-left-width: 4px;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  color: #a0aec0;
-}
-
-.markdown blockquote > p {
-  margin: 0;
-}
-
-.markdown code {
-  background-color: #e2e8f0;
-  display: inline;
-  line-height: 1.5;
-  color: #4a5568;
-  font-size: 0.875rem;
-  width: 80%;
-  padding: 3px 7px;
+.markdown .language-html .hljs-attr {
+  color: #ff9800;
 }
 
 .markdown h1 {
@@ -1079,6 +1017,19 @@ pre code {
   font-weight: 700;
 }
 
+.markdown h6 {
+  background: #1C1D21;
+  color: #7f8ea5;
+  padding: 1em;
+  border-bottom: 1px solid #111;
+  font-size: 0.75em;
+  font-weight: 600;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+  margin-bottom: 0;
+  margin-top: 1rem;
+}
+
 .markdown hr {
   border-width: 1px;
   border-color: #a0aec0;
@@ -1115,31 +1066,27 @@ pre code {
   line-height: 1.5;
   margin-top: 1.25rem;
   margin-bottom: 1.25rem;
-  font-size: 1rem;
 }
 
 .markdown pre {
-  background-color: #cbd5e0;
-  line-height: 1.5;
-  margin-bottom: 2rem;
-  margin-top: 1rem;
-  overflow-x: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.75rem;
+  background-color: #1C1D21;
+  color: #FFFFFF;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border-radius: 0.25rem;
-  max-width: 43em;
 }
 
-.markdown pre > code {
+.markdown pre code {
   background-color: transparent;
-  display: inline;
-  padding: 0;
+  border: none;
 }
 
 .markdown pre + blockquote {
   margin-top: 1.5rem;
+}
+
+.markdown h6 + pre {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
 .markdown ul > li {

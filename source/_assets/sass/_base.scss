@@ -23,23 +23,13 @@ blockquote {
 }
 
 code {
-    @apply .bg-gray-400;
     @apply .px-2;
     @apply .py-px;
     @apply .rounded;
     @apply .text-sm;
-}
-
-code.hljs {
-    @apply .bg-transparent;
-    @apply .p-0;
-
-    .hljs-comment,
-    .hljs-keyword,
-    .hljs-meta {
-        @apply .font-normal;
-        @apply .not-italic;
-    }
+    background-color: #e9eff3;
+    font-size: .8em;
+    border: 1px dashed #b9c6d1;
 }
 
 h1,
@@ -109,21 +99,4 @@ ul {
 
 p {
     @apply .my-6;
-}
-
-pre {
-    @apply .bg-gray-400;
-    @apply .leading-loose;
-    @apply .my-6;
-    @apply .overflow-x-auto;
-    @apply .p-4;
-    @apply .rounded;
-    @apply .shadow;
-    @apply .text-base;
-
-    code {
-        @apply .bg-transparent;
-        @apply .block;
-        @apply .p-0;
-    }
 }
