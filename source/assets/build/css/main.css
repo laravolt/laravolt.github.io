@@ -1022,12 +1022,12 @@ p {
   color: #7f8ea5;
   padding: 1em;
   border-bottom: 1px solid #111;
-  font-size: 0.75em;
-  font-weight: 600;
+  font-size: 0.875em;
   border-top-left-radius: 0.25rem;
   border-top-right-radius: 0.25rem;
   margin-bottom: 0;
   margin-top: 1rem;
+  text-align: center;
 }
 
 .markdown hr {

@@ -25,9 +25,11 @@ Ada 2 cara menampilkan tabel menggunakan Suitable, yaitu sebagai HTML Builder at
 
 Sedangkan sebagai TableView, sebuah tabel direpresentasikan dalam sebuah kelas `TableView` dimana kelas ini selain bertanggung jawab menghasilkan string HTML juga dapat digunakan untuk memanipulasi response dari `Controller`, misalnya untuk menghasilkan file PDF atau spreadsheet.
 
-### HTML Builder
+## HTML Builder
 
 Penggunaan paling sederhana Suitable adalah sebagai HTML builder, dimana Suitable dapat menghasilkan tag HTML untuk menampilkan data dalam bentuk tabel. Output yang dihasilkan, setelah memanggil method `render()`, hanyalah string biasa. Oleh karena itu, pemanggilan Suitable bisa dilakukan dimana saja.
+
+##### Langsung dipanggil di view
 
 ###### resources/views/users/index.blade.php
 
@@ -35,7 +37,7 @@ Penggunaan paling sederhana Suitable adalah sebagai HTML builder, dimana Suitabl
 {!! Suitable::source($data)->render() !!}
 ```
 
-##### Build di controller, ditampilkan di view:
+##### Build di controller, ditampilkan di view
 
 ###### UserController.php
 
@@ -57,7 +59,7 @@ public function index()
 
 
 
-#### Contoh
+### Contoh
 
 ##### Tabel Sederhana
 
@@ -156,4 +158,4 @@ Suitable::source($users)
 
 ![image-20190622011826523](../../assets/uploads/image-20190622011826523.png)
 
-### TableView
+## TableView
