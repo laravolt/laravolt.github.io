@@ -8,7 +8,7 @@
         </a>
     @else
         {{-- Menu item without URL--}}
-        <h5 class="mb-1 px-2 text-indigo-500 uppercase tracking-wide font-bold text-sm lg:text-xs">{{ $label }}</h5>
+        <h5 class="mb-1 px-2 text-indigo-500 uppercase tracking-wide font-bold text-base">{{ $label }}</h5>
     @endif
 
     @if (! is_string($item) && $item->children)

@@ -30,5 +30,6 @@ mix.js('source/_assets/js/main.js', 'js')
         extensions: ['html', 'md', 'js', 'php', 'vue'],
         folders: ['source'],
         whitelistPatterns: [/language/, /hljs/, /algolia/],
+        whitelistPatternsChildren: [/markdown/]
     })
     .version();

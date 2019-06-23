@@ -16,7 +16,6 @@
   h1 {
     @apply .mb-4;
     @apply .mt-10;
-
     &:first-child {
       @apply .mt-6;
     }
@@ -25,7 +24,6 @@
   h2 {
     @apply .mb-4;
     @apply .mt-10;
-
     &:first-child {
       @apply .mt-6;
     }
@@ -34,21 +32,19 @@
   h3 {
     @apply .mb-4;
     @apply .mt-10;
-
     &:first-child {
       @apply .mt-6;
     }
   }
 
   h4 {
-    @apply .font-bold;
+
   }
 
   h5 {
     @apply .text-indigo-600;
     @apply .uppercase;
     @apply .text-base;
-    @apply .font-bold;
   }
 
   h6 {
@@ -56,11 +52,21 @@
     color: #7f8ea5;
     padding: 1em;
     border-bottom: 1px solid #111;
-    font-size: .875em;
+    font-size: .75em;
+    font-weight: 500;
+    @apply .font-mono;
     @apply .rounded-t;
     @apply .mb-0;
     margin-top: 1rem;
     text-align: center;
+  }
+
+  h4 + p {
+    @apply .mt-3;
+  }
+
+  h5 + p {
+    @apply .mt-2;
   }
 
   hr {
@@ -96,8 +102,8 @@
 
   p {
     @apply .leading-normal;
-    @apply .my-5;
   }
+
   pre {
     background-color: #1C1D21;
     color: #FFFFFF;

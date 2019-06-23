@@ -42,6 +42,8 @@ h6 {
     @apply .mb-4;
     @apply .mt-8;
     @apply .text-black;
+    @apply .font-heading;
+    @apply .font-bold;
 
     &:first-child {
         @apply .mt-0;
@@ -49,27 +51,24 @@ h6 {
 }
 
 h1 {
-    @apply .font-extrabold;
     @apply .text-5xl;
 }
 
 h2 {
-    @apply .font-bold;
     @apply .text-4xl;
 }
 
 h3 {
-    @apply .font-bold;
     @apply .text-3xl;
 }
 
 h4 {
-    @apply .font-normal;
+    @apply .font-light;
     @apply .text-2xl;
 }
 
 h5 {
-    @apply .font-normal;
+    @apply .font-light;
     @apply .text-xl;
 }
 
@@ -98,5 +97,5 @@ ul {
 }
 
 p {
-    @apply .my-6;
+    @apply .my-5;
 }
