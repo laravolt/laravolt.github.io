@@ -11,27 +11,6 @@ a {
     }
 }
 
-blockquote {
-    @apply .border-indigo-400;
-    @apply .border-l-4;
-    @apply .font-normal;
-    @apply .italic;
-    @apply .my-8;
-    @apply .pl-6;
-    @apply .text-gray-800;
-    @apply .text-lg;
-}
-
-code {
-    @apply .px-2;
-    @apply .py-px;
-    @apply .rounded;
-    @apply .text-sm;
-    background-color: #e9eff3;
-    font-size: .8em;
-    border: 1px dashed #b9c6d1;
-}
-
 h1,
 h2,
 h3,

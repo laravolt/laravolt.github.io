@@ -737,30 +737,6 @@ a:hover {
   color: #3c366b;
 }
 
-blockquote {
-  border-color: #7f9cf5;
-  border-left-width: 4px;
-  font-weight: 400;
-  font-style: italic;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
-  padding-left: 1.5rem;
-  color: #2d3748;
-  font-size: 1.125rem;
-}
-
-code {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 1px;
-  padding-bottom: 1px;
-  border-radius: 0.25rem;
-  font-size: 0.875rem;
-  background-color: #e9eff3;
-  font-size: 0.8em;
-  border: 1px dashed #b9c6d1;
-}
-
 h1,
 h2,
 h3,
@@ -1048,6 +1024,37 @@ p {
 
 .markdown p {
   line-height: 1.5;
+}
+
+.markdown blockquote {
+  background-color: #ebf4ff;
+  font-weight: 400;
+  padding: 1rem;
+  font-size: 0.875rem;
+  border-radius: 0.25rem;
+  border-width: 1px;
+  border-style: dashed;
+  border-color: #a3bffa;
+}
+
+.markdown blockquote p:first-child {
+  margin-top: 0;
+}
+
+.markdown blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.markdown code {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  padding-top: 1px;
+  padding-bottom: 1px;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  background-color: #e9eff3;
+  font-size: 0.8em;
+  border: 1px dashed #b9c6d1;
 }
 
 .markdown pre {

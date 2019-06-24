@@ -55,6 +55,8 @@ Penggunaan `Heading 4` tidak begitu direkomendasikan. Untuk kemudahan mencerna i
 
 
 > Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+>
+> Lorem ipsum dolor sit amet, [consectetuer adipiscing](https://example.com) elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
 
 ##### Horizontal Line
 

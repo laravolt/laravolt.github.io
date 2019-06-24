@@ -84,6 +84,35 @@
     @apply .leading-normal;
   }
 
+  blockquote {
+    @apply .bg-indigo-100;
+    @apply .font-normal;
+    @apply .p-4;
+    //@apply .text-indigo-00;
+    @apply .text-sm;
+    @apply .rounded;
+    @apply .border;
+    @apply .border-dashed;
+    @apply .border-indigo-300;
+
+    p:first-child {
+      @apply .mt-0;
+    }
+    p:last-child {
+      @apply .mb-0;
+    }
+  }
+
+  code {
+    @apply .px-2;
+    @apply .py-px;
+    @apply .rounded;
+    @apply .text-sm;
+    background-color: #e9eff3;
+    font-size: .8em;
+    border: 1px dashed #b9c6d1;
+  }
+
   pre {
     background-color: #1C1D21;
     color: #FFFFFF;
