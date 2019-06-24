@@ -80,26 +80,6 @@
     @apply .max-w-full;
   }
 
-  li {
-    @apply .mb-3;
-
-    > ul {
-      @apply .pl-4;
-    }
-  }
-
-  ol {
-    @apply .my-4;
-    @apply .pl-4;
-
-    list-style-type: decimal;
-  }
-
-  ul {
-    @apply .my-4;
-    @apply .pl-2;
-  }
-
   p {
     @apply .leading-normal;
   }
@@ -122,15 +102,30 @@
     @apply .rounded-t-none;
   }
 
-  ul {
+  ol, ul {
+    @apply .my-4;
+    @apply .pl-4;
     > li {
       @apply .leading-normal;
-      @apply .mb-2;
-      @apply .ml-4;
+      @apply .mb-1;
       @apply .pb-1;
-      @apply .pl-5;
+      > p {
+        @apply .my-0;
+      }
     }
+    ol, ul {
+      @apply .my-2;
+    }
+  }
 
+  ol {
+    list-style-type: decimal;
+  }
+
+  ul {
+    > li {
+      @apply .pl-2;
+    }
     > li::before {
       @apply .absolute;
       @apply .bg-center;

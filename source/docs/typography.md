@@ -40,7 +40,7 @@ Penggunaan `Heading 4` tidak begitu direkomendasikan. Untuk kemudahan mencerna i
 
 ###### Contoh Pemakaian Heading 6
 
-```markdown
+```html
 ###### Contoh Pemakaian Heading 6
 
 ​```html
@@ -48,6 +48,44 @@ Penggunaan `Heading 4` tidak begitu direkomendasikan. Untuk kemudahan mencerna i
   Contoh Pemakaian Heading 6
 </h6>
 <pre><code>Hi, bro</code></pre>
-​```
+``
 ```
 
+##### Quote
+
+
+> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aliquam hendrerit mi posuere lectus. Vestibulum enim wisi, viverra nec, fringilla in, laoreet vitae, risus.
+
+##### Horizontal Line
+
+------
+
+##### Ordered List
+
+1. Yogyakarta
+    1. Sleman
+        1. Ngaglik
+        2. Cangkringan
+    2. Gunung Kidul
+2. Jawa Barat
+    1. Bandung
+    2. Kuningan
+3. Jawa Tengah
+    1. Solo
+    2. Sragen
+    3. Karanganyar
+
+##### Unordered List
+
+- Yogyakarta
+    - Sleman
+        - Ngaglik
+        - Cangkringan
+    - Gunung Kidul
+- Jawa Barat
+    - Kuningan
+    - Bandung
+- Jawa Tengah
+    - Solo
+    - Sragen
+    - Karanganyar

@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'Getting Started' => [
+    'Prolog' => [
         'children' => [
             'Introduction'         => 'docs/introduction',
             'Installation'         => 'docs/installation',
@@ -36,6 +36,14 @@ return [
             // 'Setting'       => 'docs/setting',
             'Suitable'    => 'docs/suitable',
             'Thunderclap' => 'docs/thunderclap',
+        ],
+    ],
+    'Epilog'        => [
+        'children' => [
+            'Tipografi' => 'docs/typography',
+            'Kontribusi' => '#',
+            'Hak Cipta' => '#',
+            'Logo' => '#',
         ],
     ],
 ];
