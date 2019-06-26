@@ -167,8 +167,148 @@ Suitable::source($users)
 
 ##### Searchbox
 
+Untuk menampilkan kotak pencarian bisa memanggil method `search()`.
+
+```php
+Suitable::source($users)
+    ->columns(['id', 'name', 'email'])
+    ->search()
+    ->render()
+```
+
+![image-20190626212032177](../assets/uploads/image-20190626212032177.png)
+
+Melakukan pencarian di searchbox akan membuat terjadinya request ke URL saat ini dengan tambahan query string `?search=<foo>`. Query string `search` tersebut selanjutnya bisa digunakan di Controller untuk melakukan query ke database.
+
+```php
+class UserController 
+{
+    public function index()
+    {
+        $keyword = request()->get('search');       
+        $users = \App\User::where('name', 'like', "%$keyword%")->get();
+
+        // more action here...
+    }
+}
+```
+
+Query string bisa diganti dengan memberikan argumen ke fungsi `search($param)`.
+
+```php
+Suitable::source($users)
+    ->columns(['id', 'name', 'email'])
+    ->search('keyword')
+    ->render()
+```
+
+Kode di atas akan menghasilkan URL seperti di bawah ini ketika pencarian dilakukan lewat searchbox yang disediakan:
+
+```
+http://localhost/users?keyword=foo
+```
+
+Untuk mengganti nama query string secara global, bisa mengubah konfigurasi `laravolt.epicentrum.query_string.search`. 
+
+> File konfigurasi bisa ditemukan di `config/laravolt/epicentrum.php`. 
+>
+> Jika file konfigurasi tidak tersedia, silakan lakukan langkah *publish vendor file* terlebih dahulu.
+
 ##### Column Filtering
+
+Jika ingin menambahkan searchbox untuk kolom tertentu, bisa menambahkan opsi `searchable => <boolean>|<string>`.
+
+```php
+Suitable::source($users)
+    ->columns([
+        'id',
+        ['header' => 'Nama', 'field' => 'name', 'searchable' => true],
+        ['header' => 'Surel', 'field' => 'email', 'searchable' => 'email_adddress'],
+    ])
+    ->render()
+
+```
+
+![image-20190627061005673](../assets/uploads/image-20190627061005673.png)
+
+Pencarian bisa dilakukan dengan mengetikkan sesuatu di searchbox lalu **menekan tombol enter**. Pada contoh di atas, URL yang dihasilkan ketika melakukan pencarian adalah:
+
+```
+http://localhost/users?filter[name]=foo&filter[email_address]=bar
+```
+
+Selanjutnya, query string `filter` bisa digunakan di Controller untuk melakukan filtering terhadap data yang ditampilkan, misalnya seperti di bawah ini:
+
+```php
+class UserController 
+{
+    public function index()
+    {
+        $query = \App\User::query();
+        $filters = request()->get('filter');               
+        foreach ($filters as $column => $keyword) {
+            $query->where($column, 'like', "%$keyword%");
+        }
+		$users = $query->get();
+        
+        // more action here...
+    }
+}
+```
+
+> Suitable menyediakan Trait [AutoFilter](#auto-filter) yang bisa dipasang di Model. Setelah terpasang,  Model bisa memanggil scope `autoFilter()` dan secara otomatis akan menangani proses filtering data berdasar query string.
 
 ##### Column Sorting
 
-## TableView
+Header kolom bisa dibuat agar *clickable* dan menghasilkan query string yang sesuai untuk proses sorting data dengan menambahkan opsi `sortable => <boolean>|<string>`. 
+
+```php
+Suitable::source($users)
+    ->columns([
+        'id',
+        ['header' => 'Nama', 'field' => 'name', 'sortable' => true],
+        ['header' => 'Surel', 'field' => 'email', 'sortable' => 'email_address'],
+    ])
+    ->render()
+```
+
+Kode di atas akan menghasilkan tabel dengan header kolom berubah menjadi link yang bisa diklik untuk mendukung proses sorting data.
+
+![image-20190627061546888](../assets/uploads/image-20190627061546888.png)
+
+Mengklik salah satu kolom akan menghasilkan URL seperti di bawah ini:
+
+```
+http://localhost/users?sort=name&direction=desc
+```
+
+Query string `sort` berisi nama kolom sedangkan `direction` menunjukkan metode sorting apakah `asc` atau `desc`. Kedua query string ini selanjutnya bisa digunakan di Controller untuk melakukan sorting data:
+
+```php
+class UserController 
+{
+    public function index()
+    {
+        $query = \App\User::query();
+        $sort = request()->get('sort');               
+        $direction = request()->get('direction');               
+        
+        if ($sort) {
+            $query->orderBy($sort, $direction);
+        }
+        
+        $users = $query->get();
+        
+        // more action here...
+    }
+}
+```
+
+> Suitable menyediakan Trait [AutoSort](#auto-sort) yang bisa dipasang di Model. Setelah terpasang, Model bisa memanggil scope `autoSort()` dan secara otomatis akan menangani proses sorting data berdasar query string.
+
+## Table View 
+
+## Auto Sort
+
+## Auto Filter
+
