@@ -204,7 +204,7 @@ Suitable::source($users)
 
 Kode di atas akan menghasilkan URL seperti di bawah ini ketika pencarian dilakukan lewat searchbox yang disediakan:
 
-```
+```html
 http://localhost/users?keyword=foo
 ```
 
@@ -233,7 +233,7 @@ Suitable::source($users)
 
 Pencarian bisa dilakukan dengan mengetikkan sesuatu di searchbox lalu **menekan tombol enter**. Pada contoh di atas, URL yang dihasilkan ketika melakukan pencarian adalah:
 
-```
+```html
 http://localhost/users?filter[name]=foo&filter[email_address]=bar
 ```
 
@@ -278,7 +278,7 @@ Kode di atas akan menghasilkan tabel dengan header kolom berubah menjadi link ya
 
 Mengklik salah satu kolom akan menghasilkan URL seperti di bawah ini:
 
-```
+```html
 http://localhost/users?sort=name&direction=desc
 ```
 
