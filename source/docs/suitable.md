@@ -28,6 +28,44 @@ Semua pengolahan data dilakukan di server side tanpa bantuan Javascript. Untuk m
 
 Penggunaan salah satu teknologi di atas memungkinkan untuk melakukan transisi halaman web secara lebih halus, tanpa full page refresh. Aplikasi web bisa dibuat seolah-olah mirip Single Page Application, meskipun stack yang digunakan murni server side rendering.
 
+## Installation
+
+```bash
+composer require laravolt/suitable
+```
+
+Jika diperlukan, `config` dan `views` bisa di-*publish* untuk dimodifikasi sesuai kebutuhan:
+
+```bash
+php artisan vendor:publish --tag=views --tag=config --provider="Laravolt\Suitable\ServiceProvider"
+```
+
+## Konfigurasi
+
+##### `laravolt.suitable.query_string.sort_by`
+
+Query string untuk menentukan kolom sorting.
+
+Default value: `“sort”`
+
+##### `laravolt.suitable.query_string.sort_direction`  
+
+Query string untuk metode sorting.
+
+Default value: `“direction”`
+
+##### `laravolt.suitable.query_string.search`  
+
+Query string untuk keyword pencarian.
+
+Default value: `“search”`
+
+##### `laravolt.suitable.restful_button.delete_confirmation_fields`
+
+Nama-nama kolom yang akan dipakai sebagai *identifier* ketika menampilkan konfirmasi penghapusan data. Suitable akan mengecek semua kolom yang diisikan dan mengambil kolom pertama yang cocok. 
+
+Default value: `['title', 'name']`
+
 ## Cara Pemakaian
 
 Ada 2 cara menampilkan tabel menggunakan Suitable, yaitu sebagai HTML Builder atau sebagai TableView. Sebagai HTML Builder, kamu langsung memanggil helper class `Suitable` untuk mendefinisikan tabel yang ingin dihasilkan. Builder hanya bertugas menghasilkan `string` HTML. Titik.
