@@ -1055,6 +1055,7 @@ p {
   background-color: #e9eff3;
   font-size: 0.8em;
   border: 1px dashed #b9c6d1;
+  text-transform: none;
 }
 
 .markdown pre {
