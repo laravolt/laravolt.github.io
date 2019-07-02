@@ -611,7 +611,78 @@ Untuk setiap *predefined* `Column` di atas, ada beberapa method yang telah terse
 
 ## Auto Sort
 
+Untuk melakukan sorting secara otomatis di level Query (Eloquent), telah tersedia trait `AutoSort` yang bisa dipasangkan di Model terkait.
+
+###### User.php
+
+```php
+use Laravolt\Suitable\AutoSort;
+
+class User extends \Illuminate\Database\Eloquent\Model
+{    
+    use AutoSort;
+}
+```
+
+###### UserController.php
+
+```php
+public function index()
+{
+    $users = User::autoSort()->paginate();
+}
+```
+
+Scope `autoSort` akan otomatis membaca query string dari URL dan mengaplikasikannya menjadi database query di Model yang bersangkutan. Penamaan query string ditentukan oleh config: 
+
+- `suitable.query_string.sort_by` (default to **“sort”**)
+
+- `suitable.query_string.sort_direction` (default to **“direction”**)
+
+###### Contoh URL
+
+```html
+http://localhost/users?sort=name&direction=desc
+```
+
+
+
 ## Auto Filter
+
+Untuk melakukan filtering secara otomatis di level Query (Eloquent), telah tersedia trait `AutoFilter` yang bisa dipasangkan di Model terkait.
+
+###### User.php
+
+```php
+use Laravolt\Suitable\AutoFilter;
+
+class User extends \Illuminate\Database\Eloquent\Model
+{    
+    use AutoFilter;
+}
+```
+
+###### UserController.php
+
+```php
+public function index()
+{
+    // http://localhost/users?filter[name]=Jon&filter[email]=Dodo
+    $users = User::autoFilter()->paginate();
+}
+```
+
+By default, scope `autoFilter` akan membaca query string `filter` dari URL. Jika nama query string yang diberikan berbeda, silakan dicantumkan secara eksplisit sebagai parameter:
+
+```php
+public function index()
+{
+    // http://localhost/users?criteria[name]=Jon&criteria[email]=Dodo
+    $users = User::autoFilter('criteria')->paginate();
+}
+```
+
+
 
 ## Export Ke PDF & Spreadsheet
 
