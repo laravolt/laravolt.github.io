@@ -78,6 +78,8 @@
 
   img {
     @apply .max-w-full;
+    @apply .shadow-md;
+    @apply .rounded;
   }
 
   p {
@@ -167,6 +169,36 @@
 
       background-image: url('/assets/img/icon-arrow.svg');
       content: '';
+    }
+  }
+
+  table {
+    @apply .w-full;
+    @apply .border-collapse;
+    @apply .bg-white;
+    @apply .shadow-md;
+    @apply .rounded;
+    @apply .mb-5;
+    @apply .text-sm;
+    th, td {
+      @apply .p-3;
+      @apply .border-b;
+      @apply .border-r;
+      @apply .border-gray-300;
+      &:last-child {
+        @apply .border-r-0;
+      }
+    }
+    th {
+      @apply .uppercase;
+      @apply .font-bold;
+      @apply .bg-gray-200;
+      @apply .text-gray-600;
+      @apply .text-xs;
+      letter-spacing: 1px;
+    }
+    td {
+      @apply .text-gray-800;
     }
   }
 }

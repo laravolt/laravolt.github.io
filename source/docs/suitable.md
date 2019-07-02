@@ -11,7 +11,7 @@ section: content
 
 Suitable adalah helper untuk menampilkan data dari Eloquent menjadi tabel (datatable) dengan struktur HTML sesuai standard Fomantic UI. Fitur-fitur yang tersedia:
 
-1. Membuat datatable cukup 1 baris
+1. Membuat *full featured datatable* dengan 1 baris kode
 2. Column sorting (server side)
 3. Column filtering (server side)
 4. Searching (server side)
@@ -68,7 +68,7 @@ Default value: `['title', 'name']`
 
 ## Cara Pemakaian
 
-Ada 2 cara menampilkan tabel menggunakan Suitable, yaitu sebagai HTML Builder atau sebagai TableView. Sebagai HTML Builder, kamu langsung memanggil helper class `Suitable` untuk mendefinisikan tabel yang ingin dihasilkan. Builder hanya bertugas menghasilkan `string` HTML. Titik.
+Ada 2 cara pemakaian Suitable untuk menampilkan tabel, yaitu sebagai HTML Builder atau sebagai TableView. Sebagai HTML Builder, kamu langsung memanggil helper class `Suitable` untuk mendefinisikan tabel yang ingin dihasilkan. Builder hanya bertugas menghasilkan `string` HTML. Titik.
 
 Sedangkan sebagai TableView, sebuah tabel direpresentasikan dalam sebuah kelas `TableView` dimana kelas ini selain bertanggung jawab menghasilkan string HTML juga dapat digunakan untuk memanipulasi response dari `Controller`, misalnya untuk menghasilkan file PDF atau spreadsheet.
 
@@ -346,7 +346,272 @@ class UserController
 
 ## Table View 
 
+TableView adalah sebuah `class` yang fungsinya khusus untuk menampilkan tabel. TableView memiliki fungsi yang sama dengan HTML Builder, dengan beberapa fitur tambahan:
+
+1. Berbasis **class** sehingga reusable.
+2. Mendukung sistem **plugin** untuk kemudahan memodifikasi setiap elemen tabel: header, kolom, dan footer. 
+3. Otomatis bisa ekspor ke PDF, spreadsheet, dan CSV.
+
+
+
+### Penggunaan
+
+Berbeda dengan Suitable HTML Builder yang bisa dipanggil dimana saja, TableView direkomendasikan untuk dipanggil hanya dari Controller atau routes, karena sejatinya TableView adalah sebuah class [Responsable](https://laravel-news.com/laravel-5-5-responsable) yang bisa langsung mengembalikan response terhadap suatu request.  
+
+Secara umum, ada tiga langkah yang diperlukan untuk menerapkan TableView:
+
+1. Membuat class Table View
+2. Memodifikasi response dari Controller
+3. Menampilkan tabel di View
+
+##### 1. Membuat Class Table View
+
+###### app/Table/UserTableView.php
+
+```php
+use Laravolt\Suitable\TableView;
+
+class UserTableView extends TableView
+{
+    protected function columns()
+    {
+        return ['id', 'title'];
+    }
+}
+```
+
+Cukup sederhana, method `columns()` sangat mirip dengan yang dimiliki oleh Suitable HTML Builder.
+
+##### 2. Memodifikasi Response Dari Controller
+
+Selanjutnya, proses di controller perlu sedikit diubah.
+
+###### UserController.php
+
+```php
+// Before
+public function index()
+{
+    $users = \App\User::paginate();
+
+    return view('users.index', compact('users'));
+}
+
+// After
+public function index()
+{
+    $users = \App\User::paginate();
+
+    return (\App\Table\UserTableView::make($users))->view('users.index');
+}
+
+```
+
+Ada beberapa hal yang patut diperhatikan dari potongan kode di atas:
+
+1. Fungsi `view()` bawaan Laravel diganti dengan fungsi `view()` dari TableView, dengan parameter fungsi yang sama.
+2. Dengan memanggil fungsi `view()` milik TableView, sebuah variable `$table` yang merupakan *instance* dari `UserTableView` secara otomatis akan di-passing ke view.
+
+##### 3. Menampilkan Tabel Di View
+
+###### resources/views/users/index.blade.php
+
+```php
+{!! $table !!}
+```
+
+## Column
+
+Selain menggunakan format `array` seperti pada contoh-contoh di atas, pendefinisian kolom juga bisa dilakukan menggunakan *predefined* `Column` yang telah tersedia.
+
+```php
+use Laravolt\Suitable\Columns\Date;
+use Laravolt\Suitable\Columns\DateTime;
+use Laravolt\Suitable\Columns\Numbering;
+use Laravolt\Suitable\Columns\Text;
+use Laravolt\Suitable\TableView;
+
+class UserTable extends TableView
+{
+    protected function columns()
+    {
+        return [
+            Numbering::make('No'),
+            Text::make('name'),
+            Date::make('created_at', 'Member Since'),
+            DateTime::make('updated_at', 'Last Login'),
+        ];
+    }
+}
+```
+
+![image-20190702065721094](../assets/uploads/image-20190702065721094.png)
+
+### Predefined Columns
+
+##### Avatar
+
+```php
+use Laravolt\Suitable\Columns\Avatar;
+
+Avatar::make('name', 'Avatar')
+```
+
+![image-20190702073146548](../assets/uploads/image-20190702073146548.png)
+
+##### Boolean
+
+```php
+use Laravolt\Suitable\Columns\Boolean;
+
+Boolean::make('status')
+```
+
+![image-20190702073123606](../assets/uploads/image-20190702073123606.png)
+
+##### Date
+
+`Date` digunakan untuk menampilkan tanggal dalam format yang manusiawi.
+
+```php
+use Laravolt\Suitable\Columns\Date;
+
+Date::make('created_at', 'Member Since');
+```
+
+![image-20190702073238804](../assets/uploads/image-20190702073238804.png)
+
+##### DateTime
+
+`DateTime` digunakan untuk menampilkan tanggal dan jam dalam format yang manusiawi.
+
+```php
+use Laravolt\Suitable\Columns\DateTime;
+
+DateTime::make('updated_at', 'Last Login');
+```
+
+![image-20190702073257435](../assets/uploads/image-20190702073257435.png)
+
+##### Id
+
+Menampilkan `primary key` secara otomatis. Dibelakang layar, class ini akan memanggil `$model->getKey()` dari setiap data yang ditampilkan.
+
+```php
+use Laravolt\Suitable\Columns\Id;
+
+Id::make();
+```
+
+
+
+![image-20190702073338349](../assets/uploads/image-20190702073338349.png)
+
+##### Numbering
+
+Menampilkan `index` baris secara otomatis, dimulai dari angka 1.
+
+```php
+use Laravolt\Suitable\Columns\Numbering;
+
+Numbering::make('No');
+```
+
+![image-20190702073548176](../assets/uploads/image-20190702073548176.png)
+
+##### Raw
+
+Memanggil *Closure* untuk menampilkan isi kolom. Kamu bebas melakukan apapun di dalam Closure tersebut, selama hasil akhirnya adalah `string`.
+
+```php
+use Laravolt\Suitable\Columns\Raw;
+
+Raw::make(function ($item) {
+    return $item->roles->implode('name', ' & ');
+}, 'Roles');
+```
+
+![image-20190702074146098](../assets/uploads/image-20190702074146098.png)
+
+##### Restful Button
+
+`RestfulButton` akan menampilkan 3 buah tombol yang biasa dipakai untuk melakukan operasi CRUD, yaitu view, edit, dan delete.
+
+```php
+use Laravolt\Suitable\Columns\RestfulButton;
+
+RestfulButton::make('users');
+```
+
+![image-20190702074253502](../assets/uploads/image-20190702074253502.png)
+
+Beberapa method tambahan yang tersedia:
+
+| Method   | Deskripsi                            |
+| -------- | ------------------------------------ |
+| `only`   | Aksi apa saja yang ingin ditampilkan |
+| `except` | Aksi apa saja yang ingin dihilangkan |
+
+```php
+RestfulButton::make('users')->only("view", "edit");
+
+RestfulButton::make('users')->excep("delete");
+```
+
+
+
+##### Text
+
+`Text` akan menampilkan teks sama persis dengan yang tersimpan di database.
+
+```php
+use Laravolt\Suitable\Columns\Text;
+
+View::text('name')
+View::text('created_at')
+```
+
+![image-20190702075515080](../assets/uploads/image-20190702075515080.png)
+
+##### View
+
+Jika konten kolom cukup kompleks, maka bisa menggunakan `View` untuk memindahkannya ke *dedicated file*.
+
+```php
+use Laravolt\Suitable\Columns\View;
+
+View::make('users.address', 'Address')
+```
+
+###### resources/views/users/address.blade.php
+
+```php
+<dl>
+    <dt>Address</dt>
+    <dd>{{ $data->address }}, {{ $data->city->name }}, {{ $data->province->name }}</dd>
+    <dt>Postal Code</dt>
+    <dt>{{ $data->postal_code }}</dt>
+</dl>
+```
+
+![image-20190702075131814](../assets/uploads/image-20190702075131814.png)
+
+### Available Methods
+
+Untuk setiap *predefined* `Column` di atas, ada beberapa method yang telah tersedia:
+
+| Method                                   | Deskripsi                                                    |
+| ---------------------------------------- | ------------------------------------------------------------ |
+| `setHeaderAttributes(array $attributes)` | Untuk menambahkan atribut di tag `<th>` dari kolom yang bersangkutan. <br /> |
+| `setCellAttributes(array $attributes)`   | Untuk menambahkan atribut di tag `<td>` dari setiap cell yang akan di-generate. |
+| `sortable($param)`                       | `$param` dapat berisi Boolean (true false) atau `string` nama kolom yang akan dijadikan parameter ketika melakukan sorting. |
+| `searchable($param)`                     | `$param` dapat berisi Boolean (true false) atau `string` nama kolom yang akan dijadikan parameter ketika melakukan filtering per kolom. |
+
+
+
 ## Auto Sort
 
 ## Auto Filter
+
+## Export Ke PDF & Spreadsheet
 

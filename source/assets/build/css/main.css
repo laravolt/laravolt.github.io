@@ -778,7 +778,6 @@ h4 {
 }
 
 h5 {
-  font-weight: 300;
   font-size: 1.25rem;
 }
 
@@ -1020,6 +1019,8 @@ p {
 
 .markdown img {
   max-width: 100%;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 0.25rem;
 }
 
 .markdown p {
@@ -1119,6 +1120,40 @@ p {
   width: 1rem;
   background-image: url("/assets/img/icon-arrow.svg");
   content: "";
+}
+
+.markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  border-radius: 0.25rem;
+  margin-bottom: 1.25rem;
+  font-size: 0.875rem;
+}
+
+.markdown table th, .markdown table td {
+  padding: 0.75rem;
+  border-bottom-width: 1px;
+  border-right-width: 1px;
+  border-color: #e2e8f0;
+}
+
+.markdown table th:last-child, .markdown table td:last-child {
+  border-right-width: 0;
+}
+
+.markdown table th {
+  text-transform: uppercase;
+  font-weight: 700;
+  background-color: #edf2f7;
+  color: #718096;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+}
+
+.markdown table td {
+  color: #2d3748;
 }
 
 .appearance-none{
