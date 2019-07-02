@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'Prolog' => [
+    'Prolog'    => [
         'children' => [
             'Introduction'         => 'docs/introduction',
             'Installation'         => 'docs/installation',
@@ -9,23 +9,24 @@ return [
             'Customizing The UI'   => 'docs/customizing-the-ui',
         ],
     ],
-    'Guideline'       => [
+    'Guideline' => [
         'children' => [
-            'Coding Standard' => 'docs/guidelines/coding-standard',
-            'Git'             => 'docs/guidelines/git',
-            'Model'           => 'docs/guidelines/model',
-            'View'            => 'docs/guidelines/view',
-            'Controller'      => 'docs/guidelines/controller',
+            'Coding Standard'  => 'docs/guidelines/coding-standard',
+            'File Permissions' => 'docs/file-permissions',
+            'Git'              => 'docs/guidelines/git',
+            'Model'            => 'docs/guidelines/model',
+            'View'             => 'docs/guidelines/view',
+            'Controller'       => 'docs/guidelines/controller',
         ],
     ],
     // 'Deployment'           => 'docs/deployment',
     // 'Troubleshooting'      => 'docs/troubleshooting',
-    'Snippets'        => [
+    'Snippets'  => [
         'children' => [
             'Membuat Helper' => 'docs/snippets/membuat-helper',
         ],
     ],
-    'Packages'        => [
+    'Packages'  => [
         'children' => [
             // 'ACL'           => 'docs/acl',
             // 'Auth'          => 'docs/auth',
@@ -38,12 +39,12 @@ return [
             'Thunderclap' => 'docs/thunderclap',
         ],
     ],
-    'Epilog'        => [
+    'Epilog'    => [
         'children' => [
-            'Tipografi' => 'docs/typography',
+            'Tipografi'  => 'docs/typography',
             'Kontribusi' => '#',
-            'Hak Cipta' => '#',
-            'Logo' => '#',
+            'Hak Cipta'  => '#',
+            'Logo'       => '#',
         ],
     ],
 ];

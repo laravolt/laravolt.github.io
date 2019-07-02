@@ -703,3 +703,42 @@ public function index()
 
 ## Export Ke PDF & Spreadsheet
 
+Fitur ekspor ke PDF dan Spreadsheet (csv, xls, xlxs) telah tersedia sebagai `Plugin`. Care memakainya cukup mudah.
+
+```php
+use Laravolt\Suitable\Plugins\Pdf;
+use Laravolt\Suitable\Plugins\Spreadsheet;
+
+$users = User::paginate();
+
+return (new UserTableView($users))
+    ->plugins([
+        new Pdf('users.pdf'),
+        new Spreadsheet('users.xls')
+    ])
+    ->view('etalase::example.suitable');
+```
+
+Potongan kode di atas akan menambahkan 2 buah tombol di bagian view, sekaligus meng-handle pembuatan PDF dan Spreadsheet di bagian response (Controller). Dokumentasi untuk Plugin `Pdf` dan `Spreadsheet` bisa dibaca di bagian terkait.
+
+![image-20190702103415499](../assets/uploads/image-20190702103415499.png)
+
+## Plugin
+
+Untuk melakukan modifikasi terhadap TableView, telah disediakan mekanisme `Plugin` dimana kamu bisa membuat perubahan terhadap sebuah tabel mulai dari segi tampilan hingga bagaimana cara meng-handle request dan response. Hal-hal yang bisa dilakukan terhadap sebuah TableView antara lain:
+
+- Menambah heading
+- Menambah footer
+- Menambah toolbar
+- Memodifikasi response
+- Mengubah tampilan tabel
+
+
+
+### Predefined Plugin
+
+##### PDF
+
+##### Spreadsheet
+
+### Custom Plugin
