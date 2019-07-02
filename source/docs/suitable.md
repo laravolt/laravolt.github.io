@@ -585,7 +585,7 @@ View::make('users.address', 'Address')
 
 ###### resources/views/users/address.blade.php
 
-```php
+```html
 <dl>
     <dt>Address</dt>
     <dd>{{ $data->address }}, {{ $data->city->name }}, {{ $data->province->name }}</dd>
@@ -613,6 +613,18 @@ Untuk setiap *predefined* `Column` di atas, ada beberapa method yang telah terse
 
 Untuk melakukan sorting secara otomatis di level Query (Eloquent), telah tersedia trait `AutoSort` yang bisa dipasangkan di Model terkait.
 
+Scope `autoSort` otomatis membaca query string dari URL dan mengaplikasikannya menjadi  query database di Model yang bersangkutan. Penamaan query string ditentukan oleh config: 
+
+- `suitable.query_string.sort_by` (default to **“sort”**)
+
+- `suitable.query_string.sort_direction` (default to **“direction”**)
+
+###### Contoh URL
+
+```html
+http://localhost/users?sort=name&direction=desc
+```
+
 ###### User.php
 
 ```php
@@ -633,16 +645,21 @@ public function index()
 }
 ```
 
-Scope `autoSort` akan otomatis membaca query string dari URL dan mengaplikasikannya menjadi database query di Model yang bersangkutan. Penamaan query string ditentukan oleh config: 
-
-- `suitable.query_string.sort_by` (default to **“sort”**)
-
-- `suitable.query_string.sort_direction` (default to **“direction”**)
+Jika penamaan query string berbeda dengan konfigurasi default, maka scope `autoSort()` bisa menerima 2 buah parameter, masing-masing untuk sort dan direction.
 
 ###### Contoh URL
 
 ```html
-http://localhost/users?sort=name&direction=desc
+http://localhost/users?order_by=name&order_direction=desc
+```
+
+###### UserController.php
+
+```php
+public function index()
+{
+    $users = User::autoSort('order_by', 'order_direction')->paginate();
+}
 ```
 
 
