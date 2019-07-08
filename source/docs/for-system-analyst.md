@@ -61,7 +61,23 @@ Jika membutuhkan tambahan kolom untuk menyimpan siapa yang melakukan create atau
 1. created_by (Unsigned Integer)
 2. updated_by (Unsigned Integer)
 
+## Boolean
 
+Untuk kolom dengan tipe boolean, hanya berisi nilai antara `true` atau `false`, gunakan nama yang mencerminkan pertanyaan yang jawabannya `yes` or `no`. Dalam bahasa Inggris, kolom seperti ini biasanya diawali dengan prefiks **is**, **has**, **should**, **can**, dan sejenisnya. Bisa juga digabungkan dengan sufiks **able**.
+
+- is_active
+- has_attachment
+- should_change_password
+- is_downloadable
+- can_closed
+
+Versi bahasa Indonesianya kira-kira seperti ini:
+
+- apakah_aktif
+- punya_lampiran
+- apakah_harus_ganti_password
+- bisa_didownload
+- bisa_diakhiri
 
 ## Menyimpan File (Media Library)
 
