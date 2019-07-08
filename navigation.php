@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'Prolog'    => [
+    'Prolog'        => [
         'children' => [
             'Introduction'         => 'docs/introduction',
             'Installation'         => 'docs/installation',
@@ -9,7 +9,7 @@ return [
             'Customizing The UI'   => 'docs/customizing-the-ui',
         ],
     ],
-    'Guideline' => [
+    'Guideline'     => [
         'children' => [
             'Coding Standard'  => 'docs/guidelines/coding-standard',
             'File Permissions' => 'docs/file-permissions',
@@ -21,12 +21,12 @@ return [
     ],
     // 'Deployment'           => 'docs/deployment',
     // 'Troubleshooting'      => 'docs/troubleshooting',
-    'Snippets'  => [
+    'Snippets'      => [
         'children' => [
             'Membuat Helper' => 'docs/snippets/membuat-helper',
         ],
     ],
-    'Packages'  => [
+    'Packages'      => [
         'children' => [
             // 'ACL'           => 'docs/acl',
             // 'Auth'          => 'docs/auth',
@@ -39,7 +39,14 @@ return [
             'Thunderclap' => 'docs/thunderclap',
         ],
     ],
-    'Epilog'    => [
+    'Surat Terbuka' => [
+        'children' => [
+            // 'Untuk Presiden'             => 'docs/for-president',
+            // 'Untuk CEO'                  => 'docs/for-ceo',
+            'Untuk System Analyst'       => 'docs/for-system-analyst',
+        ],
+    ],
+    'Epilog'        => [
         'children' => [
             'Tipografi'  => 'docs/typography',
             'Kontribusi' => '#',

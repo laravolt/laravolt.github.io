@@ -1,0 +1,1 @@
+https://stackoverflow.com/questions/36019534/add-an-empty-line-at-end-of-file-according-to-psr-2-on-phpstorm
