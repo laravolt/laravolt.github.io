@@ -61,7 +61,9 @@ Jika membutuhkan tambahan kolom untuk menyimpan siapa yang melakukan create atau
 1. created_by (Unsigned Integer)
 2. updated_by (Unsigned Integer)
 
-## Menyimpan File
+
+
+## Menyimpan File (Media Library)
 
 Untuk entitas yang membutuhkan menyimpan file, baik itu gambar, dokumen pdf/word/excel ataupun jenis file lainnya, semuanya akan disimpan dalam satu buah tabel yang sama. Jadi tidak perlu ditambahkan kolom-kolom untuk menyimpan metadata file. Sebaliknya, ada satu tabel khusus, `media`, yang akan menyimpan metadata file tersebut ditambah dengan foreign key ke tabel lain yang berelasi.
 
@@ -134,3 +136,5 @@ Untuk entitas yang membutuhkan menyimpan file, baik itu gambar, dokumen pdf/word
 | updated_at        | -                                                            |
 
 > Yang lebih penting adalah adanya kejelasan bagi programmer apakah file-nya **hanya boleh satu** atau **bisa banyak** (Has One vs Has Many).
+>
+> Laravolt menggunakan [Spatie Media Library](https://docs.spatie.be/laravel-medialibrary/) untuk penyimpanan file. Dokumentasi lebih lengkap bisa dibaca di situs resminya.
