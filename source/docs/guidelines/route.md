@@ -104,7 +104,11 @@ Route::get('/user/{user}/follower', 'UserFollowerController@index');
 Route::get('/user/{user}/follower', 'User\FollowerController@index');
 ```
 
-> Referensi: https://laravel.com/docs/5.8/controllers#resource-controllers
+> Referensi
+>
+> - https://laravel.com/docs/5.8/controllers#resource-controllers
+> - https://blog.javan.co.id/resource-controller-29d129413be2
+> - https://streamacon.com/video/laracon-us-2017/day-1-adam-wathan
 
 ## Single Action Controller
 
