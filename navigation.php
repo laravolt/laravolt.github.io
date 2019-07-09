@@ -17,6 +17,7 @@ return [
             'Model'            => 'docs/guidelines/model',
             'View'             => 'docs/guidelines/view',
             'Controller'       => 'docs/guidelines/controller',
+            'Route'            => 'docs/guidelines/route',
         ],
     ],
     // 'Deployment'           => 'docs/deployment',
@@ -43,7 +44,7 @@ return [
         'children' => [
             // 'Untuk Presiden'             => 'docs/for-president',
             // 'Untuk CEO'                  => 'docs/for-ceo',
-            'Untuk System Analyst'       => 'docs/for-system-analyst',
+            'Untuk System Analyst' => 'docs/for-system-analyst',
         ],
     ],
     'Epilog'        => [
