@@ -49,6 +49,13 @@ Konsisten, bukan hanya di level dokumen teknis, tapi di seluruh lingkup proyek. 
         1. Tidak mudah “ditebak” oleh user
         1. Sedikit merepotkan programmer ketika debugging
 
+## Foreign Key
+
+1. Beri prefix `_id`.
+2. Beri nama sesuai entitas yang tersimpan di kolom tersebut, contoh:
+    1. Lebih baik `author_id` daripada `user_id` untuk menyimpan siapa penulis sebuah Post.
+3. Pastikan tipe datanya sama.
+
 ## Timestamps
 
 Secara default, Laravolt akan menyimpan kapan suatu record di database dibuat dan diupdate dalam dua buah kolom:
