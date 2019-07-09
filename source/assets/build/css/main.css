@@ -1031,6 +1031,7 @@ p {
   background-color: #ebf4ff;
   font-weight: 400;
   padding: 1rem;
+  margin: 0;
   font-size: 0.875rem;
   border-radius: 0.25rem;
   border-width: 1px;
