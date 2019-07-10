@@ -723,22 +723,3 @@ Potongan kode di atas akan menambahkan 2 buah tombol di bagian view, sekaligus m
 
 ![image-20190702103415499](../assets/uploads/image-20190702103415499.png)
 
-## Plugin
-
-Untuk melakukan modifikasi terhadap TableView, telah disediakan mekanisme `Plugin` dimana kamu bisa membuat perubahan terhadap sebuah tabel mulai dari segi tampilan hingga bagaimana cara meng-handle request dan response. Hal-hal yang bisa dilakukan terhadap sebuah TableView antara lain:
-
-- Menambah heading
-- Menambah footer
-- Menambah toolbar
-- Memodifikasi response
-- Mengubah tampilan tabel
-
-
-
-### Predefined Plugin
-
-##### PDF
-
-##### Spreadsheet
-
-### Custom Plugin

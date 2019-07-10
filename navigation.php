@@ -11,7 +11,7 @@ return [
     ],
     'Guideline'     => [
         'children' => [
-            'Coding Standard'  => 'docs/guidelines/coding-standard',
+            'Penamaan'         => 'docs/guidelines/naming-things',
             'File Permissions' => 'docs/file-permissions',
             'Git'              => 'docs/guidelines/git',
             'Model'            => 'docs/guidelines/model',
@@ -22,11 +22,11 @@ return [
     ],
     // 'Deployment'           => 'docs/deployment',
     // 'Troubleshooting'      => 'docs/troubleshooting',
-    'Snippets'      => [
-        'children' => [
-            'Membuat Helper' => 'docs/snippets/membuat-helper',
-        ],
-    ],
+    // 'Snippets'      => [
+    //     'children' => [
+    //         'Membuat Helper' => 'docs/snippets/membuat-helper',
+    //     ],
+    // ],
     'Packages'      => [
         'children' => [
             // 'ACL'           => 'docs/acl',
@@ -49,10 +49,10 @@ return [
     ],
     'Epilog'        => [
         'children' => [
-            'Tipografi'  => 'docs/typography',
-            'Kontribusi' => '#',
-            'Hak Cipta'  => '#',
-            'Logo'       => '#',
+            'Kontribusi'        => '#',
+            'Panduan Penulisan' => 'docs/typography',
+            'Hak Cipta'         => '#',
+            'Logo'              => '#',
         ],
     ],
 ];

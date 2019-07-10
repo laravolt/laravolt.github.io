@@ -92,7 +92,7 @@ Tambahkan potongan kode berikut ke file `app/Exceptions/Handler.php`:
 Jika kamu baru pertama kali memulai, jalankan perintah berikut untuk mengunduh source code Laravolt versi terbaru lengkap dengan semua modulnya:
 
 ```bash
-composer create-project laravolt/project
+composer create-project laravolt/laravolt
 ```
 
 
