@@ -28,13 +28,13 @@ Ada banyak fitur yang dibutuhkan dalam sebuah Sistem Informasi telah disedikan L
 5. Auto backup
 6. Contact form
 7. Dynamic form
-8. CRUD Generator
+8. CRUD generator
 9. Multi tenant
-10. Kustomisasi Tampilan (UI Theming)
+10. Kustomisasi tampilan (UI theming)
 11. Translasi (multi bahasa)
 12. Datatable dengan auto export dan import (PDF, XLS, CSV)
 13. Media (upload, crop, resize, preview, download file, manipulasi gambar)
-14. Standardisasi Kode
+14. Standardisasi kode
 
 ## Tujuan Laravolt
 
