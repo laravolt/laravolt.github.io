@@ -17,6 +17,25 @@ Lebih daripada itu, Laravolt adalah:
 2. Panduan koding yang efektif dan praktis untuk menyelesaikan masalah sehari-hari.
 3. Ekosistem untuk menjadikan Indonesia lebih baik melalui IT.
 
+## Fitur
+
+Ada banyak fitur yang dibutuhkan dalam sebuah Sistem Informasi telah disedikan Laravolt:
+
+1. Otentikasi (login, logout)
+2. Otorisasi (pengaturan hak akses)
+3. Manajemen pengguna
+4. Content Management System (CMS)
+5. Auto backup
+6. Contact form
+7. Dynamic form
+8. CRUD Generator
+9. Multi tenant
+10. Kustomisasi Tampilan (UI Theming)
+11. Translasi (multi bahasa)
+12. Datatable dengan auto export dan import (PDF, XLS, CSV)
+13. Media (upload, crop, resize, preview, download file, manipulasi gambar)
+14. Standardisasi Kode
+
 ## Tujuan Laravolt
 
 #### 1. Sukses Mengembangkan Sistem
