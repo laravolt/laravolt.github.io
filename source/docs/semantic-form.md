@@ -11,6 +11,34 @@ section: content
 
 SemanticForm adalah helper untuk membuat form sesuai dengan style [Fomantic UI](https://fomantic-ui.com).
 
+Tanpa SemanticForm, tipikal kode yang dibutuhkan untuk membuat sebuah form dengan Laravel, lengkap dengan penanganan `Old Input` dan `Error`, biasanya seperti ini:
+
+``` html
+<form class="ui form">
+  <div class="field {{ $errors->has('name') ? 'error' : '' }}">
+    <label>Your Fullname</label>
+    <input type="text" name="name" value="{{ old('name') }}">
+  </div>
+</form>
+```
+
+Dengan SemanticForm, kode di atas bisa disederhanakan menjadi:
+
+```php
+{!! form()->open() !!}
+{!! form()->text('name')->label('Your Fullname') !!}
+{!! form()->close() !!}
+```
+
+## Fitur
+
+SemanticForm secara otomatis akan menangani hal-hal berikut ini:
+
+- Styling
+- Error state
+- Preserve old input, jadi isian tidak hilang ketika terjadi error saat form disubmit
+- Model binding, otomatis mengisi form dari Eloquent model
+
 ## Instalasi
 
 ``` bash
