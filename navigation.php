@@ -34,10 +34,10 @@ return [
             // 'Avatar'        => 'docs/avatar',
             // 'Indonesia'     => 'docs/indonesia',
             // 'Password'      => 'docs/password',
-            // 'Semantic Form' => 'docs/semantic-form',
+            'SemanticForm' => 'docs/semantic-form',
             // 'Setting'       => 'docs/setting',
-            'Suitable'    => 'docs/suitable',
-            'Thunderclap' => 'docs/thunderclap',
+            'Suitable'     => 'docs/suitable',
+            'Thunderclap'  => 'docs/thunderclap',
         ],
     ],
     'Surat Terbuka' => [
