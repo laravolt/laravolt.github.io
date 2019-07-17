@@ -358,7 +358,24 @@ Semanticform()->macro('default', function(){
 form()->action('default');
 ```
 
+### Layout
+
+Secara default, SemanticForm akan menghasilkan form dengan susuan vertikal dari atas ke bawah.
+
+![image-20190718061239509](../assets/uploads/image-20190718061239509.png)
+
+Jika ingin menerapkan susuan layout menyamping 2 kolom (label di kiri, input di kanan), cukup memanggil method `horizontal()` ketika membuat form.
+
+```php
+form()->open()->horizontal()
+```
+
+Kode di atas akan menghasilkan susunan form seperti ini:
+
+![image-20190718061301632](../assets/uploads/image-20190718061301632.png)
+
 ### Method Lainnya
+
 Untuk setiap jenis form, method dibawah ini bisa dipanggil sesuai kebutuhan:
 
 * id($string)
