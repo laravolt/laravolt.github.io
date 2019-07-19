@@ -37,6 +37,19 @@ section: content
 1. Alokasikan minimal 30 detik untuk mengingat kembali **kenapa** kamu melakukan perubahan tersebut. 
 Tuliskan jawaban dari pertanyaan **kenapa** tersebut sebagai _commit message_. Lakukan ini dalam kondisi apapun, baik santai ataupun dibawah tekanan. Menunda commit 30 detik tidak akan membuatmu dipecat.
 
+## Merge Request (MR)
+
+1. Beri penjelasan apa yang ditambahkan atau apa yang berubah. Jika sudah menggunakan *task management* (ActiveCollab, Jira, Trello, Basecamp, atau yang lainnya), cukup cantumkan link ke task yang bersangkutan.
+2. Assign ke Reviewer yang ditunjuk.
+3. Jika ada perbaikan, Reviewer mengubah `Assignee` ke programmer semula.
+4. Setelah diperbaiki, programmer mengubah `Assignee` ke Reviewer.
+5. Jika sudah OK, maka Reviewer:
+    1. Melakukan approval,
+    2. Menghapus *merged branch*
+    3. Melakukan *squash commit* jika perlu.
+
+> Code review dalam sebuah MR adalah proses belajar yang unik, karena akan ditemui banyak sekali kasus yang baru pertama kali ditemui Programmer, tapi bagi Reviewer sudah berulang-kali mengalaminya. Oleh sebab itu, terkadang timbul pertanyaan: "Ini udah jalan kok, kenapa harus digituin?" Dari sinilah ada proses transfer ilmu yang natural. Programmer memberi solusi berdasar kondisi sekarang, Reviewer memberi masukan berdasar kemungkinan di masa depan. Programmer bisa dapat banyak pengalaman tanpa harus mengalaminya sendiri. Kualitas software menjadi lebih terjaga. Win-win solution.
+
 ## .gitignore
 
 `.gitignore` berisi daftar file dan folder yang tidak dimasukkan ke index git. Biasanya yang didaftarkan adalah file dan direktori yang memiliki karakteristik:
