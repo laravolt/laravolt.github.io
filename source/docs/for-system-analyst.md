@@ -65,8 +65,13 @@ Secara default, Laravolt akan menyimpan kapan suatu record di database dibuat da
 
 Jika membutuhkan tambahan kolom untuk menyimpan siapa yang melakukan create atau update, tambahkan kolom:
 
-1. created_by (Unsigned Integer)
-2. updated_by (Unsigned Integer)
+1. created_by (Unsigned Big Integer)
+2. updated_by (Unsigned Big Integer)
+
+Jika membutuhkan mekanise *soft delete*, tambahkan kolom:
+
+1. deleted_at (TIMESTAMP)
+2. deleted_by (Unsigned Big Integer)
 
 ## Boolean
 
@@ -85,6 +90,15 @@ Versi bahasa Indonesianya kira-kira seperti ini:
 - apakah_harus_ganti_password
 - bisa_didownload
 - bisa_diakhiri
+
+## Enum
+
+Untuk kolom enumerasi yang kemungkinan "*value*-nya sudah ***fixed***", dianjurkan untuk tetap memakai tipe data `string` dan bukan `enum`, karena:
+
+1. Enum belum menjadi standard SQL, hanya dikenali di MySQL.
+2. Jangan langsung percaya dengan pernyataan "*value*-nya sudah ***fixed***". Perubahan itu pasti, dan mengubah enum di level database itu tidak begitu menyenangkan bagi programmer.
+3. Laravolt memiliki mekanisme class `Enum` yang lebih friendly untuk programmer.
+4. Untuk kebutuhan dokumentasi, boleh tetap menuliskan sebagai `enum`. Programmer laravolt akan mengkonversinya menjadi `string` biasa ketika koding.
 
 ## Menyimpan File (Media Library)
 
