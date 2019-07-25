@@ -92,7 +92,7 @@ Atau bisa juga menyimpan string hasil `render()` ke sebuah variable sehingga vie
 public function index()
 {
   	$data = \App\User::all();
-  	$table = Suitable::source($data)->render();
+  	$table = Suitable::source($data)->columns(['id', 'name'])->render();
 
   return view('users.index', compact('table'));
 }
