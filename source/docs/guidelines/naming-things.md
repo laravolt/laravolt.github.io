@@ -10,6 +10,10 @@ section: content
 
 | What                     | Penulisan                                           | Contoh                                                       |
 | ------------------------ | --------------------------------------------------- | ------------------------------------------------------------ |
+| Variable                 | camelCase                                           | $userId                                                      |
+| Class Property           | camelCase                                           | private $accessToken                                         |
+| Class Method             | camelCase                                           | $postRepository->featuredArticle()                           |
+| Global Helper            | snake_case                                          | format_rupiah()                                              |
 | Model                    | StudlyCase<br />Kata Benda                          | User<br />UserProfile                                        |
 | View File                | kebab-case                                          | laporan-harian.blade.php                                     |
 | Resource Controller      | StudlyCase<br />Kata Benda<br />Sufiks `Controller` | UserController<br />BukuTamuController                       |
