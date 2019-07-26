@@ -12,9 +12,10 @@ section: content
    - `master` sebagai branch utama. Merge ke `master` berarti naik ke production.
    - `develop` sebagai branch development. Merge ke `develop` berarti naik ke staging. 
 3. Sesuai dengan jenis task, nama branch wajib diawali dengan salah satu prefix berikut:
-   - `feature/`
-   - `issue/`
-   - `hotfix/`
+   - `feature/` untuk fitur baru
+   - `issue/` untuk bugfix
+   - `hotfix/` untuk bugfix yang sangat penting dan harus segera dideploy ke production
+   - `refactor/` untuk perbaikan kode tanpa adanya penambahan fitur baru
 
 #### Contoh
 
@@ -23,6 +24,7 @@ section: content
 - `feature/crud-faq`
 - `issue/gagal-edit-password`
 - `hotfix/hapus-hardcoded-userid`
+- `refactor/cleanup-user-controller`
 
 ##### Bad
 
