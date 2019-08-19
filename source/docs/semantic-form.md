@@ -86,6 +86,7 @@ form()->open()->action('search');
 form()->open()->url('search'); // alias for action()
 form()->open()->route('route.name');
 form()->open()->post()->action(route('comment.store'));
+form()->open()->post()->multipart(); // Wajib ada jika form digunakan untuk upload file
 ```
 
 ### Membuka Form (*Shortcut*)
