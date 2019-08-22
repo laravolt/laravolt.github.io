@@ -45,6 +45,7 @@ return [
             // 'Untuk Presiden'             => 'docs/for-president',
             // 'Untuk CEO'                  => 'docs/for-ceo',
             'Untuk System Analyst' => 'docs/for-system-analyst',
+            'PHP: Security & Performance' => 'docs/php-security-and-performance',
         ],
     ],
     'Epilog'        => [
