@@ -1,5 +1,11 @@
-# Contact Form
+---
+title: Contact Form
+description: Build contact form using Laravolt
+extends: _layouts.documentation
+section: content
+---
 
+# Contact Form
 
 
 # Misi 1: Form & Validasi
