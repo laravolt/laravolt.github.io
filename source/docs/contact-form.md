@@ -7,10 +7,60 @@ section: content
 
 # Contact Form
 
+Kita akan membuat sebuah *contact form* sederhana seperi gambar di bawah ini:
 
-# Misi 1: Form & Validasi
+![image-20191004075711856](../assets/uploads/image-20191004075711856-0150635.png)
 
-## 1. Mendefinisikan Route
+## Persiapan
+
+Untuk memulai, silakan ikuti instruksi berikut ini:
+
+1. **Fork** (bukan clone) repository https://github.com/laravolt/playground ke akun masing-masing.
+2.  Clone repo hasil fork tersebut ke perangkat masing-masing.
+3. Pindah ke branch `contact-form`.
+4. Setup environment:
+    - Buat satu buah database.
+    - copy file `.env.example` ke `.env`, sesuaikan isinya.
+    - Jalankan `composer install`
+    - Jalankan `php artisan serve` dan pastikan terlihat halaman login Laravolt di browser.
+    - Halaman contact form bisa diakses di `/contact-form`.
+5. Untuk setiap task di bawah, lakukan 1 buah commit. **Jangan menumpuk commit di belakang**.
+
+
+
+## Ringkasan Misi
+
+Dari skeleton aplikasi contact form, Anda diminta untuk menyelesaikan misi di bawah:
+
+1. Memvalidasi form
+    - Semua field wajib diisi
+    - Format email harus valid
+    - Panjang pesan minimal 20 karakter
+    - Nama lengkap **minimal 3 suku kata**, jika kurang dari 3 suku kata, menampilkan pesan "Nama harus mengandung 3 suku kata atau lebih"
+2. Menyimpan hasil inputan form ke database
+    - Membuat migration scripts
+    - Membuat model `\App\Models\ContactForm`
+    - Menyimpan via *query builder*
+    - Menyimpan via *model instance*
+    - Menyimpan via *mass assignment*
+    - Menampilkan pesan sukses "Pesan telah diterima dan menunggu tindak lanjut"
+    - Kembali ke halaman `contact-form`
+3. Notifikasi admin via email ketika ada yang mengisi contact form
+    - Membuat `Event`
+    - Membuat `Listener`
+    - Memasangkan `Event` dan `Listener`
+    - Membuat `Notification`
+    - Simulasi mengirim email menggunakan Mailtrap.io
+
+
+
+## Misi 1: Form & Validasi
+
+
+
+### 1. Mendefinisikan Route
+
+Daftarkan 2 buah route baru di `routes/web.php`, masing-masing untuk menampilkan form (GET) dan menyimpan form (POST).
 
 ```php
 Route::get('contact-form', 'ContactFormController@create')->name('contact-form.create');
@@ -19,13 +69,17 @@ Route::post('contact-form', 'ContactFormController@store')->name('contact-form.s
 
 
 
-## 2. Membuat Controller
+### 2. Membuat Controller
 
-### 2.1. Jalankan Generator
+#### 2.1. Jalankan Generator
 
-Jalankan perintah `php artisan make:controller ContactFormController`
+Buka terminal dan jalankan Artisan CLI untuk menggenerate Controller secara otomatis:
 
-### 2.2. Tambahkan Method `create` dan `store`
+```bash
+php artisan make:controller ContactFormController
+```
+
+#### 2.2. Tambahkan Method `create` dan `store`
 
 ```php
 public function create()
@@ -41,7 +95,7 @@ public function store(Request $request)
 
 
 
-## 3. Tambahkan View
+### 3. Tambahkan View
 
 Membuat skeleton view di `resources/views/contact-form/create.blade.php`.
 
@@ -54,7 +108,7 @@ Membuat skeleton view di `resources/views/contact-form/create.blade.php`.
 
 
 
-## 4. Membuat Form
+### 4. Membuat Form
 
 Memanfaatkan semantic-form untuk memudahkan pembuatan form HTML.
 
@@ -73,17 +127,19 @@ Memanfaatkan semantic-form untuk memudahkan pembuatan form HTML.
 
 
 
-## 5. Validasi Form
+### 5. Validasi Form
 
 
 
-### 5.1. Generate `FormRequest`
+#### 5.1. Generate `FormRequest`
 
-Jalankan perintah `php artisan make:request ContactForm/Store`
+ ```bash
+ php artisan make:request ContactForm/Store
+ ```
 
 
 
-### 5.2. Modifikasi `rules()` dan `authorize()` 
+#### 5.2. Modifikasi `rules()` dan `authorize()` 
 
 ```php
 <?php
@@ -101,7 +157,7 @@ class Store extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return true; // sebelumnya false
     }
 
     /**
@@ -123,7 +179,7 @@ class Store extends FormRequest
 
 
 
-### 5.3. Pasangkan ke `ContactFormController@store`
+#### 5.3. Pasangkan ke `ContactFormController@store`
 
 ```php
 public function store(\App\Http\Requests\ContactForm\Store $request)
@@ -132,15 +188,34 @@ public function store(\App\Http\Requests\ContactForm\Store $request)
 }
 ```
 
+Silakan coba submit form. Sampai sini kita sudah berhasil menyelesaikan task pertama: semua field wajib diisi.
+
+Untuk menambahkan validasi format email dan panjang pesan juga cukup mudah karena sudah disediakan oleh Laravel.
+
+```php
+public function rules()
+{
+    return [
+        'name' => ['required'],
+        'email' => ['required', 'email'],
+        'message' => ['required', 'min:20'],
+    ];
+}
+```
+
+Daftar lengkap validasi yang sudah tersedia bisa dilihat di https://laravel.com/docs/master/validation#available-validation-rules. 
+
+Selanjutnya kita harus membuat *custom validation rule* untuk validasi yang aneh-aneh, yang biasanya sangat spesifik sesuai kebutuhan aplikasi.
 
 
-### 5.4. Membuat Custom Validation Rule
+
+#### 5.4. Membuat Custom Validation Rule
 
 Jalankan perintah `php artisan make:rule MinimumWords`
 
 
 
-### 5.5. Implementasi Rule
+#### 5.5. Implementasi Rule
 
 ```php
 <?php
@@ -193,7 +268,7 @@ class MinimumWords implements Rule
 
 
 
-### 5.6. Daftarkan Custom Rule Ke FormRequest
+#### 5.6. Daftarkan Custom Rule Ke FormRequest
 
 ```php
 public function rules()
@@ -208,13 +283,19 @@ public function rules()
 
 
 
-# Misi 2: Menyimpan ke Database
+#### 5.7. Misi Tambahan
 
-## 1. Membuat Model
+Tambahkan validasi untuk memastikan hanya email dari lembaga resmi di Indonesia yang boleh dimasukkan. Alamat email dianggap valid jika berakhiran `.go.id`, `.ac.id`, atau `.or.id`.
+
+
+
+## Misi 2: Menyimpan ke Database
+
+### 1. Membuat Model
 
 `php artisan make:model Models/ContactForm`
 
-## 2. Membuat Migration Script
+### 2. Membuat Migration Script
 
 `php artisan make:migration create_contact_forms_table`
 
@@ -224,9 +305,9 @@ public function rules()
 >
 > `php artisan make:model Models/ContactForm -m`
 
-## 3. Menyimpan Data
+### 3. Menyimpan Data
 
-### 3.1. Menyimpan via Query Builder
+#### 3.1. Menyimpan via Query Builder
 
 ```php
 use Illuminate\Support\Facades\DB;
@@ -246,7 +327,7 @@ DB::table('contact_forms')->insert($request->validated()); //⭐
 
 
 
-### 3.2. Menyimpan via Model Instance
+#### 3.2. Menyimpan via Model Instance
 
 ```php
 use App\Models\ContactForm;
@@ -261,7 +342,7 @@ $contactForm->save();
 
 
 
-### 3.3. Menyimpan via Mass Assigment ⭐
+#### 3.3. Menyimpan via Mass Assigment ⭐
 
 ```php
 use App\Models\ContactForm;
@@ -293,7 +374,7 @@ Referensi: https://medium.com/@sager.davidson/fillable-vs-guarded-hint-they-both
 
 
 
-## 4. Menampilkan Pesan Sukses
+### 4. Menampilkan Pesan Sukses
 
 ```php
 return redirect()->back()->withSuccess('Pesan telah diterima dan menunggu tindak lanjut.');
@@ -303,13 +384,13 @@ Selain `withSuccess()`, Laravolt juga secara otomatis mengenali `withInfo()`, `w
 
 
 
-# Misi 3: Mengirim Email Notifikasi
+## Misi 3: Mengirim Email Notifikasi
 
-## 1. Menyiapkan Event + Listener
+### 1. Menyiapkan Event + Listener
 
 
 
-### 1.1. Dispatch Event
+#### 1.1. Dispatch Event
 
 Modifikas kelas `ContactFormController` menjadi seperti berikut:
 
@@ -325,7 +406,7 @@ Sampai disini kita bisa mencoba mensubmit lagi contact form, tapi pasti akan men
 
 
 
-### 1.2. Generate Event
+#### 1.2. Generate Event
 
 Selanjutnya kita bisa membuat kelas event baru dengan nama `ContactFormSubmitted` memanfaatkan artisan CLI:
 
@@ -356,7 +437,7 @@ class ContactFormSubmitted
 
 
 
-### 1.3. Generate Listener
+#### 1.3. Generate Listener
 
 ```bash
 pa make:listener SendContactFormNotification -e ContactFormSubmitted
@@ -401,9 +482,9 @@ class SendContactFormNotification
 
 Silakan tambahkan method `dd($event->contactForm)` di dalam method `handle` dan coba submit form sekali lagi. Cek apakah listener dieksekusi.
 
-### 1.4. Mendaftarkan Event dan Listenernya
+#### 1.4. Mendaftarkan Event dan Listenernya
 
-#### 1.4.1. Via EventServiceProvider
+##### 1.4.1. Via EventServiceProvider
 
 Buka file `App\Providers\EventServiceProvider` dan sesuaikan bagian `$listen`:
 
@@ -420,7 +501,7 @@ Satu event bisa memiliki banyak banyak listener. Hal ini memungkinkan kita untuk
 
 Referensi: https://laravel.com/docs/master/events#registering-events-and-listeners
 
-#### 1.4.2. Via Event Discovery
+##### 1.4.2. Via Event Discovery
 
 Sejak Laravel 5.8.9, kita tidak perlu mendaftarkan pasangan event dan listenernya secara manual. Laravel secara otomatis akan mendeteksi berdasar *type-hinted* di parameter method. Untuk menggunakan fitur ini, kita harus mengaktifkan dulu *Event Discovery* dengan cara meng-*override* method di `EventServiceProvider`:
 
@@ -561,6 +642,10 @@ $contactForm = \App\Models\ContactForm::find(1);
 // Mengirim notifikasi
 $admin->notify(new \App\Notifications\ContactFormSubmitted($contactForm));
 ```
+
+![image-20191004083939004](../assets/uploads/image-20191004083939004.png)
+
+
 
 Ada beberapa cara untuk mengirim notifikasi ke user tertentu. Contoh di atas menggunakan `Notifiable` trait yang sudah dimiliki oleh kelas `User` sehingga kita tinggal memanggil method `notify()`. Cara lainnya bisa dibaca mandiri pada link di bawah.	
 
