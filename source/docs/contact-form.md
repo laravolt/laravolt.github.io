@@ -389,6 +389,8 @@ Selain `withSuccess()`, Laravolt juga secara otomatis mengenali `withInfo()`, `w
 > Tambahkan satu buah dropdown Kategori (sebelum field pesan) dengan pilihan "Kerusakan Fasilitas Umum", "Pungutan Liar", dan "Pelayanan Publik". Pilihan disimpan ke database sebagai teks biasa. Pilihan kategori dihardcode. Dropdown ini wajib dipilih.
 >
 > Tambahkan satu buah text field Nomor Handphone (setelah email) namun tidak wajib diisi.
+>
+> Dokumentasi form builder bisa dibaca di https://laravolt.dev/docs/semantic-form/.
 
 
 
