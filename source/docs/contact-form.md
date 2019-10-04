@@ -366,7 +366,7 @@ class ContactForm extends Model
 
 
 
-> #### Laravolt Best Practice
+> #####  ⭐ Laravolt Best Practice
 >
 > Kosongkan `$guarded` (set sebagai *empty array* seperti contoh di atas), tapi pastikan selalu memanggil `$request->validated()` atau `$request->only()` atau  `$request->except()` **dan bukan**  `$request->all()` di *Controller*. Ini akan membuat *Controller* lebih ringkas dan mudah dibaca.
 
