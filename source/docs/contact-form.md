@@ -722,6 +722,8 @@ public function handle(ContactFormSubmitted $event)
 }
 ```
 
+That's All. Silakan dicoba kembali submit form melalui halaman web dan cek apakah ada email masuk ke mailtrap.
+
 
 
 > ##### 👨🏼‍💻 Misi Tambahan
@@ -729,10 +731,8 @@ public function handle(ContactFormSubmitted $event)
 > Tambahkan fungsionalitas untuk mengirimkan notifikasi email ke alamat email pengirim (sesuai yang diisikan di contact form).
 >
 > Referensi: https://laravel.com/docs/master/notifications#on-demand-notifications
->
-> 
 
-That's All. Silakan dicoba kembali submit form melalui halaman web dan cek apakah ada email masuk ke mailtrap.
+
 
 ...
 
