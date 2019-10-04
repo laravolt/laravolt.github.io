@@ -22,6 +22,8 @@ Untuk memulai, silakan ikuti instruksi berikut ini:
     - Buat satu buah database.
     - copy file `.env.example` ke `.env`, sesuaikan isinya.
     - Jalankan `composer install`
+    - Jalankan `php artisan key:generate`
+    - Jalankan `php artisan laravolt:link-assets`
     - Jalankan `php artisan serve` dan pastikan terlihat halaman login Laravolt di browser.
     - Halaman contact form bisa diakses di `/contact-form`.
 5. Untuk setiap task di bawah, lakukan 1 buah commit. **Jangan menumpuk commit di belakang**.
