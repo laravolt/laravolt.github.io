@@ -671,11 +671,11 @@ public function handle(ContactFormSubmitted $event)
 }
 ```
 
-## 4. Mengirim Notifikasi Ke Email Pengirim
+
 
 > ##### 👨🏼‍💻 Misi Tambahan
 >
-> Tambahkan fungsionalitas untuk mengirimkan notifikasi email ke alamat email pengirim.
+> Tambahkan fungsionalitas untuk mengirimkan notifikasi email ke alamat email pengirim (sesuai yang diisikan di contact form).
 >
 > Referensi: https://laravel.com/docs/master/notifications#on-demand-notifications
 >
