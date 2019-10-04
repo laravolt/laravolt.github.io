@@ -48,6 +48,11 @@ return [
             'PHP: Security & Performance' => 'docs/php-security-and-performance',
         ],
     ],
+    'Studi Kasus' => [
+        'children' => [
+            'Contact Form' => 'docs/contact-form',
+        ],
+    ],
     'Epilog'        => [
         'children' => [
             'Kontribusi'        => '#',

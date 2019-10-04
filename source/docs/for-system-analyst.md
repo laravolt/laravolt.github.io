@@ -175,3 +175,10 @@ Untuk entitas yang membutuhkan menyimpan file, baik itu gambar, dokumen pdf/word
 > Yang lebih penting adalah adanya kejelasan bagi programmer apakah file-nya **hanya boleh satu** atau **bisa banyak** (Has One vs Has Many).
 >
 > Laravolt menggunakan [Spatie Media Library](https://docs.spatie.be/laravel-medialibrary/) untuk penyimpanan file. Dokumentasi lebih lengkap bisa dibaca di situs resminya.
+
+## Task Description
+
+1. Sebutkan tabel apa saja yang terlibat
+2. Untuk form:
+    1. Tuliskan halaman redirect yang dituju jika berhasil submit form
+    2. Sebutkan field mana yang wajib diisi dan mana yang opsional. *By default* Laravolt akan membaca dari metadata database. Jika kolom didefinisikan sebagai `NOT NULL` berarti wajib diisi.
