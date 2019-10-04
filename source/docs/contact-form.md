@@ -283,9 +283,9 @@ public function rules()
 
 
 
-#### 5.7. Misi Tambahan
-
-Tambahkan validasi untuk memastikan hanya email dari lembaga resmi di Indonesia yang boleh dimasukkan. Alamat email dianggap valid jika berakhiran `.go.id`, `.ac.id`, atau `.or.id`.
+> ##### 👨🏼‍💻 Misi Tambahan
+>
+> Tambahkan validasi untuk memastikan hanya email dari lembaga resmi di Indonesia yang boleh dimasukkan. Alamat email dianggap valid jika berakhiran `.go.id`, `.ac.id`, atau `.or.id`.
 
 
 
@@ -671,6 +671,21 @@ public function handle(ContactFormSubmitted $event)
 }
 ```
 
+## 4. Mengirim Notifikasi Ke Email Pengirim
 
+> ##### 👨🏼‍💻 Misi Tambahan
+>
+> Tambahkan fungsionalitas untuk mengirimkan notifikasi email ke alamat email pengirim.
+>
+> Referensi: https://laravel.com/docs/master/notifications#on-demand-notifications
+>
+> 
 
 That's All. Silakan dicoba kembali submit form melalui halaman web dan cek apakah ada email masuk ke mailtrap.
+
+...
+
+
+
+Sampai jumpa di misi berikutnya.
+
