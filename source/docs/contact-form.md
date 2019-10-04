@@ -384,6 +384,14 @@ Selain `withSuccess()`, Laravolt juga secara otomatis mengenali `withInfo()`, `w
 
 
 
+> ##### 👨🏼‍💻 Misi Tambahan 
+>
+> Tambahkan satu buah dropdown Kategori (sebelum field pesan) dengan pilihan "Kerusakan Fasilitas Umum", "Pungutan Liar", dan "Pelayanan Publik". Pilihan disimpan ke database sebagai teks biasa. Pilihan kategori dihardcode. Dropdown ini wajib dipilih.
+>
+> Tambahkan satu buah text field Nomor Handphone (setelah email) namun tidak wajib diisi.
+
+
+
 ## Misi 3: Mengirim Email Notifikasi
 
 ### 1. Menyiapkan Event + Listener
