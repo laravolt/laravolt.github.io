@@ -28,7 +28,7 @@
         @stack('meta')
 
         @if ($page->production)
-            <!-- Insert analytics code here -->
+            @include('_components.ga')
         @endif
 
         <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Aleo:300,400,700&display=swap" rel="stylesheet">
