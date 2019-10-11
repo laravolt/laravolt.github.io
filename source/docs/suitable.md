@@ -457,6 +457,8 @@ use Laravolt\Suitable\Columns\Avatar;
 Avatar::make('name', 'Avatar')
 ```
 
+Avatar akan mengambil inisial dari field `nama` untuk menghasilkan avatar sederhana pengganti *profile picture*.
+
 ![image-20190702073146548](../assets/uploads/image-20190702073146548.png)
 
 ##### Boolean

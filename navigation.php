@@ -50,7 +50,8 @@ return [
     ],
     'Studi Kasus' => [
         'children' => [
-            'Contact Form' => 'docs/contact-form',
+            'Contact Form (Submission)' => 'docs/contact-form',
+            'Contact Form (Admin Page)' => 'docs/contact-form-2',
         ],
     ],
     'Epilog'        => [
