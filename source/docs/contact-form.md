@@ -348,7 +348,9 @@ class CreateContactFormsTable extends Migration
 
 ### 3. Menyimpan Data
 
-#### 3.1. Menyimpan via Query Builder
+Ada beberapa cara menyimpan data ke database. Silakan tambahkan kode-kode berikut di `ContactFormController@store` dan dicoba satu per satu. Cek apakah ada perbedaan isi tabel `contact_forms` antara metode yang satu dengan yang lain.
+
+####  3.1. Menyimpan via Query Builder
 
 ```php
 use Illuminate\Support\Facades\DB;
