@@ -182,3 +182,9 @@ Untuk entitas yang membutuhkan menyimpan file, baik itu gambar, dokumen pdf/word
 2. Untuk form:
     1. Tuliskan halaman redirect yang dituju jika berhasil submit form
     2. Sebutkan field mana yang wajib diisi dan mana yang opsional. *By default* Laravolt akan membaca dari metadata database. Jika kolom didefinisikan sebagai `NOT NULL` berarti wajib diisi.
+
+## User Interface
+
+- Fixed row (multiple input) vs add row below
+- Single column vs multiple column form
+- Separate multiple upload
