@@ -1,10 +1,37 @@
 ---
-title: Coding Standard
+title: Git Guideline
 description: Bad code never survive
 extends: _layouts.documentation
 section: content
 ---
 # Git
+## Flow
+
+Git flow mendefinisikan bagaimana cara kerja kita ketika memakai git dalam pengembangan software, mencakup:
+
+1. Bagaimana menamakan branch?
+2. Kapan perlu membuat branch baru?
+3. Kapan deployment bisa dilakukan?
+4. Branch baru dibuat dari branch yang mana?
+5. Dan masih banyak lagi
+
+Ada dua metode yang sering dijadikan rujukan, yaitu:
+
+1. [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) (kompleks, cocok untuk tim dan scope proyek besar)
+2. [Github Flow](https://guides.github.com/introduction/flow/) (sederhana, cocok untuk tim dan proyek kecil)
+
+Masing-masing metode punya kelebihan dan kekurangan masing-masing. Dan dalam perjalanannya, kami mencoba menerapkan metode baru yang sesuai untuk diterapkan dalam pengembangan sistem informasi di Indonesia, sebut saja **[Simplified Git Flow](https://medium.com/goodtogoat/simplified-git-flow-5dc37ba76ea8)**.
+
+### Simplified Git Flow
+
+- Minimal selalu ada 2 branch:
+    - `master` adalah (protected) branch yang siap di-deploy ke production.
+    - `develop` adalah (protected + default) branch yang aktif digunakan selama masa pengembangan. Pengujian dilakukan di branch ini. 
+- Ketika programmer mulai mengerjakan sesuatu, buat branch baru dari `develop` sesuai aturan penamaan di bawah.
+- Jika ada bug di production, maka programmer membuat branch *hotfix* dari `master`. Jika sudah selesai, merge kembali ke `master`. Selanjutnya `master` di-merge ke `develop` agar semua programmer mendapatkan *hotfix* tersebut.
+- Secara periodik (biasanya mingguan), setelah lolos pengujian, branch `develop` di merge ke branch `master` dan otomatis di-deploy ke production.
+    - Pada tahap ini bisa dilakukan proses ***tagging new version*** untuk memudahkan penyebutan. Jadi jika ada bug, kita bisa bilang "oh, ini muncul sejak versi 1.1" dan bukan "oh, ini muncul sejak 2 atau 3 minggu yang lalu".
+
 ## Penamaan Branch
 
 1. Nama branch ditulis dalam format **kebab-case**
