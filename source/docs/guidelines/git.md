@@ -125,9 +125,11 @@ Tuliskan jawaban dari pertanyaan **kenapa** tersebut sebagai _commit message_. L
 
     
 
-## Resources
+## Referensi
 
 - [git - the simple guide](https://rogerdudler.github.io/git-guide/)
 - [Mastering Git by thoughbot](https://thoughtbot.com/upcase/mastering-git?utm_campaign=ad&utm_medium=referral&utm_source=robots.thoughtbot.com&utm_term=https://thoughtbot.com/blog/5-useful-tips-for-a-better-commit-message)
 - [Source Code management untuk Pemula by Dicoding](https://www.dicoding.com/academies/116)
 - [GitFlow Workflow Best Practices](https://vitalflux.com/gitflow-workflow-best-practices-quiz-questions/)
+- [Git and Release Management Workflow](https://rubygarage.org/blog/git-and-release-management-workflow)
+
