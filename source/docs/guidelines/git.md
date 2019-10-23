@@ -13,11 +13,13 @@ Git flow mendefinisikan bagaimana *branchng strategy* kita ketika memakai git da
 2. Kapan perlu membuat branch baru?
 3. Kapan deployment bisa dilakukan?
 4. Branch baru dibuat dari branch yang mana?
-5. Dan masih banyak lagi
+5. Jika sudah selesai, branch baru di-merge kemana?
+6. Bagaimana jika ada bug di production?
+7. Dan lain-lain
 
 Ada dua metode yang sering dijadikan rujukan, yaitu:
 
-1. [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) (kompleks, cocok untuk tim dan scope proyek besar)
+1. [GitFlow](https://nvie.com/posts/a-successful-git-branching-model/) (versi ideal untuk product development, relatif lebih kompleks, cocok untuk tim dan scope proyek besar)
 2. [Github Flow](https://guides.github.com/introduction/flow/) (sederhana, cocok untuk tim dan proyek kecil)
 
 Masing-masing metode punya kelebihan dan kekurangan masing-masing. Dan dalam perjalanannya, kami mencoba menerapkan metode baru yang sesuai untuk diterapkan dalam pengembangan sistem informasi di Indonesia, sebut saja **[Simplified Git Flow](https://medium.com/goodtogoat/simplified-git-flow-5dc37ba76ea8)**.
@@ -28,7 +30,7 @@ Masing-masing metode punya kelebihan dan kekurangan masing-masing. Dan dalam per
     - `master` adalah (protected) branch yang siap di-deploy ke production.
     - `develop` adalah (protected + default) branch yang aktif digunakan selama masa pengembangan. Pengujian dilakukan di branch ini. 
 - Ketika programmer mulai mengerjakan sesuatu, buat branch baru dari `develop` sesuai **aturan penamaan branch** yang telah ditetapkan (lihat di bawah).
-- Jika ada bug di production, maka programmer membuat branch *hotfix* dari `master`. Jika sudah selesai, merge kembali ke `develop` (untuk dites) **dan jika sudah lolos tes** dilanjutkan merge ke `master`. 
+- Jika ada bug di production, maka programmer membuat branch *hotfix* dari `master`. Jika sudah selesai, merge ke `develop` untuk dilakukan pengujian (branch `hotfix` jangan dihapus) **dan jika sudah lolos tes** dilanjutkan dengan merge lagi branch `hotfix` tersebut  ke `master`. 
 - Secara periodik (biasanya mingguan), setelah lolos pengujian, branch `develop` di merge ke branch `master` dan otomatis di-deploy ke production.
     - Pada tahap ini bisa dilakukan proses ***tagging new version*** untuk memudahkan penyebutan. Jadi jika ada bug, kita bisa bilang "oh, ini muncul sejak versi 1.1" dan bukan "oh, ini muncul sejak 2 atau 3 minggu yang lalu".
 
@@ -109,6 +111,10 @@ Tuliskan jawaban dari pertanyaan **kenapa** tersebut sebagai _commit message_. L
 >
 > **Win-win solution**.
 
+## Code Review
+
+
+
 ## .gitignore
 
 `.gitignore` berisi daftar file dan folder yang tidak dimasukkan ke index git. Biasanya yang didaftarkan adalah file dan direktori yang memiliki karakteristik:
@@ -132,4 +138,3 @@ Tuliskan jawaban dari pertanyaan **kenapa** tersebut sebagai _commit message_. L
 - [Source Code management untuk Pemula by Dicoding](https://www.dicoding.com/academies/116)
 - [GitFlow Workflow Best Practices](https://vitalflux.com/gitflow-workflow-best-practices-quiz-questions/)
 - [Git and Release Management Workflow](https://rubygarage.org/blog/git-and-release-management-workflow)
-
