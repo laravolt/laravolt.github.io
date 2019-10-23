@@ -18,4 +18,4 @@ use TightenCo\Jigsaw\Jigsaw;
  */
 
 $events->afterBuild(GenerateSitemap::class);
-
+$events->afterCollections(App\Listeners\DecorateContent::class);

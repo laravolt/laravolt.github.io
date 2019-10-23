@@ -11,13 +11,12 @@ return [
     ],
     'Guideline'     => [
         'children' => [
-            'Penamaan'         => 'docs/guidelines/naming-things',
             'File Permissions' => 'docs/file-permissions',
-            'Git'              => 'docs/guidelines/git',
-            'Model'            => 'docs/guidelines/model',
-            'View'             => 'docs/guidelines/view',
-            'Controller'       => 'docs/guidelines/controller',
-            'Route'            => 'docs/guidelines/route',
+            'Git'              => 'guidelines/git',
+            'Model'            => 'guidelines/model',
+            'View'             => 'guidelines/view',
+            'Controller'       => 'guidelines/controller',
+            'Route'            => 'guidelines/route',
         ],
     ],
     // 'Deployment'           => 'docs/deployment',
@@ -50,8 +49,8 @@ return [
     ],
     'Studi Kasus' => [
         'children' => [
-            'Contact Form (Submission)' => 'docs/contact-form',
-            'Contact Form (Admin Page)' => 'docs/contact-form-2',
+            'Contact Form (Submission)' => 'studi-kasus/contact-form',
+            'Contact Form (Admin Page)' => 'studi-kasus/contact-form-2',
         ],
     ],
     'Epilog'        => [

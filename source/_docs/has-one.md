@@ -52,7 +52,6 @@ class Customer extends Model
 }
 ```
 
-## 
 
 # Has Many
 

@@ -577,7 +577,6 @@ Pada method `handle` ini kita bisa melihat bahwa ada *type-hint* yang merefer ke
 
 Referensi: https://laravel.com/docs/master/events#event-discovery
 
-### 
 
 ## 2. Menyiapkan Email Notifikasi
 

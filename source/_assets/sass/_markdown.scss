@@ -37,6 +37,29 @@
     }
   }
 
+  h1, h2, h3 {
+    a {
+      @apply .text-black;
+      &:before {
+        content: "#";
+        font-size: .8em;
+        margin-left: -25px;
+        margin-top: .2em;
+        position: absolute;
+        opacity: .5;
+        @apply .text-indigo-400;
+        @apply .font-light;
+        font-family: Arial, serif;
+      }
+
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
   h4 {
 
   }

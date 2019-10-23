@@ -6,9 +6,8 @@ return [
     'siteName' => 'Laravolt',
     'siteDescription' => 'Platform untuk mengembangkan sistem informasi dalam 2 minggu',
 
-    // Algolia DocSearch credentials
-    'docsearchApiKey' => '',
-    'docsearchIndexName' => '',
+    // collections
+    'collections' => ['docs', 'guidelines', 'snippets', 'studi-kasus'],
 
     // navigation menu
     'navigation' => require_once('navigation.php'),
