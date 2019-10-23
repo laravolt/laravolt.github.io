@@ -7,7 +7,7 @@ section: content
 # Git
 ## Flow
 
-Git flow mendefinisikan bagaimana cara kerja kita ketika memakai git dalam pengembangan software, mencakup:
+Git flow mendefinisikan bagaimana *branchng strategy* kita ketika memakai git dalam pengembangan software, mencakup:
 
 1. Bagaimana menamakan branch?
 2. Kapan perlu membuat branch baru?
@@ -27,8 +27,8 @@ Masing-masing metode punya kelebihan dan kekurangan masing-masing. Dan dalam per
 - Minimal selalu ada 2 branch:
     - `master` adalah (protected) branch yang siap di-deploy ke production.
     - `develop` adalah (protected + default) branch yang aktif digunakan selama masa pengembangan. Pengujian dilakukan di branch ini. 
-- Ketika programmer mulai mengerjakan sesuatu, buat branch baru dari `develop` sesuai aturan penamaan di bawah.
-- Jika ada bug di production, maka programmer membuat branch *hotfix* dari `master`. Jika sudah selesai, merge kembali ke `master`. Selanjutnya `master` di-merge ke `develop` agar semua programmer mendapatkan *hotfix* tersebut.
+- Ketika programmer mulai mengerjakan sesuatu, buat branch baru dari `develop` sesuai **aturan penamaan branch** yang telah ditetapkan (lihat di bawah).
+- Jika ada bug di production, maka programmer membuat branch *hotfix* dari `master`. Jika sudah selesai, merge kembali ke `develop` (untuk dites) **dan jika sudah lolos tes** dilanjutkan merge ke `master`. 
 - Secara periodik (biasanya mingguan), setelah lolos pengujian, branch `develop` di merge ke branch `master` dan otomatis di-deploy ke production.
     - Pada tahap ini bisa dilakukan proses ***tagging new version*** untuk memudahkan penyebutan. Jadi jika ada bug, kita bisa bilang "oh, ini muncul sejak versi 1.1" dan bukan "oh, ini muncul sejak 2 atau 3 minggu yang lalu".
 
@@ -124,3 +124,10 @@ Tuliskan jawaban dari pertanyaan **kenapa** tersebut sebagai _commit message_. L
 1. Untuk kemudahan, bisa menggunakan https://www.gitignore.io/ untuk mendapatkan `.gitignore` yang umum digunakan.
 
     
+
+## Resources
+
+- [git - the simple guide](https://rogerdudler.github.io/git-guide/)
+- [Mastering Git by thoughbot](https://thoughtbot.com/upcase/mastering-git?utm_campaign=ad&utm_medium=referral&utm_source=robots.thoughtbot.com&utm_term=https://thoughtbot.com/blog/5-useful-tips-for-a-better-commit-message)
+- [Source Code management untuk Pemula by Dicoding](https://www.dicoding.com/academies/116)
+- [GitFlow Workflow Best Practices](https://vitalflux.com/gitflow-workflow-best-practices-quiz-questions/)
