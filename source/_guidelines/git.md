@@ -157,9 +157,9 @@ Ketika programmer melakukan *cloning* repository, maka seharusnya dia langsung m
 
 *Merged branch* yang tidak dihapus hanya menjadi sampah dan mengganggu *developer experience*.
 
-![image-20191024221020936](../../../id-laravel/source/assets/uploads/image-20191024221020936-1929823.png)
+![image-20191024221020936](../assets/uploads/image-20191024221020936-1929823-1930387.png)
 
-![image-20191024221112561](../../../id-laravel/source/assets/uploads/image-20191024221112561-1929874.png)
+![image-20191024221112561](../assets/uploads/image-20191024221112561-1929874.png)
 
 Jumlah ideal branch adalah 2 + (2 x jumlah programmer). Contoh, jika dalam satu waktu ada 3 programmer yang terlibat, maka jumlah branch seharusnya tidak lebih dari 8.
 
