@@ -169,7 +169,9 @@ Ada programmer yang memakai beberapa tools untuk melakukan commit: git command l
 
 Melihat gambar di bawah, apakah Anda bisa menghitung berapa jumlah programmer sebenarnya?
 
-![image-20191024221515563](../../../id-laravel/source/assets/uploads/image-20191024221515563-1930117.png)
+![image-20191024221515563](../assets/uploads/image-20191024221515563-1930117.png)
+
+Pastikan setiap tools sudah diatur dengan nama dan email yang seragam. Cara lain, [atur konfigurasi git agar memakai identitas yang sama](https://crunchify.com/how-to-set-github-user-name-and-user-email-per-repository-different-config-for-different-repository/).
 
 ## Referensi
 
