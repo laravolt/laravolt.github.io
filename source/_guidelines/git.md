@@ -7,7 +7,7 @@ section: content
 # Git
 ## Flow
 
-Git flow mendefinisikan bagaimana *branchng strategy* kita ketika memakai git dalam pengembangan software, mencakup:
+Git flow mendefinisikan bagaimana *branching strategy* kita ketika memakai git dalam pengembangan software, mencakup:
 
 1. Bagaimana menamakan branch?
 2. Kapan perlu membuat branch baru?
@@ -15,7 +15,7 @@ Git flow mendefinisikan bagaimana *branchng strategy* kita ketika memakai git da
 4. Branch baru dibuat dari branch yang mana?
 5. Jika sudah selesai, branch baru di-merge kemana?
 6. Bagaimana jika ada bug di production?
-7. Dan lain-lain
+7. Dan lain-lain terkait strategi branching
 
 Ada dua metode yang sering dijadikan rujukan, yaitu:
 
@@ -96,24 +96,36 @@ Tuliskan jawaban dari pertanyaan **kenapa** tersebut sebagai _commit message_. L
 
 ## Merge Request (MR)
 
-1. Beri penjelasan apa yang ditambahkan atau apa yang berubah. Jika sudah menggunakan *task management* (ActiveCollab, Jira, Trello, Basecamp, atau yang lainnya), cukup cantumkan link ke task yang bersangkutan.
-2. Assign ke Reviewer yang ditunjuk.
-3. Jika ada perbaikan, Reviewer mengubah `Assignee` ke programmer semula.
-4. Setelah diperbaiki, programmer mengubah `Assignee` ke Reviewer.
-5. Jika sudah OK, maka Reviewer:
+1. Sebelum melakukan MR, pastikan:
+    1. Pesan commit yang saya tuliskan sudah sesuai panduan
+    2. Saya sudah melakukan pengujian mandiri
+    3. Saya sudah menghapus semua `comment` dan `unused debugging code`
+2. Beri penjelasan apa yang ditambahkan atau apa yang berubah. Jika sudah menggunakan *task management* (ActiveCollab, Jira, Trello, Basecamp, atau yang lainnya), cukup cantumkan link ke task yang bersangkutan.
+3. Assign ke Reviewer yang ditunjuk.
+4. Jika ada perbaikan, Reviewer mengubah `Assignee` ke programmer semula.
+5. Setelah diperbaiki, programmer mengubah `Assignee` ke Reviewer.
+6. Jika sudah OK, maka Reviewer:
     1. Melakukan approval,
     2. Menghapus *merged branch*
     3. Melakukan *squash commit* jika perlu.
 
-> Code review dalam sebuah MR adalah proses belajar yang unik, karena akan ditemui banyak sekali kasus yang baru pertama kali ditemui Programmer, tapi bagi Reviewer sudah berulang-kali mengalaminya. Oleh sebab itu, terkadang timbul pertanyaan: "Ini udah jalan kok, kenapa harus digituin?" 
->
-> Dari sinilah ada proses transfer ilmu yang natural. Programmer memberi solusi berdasar kondisi sekarang, Reviewer memberi masukan berdasar kemungkinan di masa depan. Programmer bisa dapat banyak pengalaman tanpa harus mengalaminya sendiri. Kualitas software menjadi lebih terjaga. 
->
-> **Win-win solution**.
+
 
 ## Code Review
 
+Code review dalam sebuah MR adalah proses belajar yang unik, karena akan ditemui banyak sekali kasus yang baru pertama kali ditemui Programmer, tapi bagi Reviewer sudah berulang-kali mengalaminya. Oleh sebab itu, terkadang timbul pertanyaan: "Ini udah jalan kok, kenapa harus digituin?" 
 
+Dari sinilah ada proses transfer ilmu yang natural. Programmer memberi solusi berdasar kondisi sekarang, Reviewer memberi masukan berdasar kemungkinan di masa depan. Programmer bisa dapat banyak pengalaman tanpa harus mengalaminya sendiri. Kualitas software menjadi lebih terjaga. 
+
+**Win-win solution**.
+
+### Checklist Untuk Reviewer
+
+1. Kode sesuai standard *style guidelines*
+2. Perubahan kode sesuai dengan MR
+3. Tidak ada hardcoded rule
+4. Jika ada potongan kode yang cukup panjang dan tidak dimengerti, boleh minta penjelasan
+5. Setiap migration script harus disertai dengan seeder yang sesuai
 
 ## .gitignore
 
@@ -130,6 +142,34 @@ Tuliskan jawaban dari pertanyaan **kenapa** tersebut sebagai _commit message_. L
 1. Untuk kemudahan, bisa menggunakan https://www.gitignore.io/ untuk mendapatkan `.gitignore` yang umum digunakan.
 
     
+
+## Kesalahan Umum
+
+#### Default Branch ke `master`
+
+Ketika programmer melakukan *cloning* repository, maka seharusnya dia langsung mendapatkan kode yang sedang aktif dikembangkan, yaitu branch `develop`. Ingat, branch `master` untuk deploy ke production, branch `develop` untuk active development.
+
+#### Menamai Default Branch `dev`
+
+`develop` lebih umum dipakai. `dev` sendiri memiliki [makna khusus](https://getcomposer.org/doc/articles/aliases.md) di composer sehingga lebih baik dihindari.
+
+#### Branch Yang Sudah *Merged* Tidak Dihapus
+
+*Merged branch* yang tidak dihapus hanya menjadi sampah dan mengganggu *developer experience*.
+
+![image-20191024221020936](../../../id-laravel/source/assets/uploads/image-20191024221020936-1929823.png)
+
+![image-20191024221112561](../../../id-laravel/source/assets/uploads/image-20191024221112561-1929874.png)
+
+Jumlah ideal branch adalah 2 + (2 x jumlah programmer). Contoh, jika dalam satu waktu ada 3 programmer yang terlibat, maka jumlah branch seharusnya tidak lebih dari 8.
+
+#### Duplikasi *Author Name*
+
+Ada programmer yang memakai beberapa tools untuk melakukan commit: git command line, git kraken, sourcetree, atau fork. Permasalahan muncul ketika masing-masing tools tersebut mempunyai konfigurasi yang berbeda terkait identitas yang dipakai untuk commit.
+
+Melihat gambar di bawah, apakah Anda bisa menghitung berapa jumlah programmer sebenarnya?
+
+![image-20191024221515563](../../../id-laravel/source/assets/uploads/image-20191024221515563-1930117.png)
 
 ## Referensi
 
