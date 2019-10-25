@@ -51,7 +51,7 @@ composer require laravolt/semantic-form
 
 SemanticForm bisa dipanggil dengan dua cara:
 
-- Melalui Facade `Form`, misalnya `form()->open()`.
+- Melalui Facade `Form`, misalnya `Form::open()`.
 - Melalu helper `form()`, misalnya `form()->open()`.
 
 Pemanggilan melalui fungsi helper `form()` lebih direkomendasikan karena mendukung *auto completion*.
@@ -224,11 +224,25 @@ $checkedValue = 'banana';
 form()->checkboxGroup($name, $values, $checkedValue)->label('Select Fruit');
 ```
 
-### File
+### File 
+
+Standard HTML.
+
 ``` php
 form()->file($name);
 ```
+### Uploader
+
+Wrapper untuk library [fileuploader](https://innostudio.de/fileuploader/documentation/).
+
+```php
+{!! form()->uploader('files')->limit(10)->extensions(['jpg', 'png']) !!}
+```
+
+
+
 ### Input Wrapper
+
 ``` php
 form()->input($name, $defaultvalue);
 form()->input($name, $defaultvalue)->appendIcon('search');
@@ -239,24 +253,32 @@ form()->input($name, $defaultvalue)->type("password");
 ```
 Reference: http://semantic-ui.com/elements/input.html
 
-
 ### Datepicker
+
+Tanggal saja.
+
 ``` php
 form()->datepicker($name, $value, $format);
 
-// Valid $format are:
-// DD -> two digit date
-// MM -> two digit month number
-// MMMM -> month name (localized)
-// YY -> two digit year
-// YYYY -> full year
+// $format bisa diisi sesuai format yang disebutkan di https://www.php.net/manual/en/function.date.php
 
 // To convert localized format to standard (SQL) datetime format, you can use Jenssegers\Date\Date library (already included):
 // Jenssegers\Date\Date::createFromFormat('d F Y', '12 februari 2000')->startOfDay()->toDateTimeString();
 // Jenssegers\Date\Date::createFromFormat('d F Y', '12 februari 2000')->startOfDay()->toDateString();
 ```
 
+### Datepicker with time
+
+Tanggal dan waktu.
+
+```php
+form()->datepicker()->withTime();
+```
+
 ### Timepicker
+
+Hanya dropdown waktu saja, tanpa tanggal.
+
 ``` php
 form()->timepicker($name, $value);
 ```
