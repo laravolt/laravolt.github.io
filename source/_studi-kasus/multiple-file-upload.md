@@ -27,7 +27,7 @@ Salah satu fungsi yang disediakan oleh Laravolt adalah *form builder* menggunaka
 
 Menggunakan form builder Laravolt, kita bisa menambahkan potongan kode berikut:
 
-##### resources/views/posts/create.blade.php
+###### resources/views/posts/create.blade.php
 
 ```php+HTML
 {!! form()->open(route('posts.store'))->multipart() !!}
@@ -46,7 +46,7 @@ Kode di atas akan menghasilkan tampilan seperti ini:
 {!! form()->uploader('attachments')->limit(10)->label('Attachments') !!}
 ```
 
-Untuk membatasa hanya ekstensi tertentu yang diperbolehkan, bisa menambahkan `extensions()`.
+Untuk membatasi hanya ekstensi tertentu yang diperbolehkan, bisa menambahkan `extensions()`.
 
 ```php
 {!! form()->uploader('attachments')->limit(10)->extensions(['jpg', 'png'])->label('Attachments') !!}
