@@ -51,6 +51,7 @@ return [
         'children' => [
             'Contact Form (Submission)' => 'studi-kasus/contact-form',
             'Contact Form (Admin Page)' => 'studi-kasus/contact-form-2',
+            'Multiple File Upload' => 'studi-kasus/multiple-file-upload',
         ],
     ],
     'Epilog'        => [
