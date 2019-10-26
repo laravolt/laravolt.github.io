@@ -739,3 +739,51 @@ Potongan kode di atas akan menambahkan 2 buah tombol di bagian view, sekaligus m
 
 ![image-20190702103415499](../assets/uploads/image-20190702103415499.png)
 
+## Modifikasi Tampilan
+
+### Anatomi
+
+Gambar di bawah ini menjelaskan struktur tampilan Suitable:
+
+![image-20191027051046481](../assets/uploads/image-20191027051046481.png)
+
+#### Header
+
+Header adalah bagian atas tabel yang biasanya berisi judul, *searchbox*, dan tombol-tombol lain sesuai kebutuhan aplikasi. Header sendiri memiliki struktur seperti berikut:
+
+- Header
+    - Default Segment
+        - Left
+            - Judul
+            - Item 1
+            - Item 2
+            - ...
+        - Right
+            - Searchbox
+            - Item 1
+            - Item 2
+            - ...
+    - Additional Segment
+        - Left
+            - Item 1
+            - ...
+        - Right
+            - Item 1
+            - ...
+
+Segment bisa ditambah sesuai kebutuhan. Item di tiap segment juga bisa ditambah sesuai kebutuhan.
+
+![image-20191027054226606](../assets/uploads/suitable-multiple-segment.png)
+
+#### Table Columns
+
+*Table Columns* merupakan tempat untuk menampilkan data. Disini kita bisa mendefinisikan header, filter, dan konten. Silakan baca [dokumentasi terkait Columns](#7-column) untuk informasi lebih lengkap.
+
+#### Footer
+
+Footer berisi ringkasan informasi terkait data yang ditampilkan dan deretan link untuk paginasi. Bagian ini tidak bisa dimodifikasi.
+
+### Modifikasi Table Header
+
+### 
+
