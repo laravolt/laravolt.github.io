@@ -521,6 +521,20 @@ Numbering::make('No');
 
 ![image-20190702073548176](../assets/uploads/image-20190702073548176.png)
 
+Tag `td` dan `th` yang dihasilkan secara otomatis akan mendapatkan CSS class `numbering`. Jika ingin memodifikasi style untuk kolom `numbering` bisa menambahkan CSS berikukt:
+
+```css
+table.ui.table thead th.numbering {
+  // override style here
+}
+
+table.ui.table thead td.numbering {
+  // override style here
+}
+```
+
+
+
 ##### Raw
 
 Memanggil *Closure* untuk menampilkan isi kolom. Kamu bebas melakukan apapun di dalam Closure tersebut, selama hasil akhirnya adalah `string`.
