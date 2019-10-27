@@ -785,5 +785,233 @@ Footer berisi ringkasan informasi terkait data yang ditampilkan dan deretan link
 
 ### Modifikasi Table Header
 
-### 
+#### Gambaran Umum
+
+Ketika sebuah `TableView` didefinisikan seperti berikut:
+
+```php
+protected $title = 'Pengguna Aktif';
+
+protected $search = true;
+```
+
+dan kemudian menghasilkan tampilan seperti ini:
+
+![image-20191027140854716](../assets/uploads/default-suitable-ui.png)
+
+ maka sesunggugnya yang terjadi di balik layar adalah:
+
+```php
+$table->getDefaultSegment()->left(Text::make($table->title));
+
+$table->getDefaultSegment()->right(Search::make($table->search));
+```
+
+Seperti yang sudah dijelaskan pada bagian anatomi, semua yang ada di header suatu Table sejatinya adalah Segment dan Segment Item (Toolbars). Satu Table bisa memiliki satu atau banyak Segment. Satu Segment bisa memiliki nol, satu, atau banyak Segment Item. Segment dan Segment Item inilah yang kemudian akan menentukan tampilan header dari suatu `Table`.
+
+#### Segment
+
+##### Membuat Segment
+
+```php
+use Laravolt\Suitable\Segments\Segment;
+
+$segment = Segment::make('meaningful-segment-key');
+```
+
+##### Menambahkan Segment ke Table
+
+```php
+//$table adalah instance dari Laravolt\Suitable\Builder
+$table->addSegment($segment);
+```
+
+##### Default Segment
+
+By default, sebuah Table pasti memiliki satu buah Segment. Untuk mendapatkannya bisa dengan cara:
+
+```php
+$segment = $table->getDefaultSegment();
+```
+
+##### Menambah Segment Item
+
+Sesuai penjelasan di bagian anatomi, sebuah Segment bisa memilki banyak Segment Item yang terbagi menjadi 2 posisi: left dan right. Untuk menambahkan Segment Item, method yang bisa digunakan adalah:
+
+- `left()`, menambahkan satu atau lebih Item di posisi *left*. Item yang sudah ada sebelumnya akan ditimpa.
+- `prependLeft()`, menambahkan satu atau lebih Item di **permulaan** *left*.
+- `appendLeft()`, menambahkan satu atau lebih Item di **akhir** *left*.
+- `right()`, menambahkan satu atau lebih Item di posisi *right*. Item yang sudah ada sebelumnya akan ditimpa.
+- `prependRight()`, menambahkan satu atau lebih Item di **permulaan** *right*.
+- `appendRight()`, menambahkan satu atau lebih Item di **akhir** *right*.
+
+```php
+$table->getDefaultSegment()->left('satu', 'dua', 'tiga');
+$table->getDefaultSegment()->right('lima')->prependRight('empat')->appendRight('enam');
+```
+
+
+
+![image-20191027145904475](../assets/uploads/suitable-basic-segment-item-addition.png)
+
+Dari contoh di atas kita bisa melihat bahwa Segment Item hanyalah sebuah `string` biasa. Oleh sebab itu kita bisa memasukkan tag HTML apapun.
+
+Melanjutkan contoh sebelumnya, menambahkan potongan kode berikut ini:
+
+```php
+$table->getDefaultSegment()->appendLeft('<select class="ui dropdown"><option>Indonesia</option><option>Malaysia</option></select>');
+```
+
+akan menghasilkan tampilan seperti di bawah ini:
+
+![](../assets/uploads/suitable-custom-segment-item-as-html.png)
+
+Untuk HTML yang cukup panjang, cara yang lebih baik adalah memindahkannya ke file view terpisah:
+
+###### app/resources/views/components/dropdown.blade.php
+
+```php+HTML
+<select class="ui dropdown">
+    <option>Indonesia</option>
+    <option>Malaysia</option>
+</select>
+```
+
+Lalu manfaatkan fungsi `view()->render()` bawaan Laravel:
+
+```php
+$table->getDefaultSegment()->appendLeft(view('dropdown')->render());
+```
+
+#### Segment Item
+
+Cara lain untuk menambahkan Segment Item adalah membuat sebuah class yang mengimplementasikan *interface* `\Laravolt\Suitable\Contracts\Toolbar`.
+
+```php
+<?php
+
+namespace Laravolt\Suitable\Contracts;
+
+interface Toolbar
+{
+    public function render();
+}
+```
+
+Sebagai contoh, kita akan membuat class DropdownNegara untuk menghasilkan dropdown yang berisi list negara.
+
+###### app\Tables\Toolbars
+
+```php
+<?php
+
+namespace App\Tables\Toolbars;
+
+class DropdownNegara implements \Laravolt\Suitable\Contracts\Toolbar
+{
+    public function render()
+    {
+      	// sample logic, query to database
+        $negara = \App\Models\Country::pluck('name', 'id');
+
+      return view('components.dropdown', ['negara' => $negara])->render();
+    }
+}
+```
+
+Selanjutnya class tersebut bisa dipanggil dengan cara:
+
+```php
+$item = new App\Tables\Toolbars();
+$table->getDefaultSegment()->appendLeft($item);
+```
+
+
+
+Sesuai konsep OOP, cara ini cocok dipakai jika tampilan Segment Item cukup kompleks dan melibatkan *logic* di dalamnya. Demikian juga ketika ada banyak Segment Item yang sama di beberapa tempat, maka membuat sebuah class khusus menjadi wajib hukumnya demi menjaga *maintainability* dan tidak melanggara prinsip DRY (*Don't Repeat Yourself*).
+
+#### Predefined Segment Item
+
+Suitable sudah menyediakan beberapa Segment Item yang bisa langsung dipakai:
+
+1. `Laravolt\Suitable\Toolbars\Action`
+2. `Laravolt\Suitable\Toolbars\DropdownFilter`
+3. `Laravolt\Suitable\Toolbars\Search`
+4. `Laravolt\Suitable\Toolbars\Text`
+
+##### Action
+
+```php
+Action::make($icon, $label, $url);
+```
+
+
+
+##### DropdownFilter
+
+```php
+Action::make($name, $options);
+```
+
+##### Search
+
+```php
+Search::make($name);
+```
+
+
+
+##### Text
+
+```php
+Text::make($label)
+```
+
+### Dimana Menempatkan Kode Untuk Modifikasi Tampilan?
+
+#### Overview
+
+Pada bagian-bagian sebelumnya sudah dijelaskan bagaimana caranya memodifikan tampilan sebuah `Table`. Pertanyaan berikutnya yang muncul adalah di mana kode-kode tersebut ditempatkan?
+
+Untuk menjawab pertanyaan tersebut, Suitable menyediaan sebuah fungsi bernama `decorate`. Mari kita pelajari cara pemakaiannya.
+
+#### Modifikasi Table Dengan `decorate()`
+
+##### Saat *Initialization*
+
+Class `TableView` memiliki sebuah method `init()` yang bisa digunakan untuk mengeksekusi apapun setelah Table di-*create*, termasuk memanggil method `decorate()`. Menempatkan `decorate` di dalam `init` berarti semua class UserTable akan menghasilkan tampilan yang sama dimanapun dipanggilnya.
+
+###### app\Tables\UserTable.php
+
+```php
+class UserTable extends TableView
+{
+  protected function init()
+  {
+    $this->decorate(function (\Laravolt\Suitable\Builder $table) {
+      $table->getDefaultSegment()->left('satu', 'dua', 'tiga');
+      $table->getDefaultSegment()->right('lima')->prependRight('empat')->appendRight('enam');
+    });
+  }  
+}
+```
+
+##### Saat *Runtime*
+
+Jika yang dikehendaki adalah memodifikasi salah satu *instance* UserTable tanpa menimbulkan efe ke UserTable yang lain, maka `decorate()` bisa dipanggil saat *runtime*.
+
+###### app\Http\Controllers\UserController.php
+
+```php
+class UserController extends Controller 
+{
+  return (new UserTable($users))
+    ->decorate(function (Builder $table) {
+      $table->getDefaultSegment()->left('satu', 'dua', 'tiga');
+      $table->getDefaultSegment()->right('lima')->prependRight('empat')->appendRight('enam');
+    })
+    ->view('users.index');
+  
+}
+```
 

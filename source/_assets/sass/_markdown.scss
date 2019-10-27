@@ -37,7 +37,7 @@
     }
   }
 
-  h1, h2, h3 {
+  h1, h2, h3, h4 {
     a {
       @apply .text-black;
       &:before {
@@ -66,8 +66,8 @@
 
   h5 {
     @apply .text-indigo-600;
-    @apply .uppercase;
     @apply .text-base;
+    @apply .text-lg;
   }
 
   h6 {
