@@ -945,13 +945,15 @@ Suitable sudah menyediakan beberapa Segment Item yang bisa langsung dipakai:
 Action::make($icon, $label, $url);
 ```
 
-
+![image-20191028095719169](../assets/uploads/segment-item-action.png)
 
 ##### DropdownFilter
 
 ```php
-Action::make($name, $options);
+DropdownFilter::make($name, $options);
 ```
+
+![image-20191028110954319](../assets/uploads/suitable-dropdown-filter.png)
 
 ##### Search
 
@@ -959,13 +961,15 @@ Action::make($name, $options);
 Search::make($name);
 ```
 
-
+![image-20191028111035582](../assets/uploads/suitable-search.png)
 
 ##### Text
 
 ```php
 Text::make($label)
 ```
+
+![image-20191028111118345](../assets/uploads/suitable-text.png)
 
 ### Dimana Menempatkan Kode Untuk Modifikasi Tampilan?
 
