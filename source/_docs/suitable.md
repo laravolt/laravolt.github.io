@@ -928,7 +928,7 @@ $table->getDefaultSegment()->appendLeft($item);
 
 
 
-Sesuai konsep OOP, cara ini cocok dipakai jika tampilan Segment Item cukup kompleks dan melibatkan *logic* di dalamnya. Demikian juga ketika ada banyak Segment Item yang sama di beberapa tempat, maka membuat sebuah class khusus menjadi wajib hukumnya demi menjaga *maintainability* dan tidak melanggara prinsip DRY (*Don't Repeat Yourself*).
+Sesuai konsep OOP, cara ini cocok dipakai jika tampilan Segment Item cukup kompleks dan melibatkan *logic* di dalamnya. Demikian juga ketika ada banyak Segment Item yang sama di beberapa tempat, maka membuat sebuah class khusus menjadi wajib hukumnya demi menjaga *maintainability* dan tidak melanggar prinsip DRY (*Don't Repeat Yourself*).
 
 #### Predefined Segment Item
 
