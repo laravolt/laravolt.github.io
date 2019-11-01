@@ -59,7 +59,7 @@ Metode instalasi ini hanya akan mengunduh *core* Laravolt saja. Jika kamu membut
 Untuk menambahkan user dengan role admin, bisa menjalankan perintah:
 
 ```bash
-php artisan laravolt:admin <email> <password>
+php artisan laravolt:admin <name> <email> <password>
 ```
 
 
