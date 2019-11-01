@@ -52,6 +52,8 @@ Selanjutnya, perlu ada penyesuaian terhadap di level aplikasi. Kamu bisa melakuk
 php artisan preset laravolt
 ```
 
+Metode instalasi ini hanya akan mengunduh *core* Laravolt saja. Jika kamu membutuhkan modul-modul lain, maka harus di-*install* lagi secara manual.
+
 ### Login Admin
 
 Untuk menambahkan user dengan role admin, bisa menjalankan perintah:
