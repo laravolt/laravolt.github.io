@@ -15,34 +15,42 @@
             </div>
         </div>
 
-        <img src="/assets/img/logo-large.svg" alt="{{ $page->siteName }} large logo" class="mx-auto mb-6 lg:mb-0 ">
+        <img src="/assets/img/process.svg" alt="{{ $page->siteName }} large logo" class="mx-auto w-1/4 mb-6 lg:mb-0 ">
     </div>
 
     <hr class="block my-8 border lg:hidden">
 
     <div class="md:flex">
         <div class="mb-8 mx-3 px-2 md:w-1/3">
-            <img src="/assets/img/icon-terminal.svg" class="h-12 w-12" alt="window icon">
+            <img src="/assets/img/icons8-program-100.png" class="h-16 w-16" alt="window icon">
 
-            <h3 id="intro-laravel" class="text-2xl text-indigo-darkest mb-0">Code Generator</h3>
+            <h3 id="intro-laravel" class="text-2xl text-indigo-darkest mb-0">CRUD Builder</h3>
 
             <p>Membuat CRUD hanya dalam hitungan detik. Kode yang dihasilkan sangat eksplisit, mudah dimodifikasi, dan <i>developer friendly</i>.</p>
         </div>
 
         <div class="mb-8 mx-3 px-2 md:w-1/3">
-            <img src="/assets/img/icon-window.svg" class="h-12 w-12" alt="terminal icon">
+            <img src="/assets/img/icons8-template-100.png" class="h-16 w-16" alt="terminal icon">
 
             <h3 id="intro-markdown" class="text-2xl text-indigo-darkest mb-0">Unified Interface</h3>
 
-            <p>Admin panel yang minimalis, ringan, dan elegan, didukung puluhan komponen siap pakai. Laravolt menjanjikan kenyamanan penggunaan bagi <i>end user</i>.</p>
+            <p>Admin panel yang minimalis, ringan, dan elegan, didukung puluhan komponen siap pakai. Laravolt menyediakan standard UI sehingga Anda bisa fokus pada UX.</p>
         </div>
 
         <div class="mx-3 px-2 md:w-1/3">
-            <img src="/assets/img/icon-stack.svg" class="h-12 w-12" alt="stack icon">
+            <img src="/assets/img/icons8-module-100.png" class="h-16 w-16" alt="stack icon">
 
             <h3 id="intro-mix" class="text-2xl text-indigo-darkest mb-0">Plug n Play</h3>
 
-            <p>Laravolt memaksa developer untuk berpikir modular. Satu fitur satu folder. Cukup salin satu folder tersebut ke proyek sebelah dan <i>it's just work</i>.</p>
+            <p>Puluhan modul yang sudah teruji dan siap pakai. Bahkan, Kamu bisa membuat modulmu sendiri dan membaginya ke tim dengan mudah. <i>It's just work</i>.</p>
+        </div>
+
+        <div class="mx-3 px-2 md:w-1/3">
+            <img src="/assets/img/icons8-workflow-100.png" class="h-16 w-16" alt="stack icon">
+
+            <h3 id="intro-mix" class="text-2xl text-indigo-darkest mb-0">BPMN Integration</h3>
+
+            <p>Ketika proses bisnis aplikasi tidak lagi sederhana, Laravolt menyediakan dukungan untuk BPMN <i>engine</i> seperti Camunda dan Joget.</p>
         </div>
     </div>
 </section>
