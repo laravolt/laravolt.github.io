@@ -799,7 +799,7 @@ dan kemudian menghasilkan tampilan seperti ini:
 
 ![image-20191027140854716](../assets/uploads/default-suitable-ui.png)
 
- maka sesunggugnya yang terjadi di balik layar adalah:
+ maka sesungguhnya yang terjadi di balik layar adalah:
 
 ```php
 $table->getDefaultSegment()->left(Text::make($table->title));
