@@ -142,7 +142,7 @@ form()->email($name, $value)->label('Email Address');
 form()->textarea($name, $value)->label('Note');
 ```
 
-### Select Box (Dropdown)
+### Select (Dropdown)
 ``` php
 form()->select($name, $options)->label('Choose Country');
 form()->select($name, $options, $selected)->label('Choose Country');
@@ -151,7 +151,16 @@ form()->select($name, $options)->appendOption($key, $label);
 form()->select($name, $options)->prependOption($key, $label);
 ```
 
+### Select Multiple (Tagging)
+
+```php
+form()->selectMultiple($name, $options)->label('Select Multiple');
+```
+
+
+
 ### Select Date & Select Date Time
+
 ``` php
 form()->selectDate('myDate', $startYear, $endYear)->label('Birth Date');
 form()->selectDateTime('myDate', $startYear, $endYear, $intervalInMinute)->label('Schedule');
