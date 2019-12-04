@@ -292,6 +292,15 @@ Hanya dropdown waktu saja, tanpa tanggal.
 form()->timepicker($name, $value);
 ```
 
+### Redactor
+
+``` php
+form()->redactor($name, $value);
+
+//Additional Methods
+->mediaUrl($url) //custom URL to handle file upload, default to route("media::store")
+```
+
 ### Hidden
 ``` php
 form()->hidden($name, $value);
