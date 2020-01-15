@@ -10,49 +10,44 @@ section: content
 ## Server Requirements
 
 1. PHP >= 7.3
-2. BCMath PHP Extension
-3. Ctype PHP Extension
-4. GD PHP Extension
-5. JSON PHP Extension
-6. Mbstring PHP Extension
-7. OpenSSL PHP Extension
-8. PDO PHP Extension
-9. Tokenizer PHP Extension
-10. XML PHP Extension
+2. MySQL, MariaDB, PostgreSQL, atau SQLite untuk penyimpanan data
+3. BCMath PHP Extension
+4. Ctype PHP Extension
+5. GD PHP Extension
+6. JSON PHP Extension
+7. Mbstring PHP Extension
+8. OpenSSL PHP Extension
+9. PDO PHP Extension
+10. Tokenizer PHP Extension
+11. XML PHP Extension
 
 ## Instalasi Laravolt
 
 Laravolt membutuhkan [Composer](https://getcomposer.org/) dan koneksi internet untuk mendownload source code dari GitHub. Pastikan kamu mempunyai keduanya.
 
-> Kamu tidak memerlukan akun GitHub untuk mulai menggunakan Laravolt.
+> Kamu tidak perlu ~~ganteng atau cantik~~ akun GitHub untuk mulai menggunakan Laravolt. Meskipun... Hari gini ngaku programmer tapi ga punya akun github?
 
 
 
-### Aplikasi Baru
+**Laravolt platform** adalah sebuah package, oleh sebab itu kamu harus sudah punya aplikasi Laravel dulu sebelumnya. Instalasi Laravel bisa dibaca di [dokumentasi resminya](https://laravel.com/docs/master#installing-laravel).
 
-Jika kamu baru pertama kali memulai, jalankan perintah berikut untuk mengunduh source code Laravolt versi terbaru lengkap dengan semua modulnya:
-
-```bash
-composer create-project laravolt/laravolt
-```
-
-
-
-### Aplikasi Existing 
-
-Jika kamu sudah meng-install Laravel sebelumnya, jalankan perintah berikut:
+Jika aplikasi Laravel sudah siap, jalankan perintah berikut untuk menambahkan Laravolt platform:
 
 ```bash
 composer require laravolt/platform
 ```
 
-Selanjutnya, perlu ada penyesuaian terhadap di level aplikasi. Kamu bisa melakukannya secara otomatis dengan menjalankan perintah:
+Beberapa file perlu digenerate dan disesuaikan agar Laravolt berjalan dengan baik. Cukup jalankan perintah di bawah ini, Laravolt akan melakukannya untukmu:
 
 ```bash
 php artisan preset laravolt
 ```
 
-Metode instalasi ini hanya akan mengunduh *core* Laravolt saja. Jika kamu membutuhkan modul-modul lain, maka harus di-*install* lagi secara manual.
+Selanjutnya, jangan lupa menjalakan migration:
+
+```bash
+php artisan migrate
+```
 
 ### Login Admin
 
