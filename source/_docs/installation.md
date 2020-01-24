@@ -34,7 +34,7 @@ Laravolt membutuhkan [Composer](https://getcomposer.org/) dan koneksi internet u
 Jika aplikasi Laravel sudah siap, jalankan perintah berikut untuk menambahkan Laravolt platform:
 
 ```bash
-composer require laravolt/platform
+composer require laravolt/laravolt
 ```
 
 Beberapa file perlu digenerate dan disesuaikan agar Laravolt berjalan dengan baik. Cukup jalankan perintah di bawah ini, Laravolt akan melakukannya untukmu:
@@ -46,6 +46,7 @@ php artisan preset laravolt
 Selanjutnya, jangan lupa menjalakan migration:
 
 ```bash
+php artisan vendor:publish --tag=migrations
 php artisan migrate
 ```
 
@@ -55,6 +56,12 @@ Untuk menambahkan user dengan role admin, bisa menjalankan perintah:
 
 ```bash
 php artisan laravolt:admin <name> <email> <password>
+```
+
+Contoh:
+
+```bash
+php artisan laravolt:admin Admin admin@laravolt.dev secret
 ```
 
 
