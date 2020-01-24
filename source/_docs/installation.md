@@ -1,6 +1,6 @@
 ---
 title: Installation
-description: One small step for a man, one giat leap for mankind
+description: One small step for a man, one giant leap for mankind
 extends: _layouts.documentation
 section: content
 ---
@@ -31,7 +31,7 @@ Laravolt membutuhkan [Composer](https://getcomposer.org/) dan koneksi internet u
 
 **Laravolt platform** adalah sebuah package, oleh sebab itu kamu harus sudah punya aplikasi Laravel dulu sebelumnya. Instalasi Laravel bisa dibaca di [dokumentasi resminya](https://laravel.com/docs/master#installing-laravel).
 
-Jika aplikasi Laravel sudah siap, jalankan perintah berikut untuk menambahkan Laravolt platform:
+Jika aplikasi Laravel sudah siap, jalankan perintah berikut untuk menambahkan Laravolt:
 
 ```bash
 composer require laravolt/laravolt
