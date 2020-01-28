@@ -56,8 +56,8 @@ return [
     ],
     'Epilog'        => [
         'children' => [
-            'Kontribusi'        => '#',
-            'Panduan Penulisan' => 'docs/typography',
+            'Kontribusi'        => 'guidelines/contribution',
+            'Panduan Penulisan' => 'guidelines/typography',
             'Hak Cipta'         => '#',
             'Logo'              => '#',
         ],
