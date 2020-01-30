@@ -46,7 +46,6 @@ php artisan preset laravolt
 Selanjutnya, jangan lupa menjalakan migration:
 
 ```bash
-php artisan vendor:publish --tag=migrations
 php artisan migrate
 ```
 
