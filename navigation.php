@@ -33,6 +33,7 @@ return [
             // 'Avatar'        => 'docs/avatar',
             // 'Indonesia'     => 'docs/indonesia',
             // 'Password'      => 'docs/password',
+            'Lookup' => 'docs/lookup',
             'SemanticForm' => 'docs/semantic-form',
             // 'Setting'       => 'docs/setting',
             'Suitable'     => 'docs/suitable',
