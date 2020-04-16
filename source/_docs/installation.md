@@ -39,9 +39,19 @@ composer require laravolt/laravolt
 
 Beberapa file perlu digenerate dan disesuaikan agar Laravolt berjalan dengan baik. Cukup jalankan perintah di bawah ini, Laravolt akan melakukannya untukmu:
 
+**Laravel 6**
+
 ```bash
 php artisan preset laravolt
 ```
+
+**Laravel 7**
+
+```bash
+php artisan ui laravolt
+```
+
+
 
 Selanjutnya, jangan lupa menjalakan migration:
 
