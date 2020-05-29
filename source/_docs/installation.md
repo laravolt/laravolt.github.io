@@ -59,6 +59,23 @@ Selanjutnya, jangan lupa menjalakan migration:
 php artisan migrate
 ```
 
+
+### Install Assets
+
+Agar bisa digunakan, Laravolt perlu generated assets.
+
+```bash
+yarn install
+```
+
+atau
+
+```bash
+npm install
+```
+
+
+
 ### Login Admin
 
 Untuk menambahkan user dengan role admin, bisa menjalankan perintah:
