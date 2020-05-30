@@ -56,7 +56,7 @@ section: content
       }
     ],
     "require": {
-      
+
     },
     ```
 
@@ -65,13 +65,43 @@ section: content
     ```bash
     cd sandbox
     composer require laravolt/laravolt
+    ```
+
+    **Laravel 6**
+
+    ```bash
     php artisan preset laravolt
+    ```
+
+    **Laravel 7**
+
+    ```bash
+    php artisan ui laravolt
+    ```
+
+    ```bash
     php artisan vendor:publish --tag=migrations
     php artisan migrate
     php artisan laravolt:admin Admin admin@laravolt.dev secret
     ```
 
-7. Jalankan `php artisan server` atau *web server* lain kesayanganmu. Pastikan ketika diakses di browser (misalnya http://localhost:8000), muncul halaman login. Gunakan *credentials* sesuai yang diisikan pada langkah sebelum ini.
+7. Install dan compile Assets
+
+    **Yarn user**
+
+    ```bash
+    yarn install
+    yarn run dev
+    ```
+
+    **NPM user**
+
+    ```bash
+    npm install
+    npm run dev
+    ```
+
+8. Jalankan `php artisan server` atau *web server* lain kesayanganmu. Pastikan ketika diakses di browser (misalnya http://localhost:8000), muncul halaman login. Gunakan *credentials* sesuai yang diisikan pada langkah sebelum ini.
 
 
 
