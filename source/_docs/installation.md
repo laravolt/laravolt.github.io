@@ -60,18 +60,20 @@ php artisan migrate
 ```
 
 
-### Install Assets
+### Install dan compile Assets
 
 Agar bisa digunakan, Laravolt perlu generated assets.
 
 ```bash
 yarn install
+yarn run dev
 ```
 
 atau
 
 ```bash
 npm install
+npm run dev
 ```
 
 
