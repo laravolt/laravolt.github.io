@@ -9,7 +9,7 @@ section: content
 
 ## Server Requirements
 
-1. PHP >= 7.3
+1. PHP >= 7.4
 2. MySQL, MariaDB, PostgreSQL, atau SQLite untuk penyimpanan data
 3. BCMath PHP Extension
 4. Ctype PHP Extension
@@ -34,18 +34,10 @@ Laravolt membutuhkan [Composer](https://getcomposer.org/) dan koneksi internet u
 Jika aplikasi Laravel sudah siap, jalankan perintah berikut untuk menambahkan Laravolt:
 
 ```bash
-composer require laravolt/laravolt
+composer require laravolt/laravolt:dev-master
 ```
 
 Beberapa file perlu digenerate dan disesuaikan agar Laravolt berjalan dengan baik. Cukup jalankan perintah di bawah ini, Laravolt akan melakukannya untukmu:
-
-**Laravel 6**
-
-```bash
-php artisan preset laravolt
-```
-
-**Laravel 7**
 
 ```bash
 php artisan ui laravolt
