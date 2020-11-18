@@ -65,6 +65,7 @@ Masing-masing metode punya kelebihan dan kekurangan masing-masing. Dan dalam per
 - `gagal_edit_password`
 - `hotfix_hapus-userId`
 - `perbaikan-tampilan` (Tampilan yang mana?)
+- `feature/damar` (jangan narsis)
 
 ## Commit
 
