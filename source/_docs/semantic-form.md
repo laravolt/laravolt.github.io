@@ -30,9 +30,11 @@ Dengan SemanticForm, kode di atas bisa disederhanakan menjadi:
 {!! form()->close() !!}
 ```
 
+Anda bisa fokus pada fungsionalitas form. Urusan struktur (HTML), tampilan (CSS), dan behaviour (JS) sudah ditangani oleh Laravolt.
+
 ## Fitur
 
-SemanticForm secara otomatis akan menangani hal-hal berikut ini:
+SemanticForm secara otomatis sudah menangani hal-hal berikut ini:
 
 - Styling
 - Error state
@@ -45,14 +47,16 @@ SemanticForm secara otomatis akan menangani hal-hal berikut ini:
 composer require laravolt/semantic-form
 ```
 
+> 💡 Package ini sudah ter-*install* secara otomatis ketika Anda menginstall Laravolt.
+
 ## Cara Pemakaian
 
 ### Gambaran Umum
 
 SemanticForm bisa dipanggil dengan dua cara:
 
-- Melalui Facade `Form`, misalnya `Form::open()`.
-- Melalu helper `form()`, misalnya `form()->open()`.
+- Melalui Facade **Form**, misalnya `Form::open()`.
+- Melalu helper **form()**, misalnya `form()->open()`.
 
 Pemanggilan melalui fungsi helper `form()` lebih direkomendasikan karena mendukung *auto completion*.
 
@@ -108,58 +112,149 @@ Jika ingin memaksa SemanticForm untuk menghilangkan CSRF Token, maka method `wit
 form()->post('search')->withoutToken();
 ```
 
-### Text
+### Basic Input
+
+#### Checkbox
+
 ``` php
-form()->text($name, $value)->label('Username');
+form()->checkbox($name, $value, $checked)->label('Remember Me');
 ```
 
-### Number
+#### Checkbox Group
+``` php
+$values = ['apple' => 'Apple', 'banana' => 'Banana'];
+$checkedValue = 'banana';
+form()->checkboxGroup($name, $values, $checkedValue)->label('Select Fruit');
+```
+
+#### Coordinate
+
+```php
+form()->coordinate('lokasi');
+```
+
+
+
+Menampilkan peta yang bisa dipilih dengan *drag & drop* untuk mendapatkan koordinat *latitude* dan *longitude*, menggunakan API Google Maps.
+
+#### Email
+
+``` php
+form()->email($name, $value)->label('Email Address');
+```
+
+#### Hidden
+``` php
+form()->hidden($name, $value);
+```
+
+
+#### Input Wrapper
+
+``` php
+form()->input($name, $defaultvalue, $type = 'text');
+form()->input($name, $defaultvalue)->appendIcon('search');
+form()->input($name, $defaultvalue)->prependIcon('users');
+form()->input($name, $defaultvalue)->appendLabel($label);
+form()->input($name, $defaultvalue)->prependLabel($label);
+form()->input($name, $defaultvalue)->type("password");
+```
+Reference: http://semantic-ui.com/elements/input.html
+
+
+#### Number
 ``` php
 form()->number($name, $integerValue)->label('Total');
+
+// method tambahan khusus untuk number
+form()
+  ->number("umur", 17)
+  ->min(7) // membatasi batas bawah angka yang bisa diinput
+  ->max(35) // membatasi batas atas angka yang bisa diinput
+  ->step(1);
 ```
 
-### Date
-``` php
-form()->date($name, $value)->label('Birthday');
-```
-
-### Time
-``` php
-form()->time($name, $value)->label('Start Time');
-```
-
-### Password
+#### Password
 ``` php
 form()->password($name)->label('Password');
 ```
 
-### Email
+#### Text
+
 ``` php
-form()->email($name, $value)->label('Email Address');
+form()->text($name, $value)->label('Username');
 ```
-### Textarea
+
+#### Textarea
 ``` php
 form()->textarea($name, $value)->label('Note');
 ```
 
-### Select (Dropdown)
+#### Time
 ``` php
-form()->select($name, $options)->label('Choose Country');
-form()->select($name, $options, $selected)->label('Choose Country');
-form()->select($name, $options)->placeholder('--Select--');
-form()->select($name, $options)->appendOption($key, $label);
-form()->select($name, $options)->prependOption($key, $label);
+form()->time($name, $value)->label('Start Time');
 ```
 
-### Select Multiple (Tagging)
+
+#### Radio
+``` php
+$checked = true;
+form()->radio($name, $value, $checked)->label('Item Label');
+```
+
+#### Radio Group
+``` php
+$values = ['apple' => 'Apple', 'banana' => 'Banana'];
+$checkedValue = 'banana';
+form()->radioGroup($name, $values, $checkedValue)->label('Select Fruit');
+```
+
+#### Rupiah
 
 ```php
-form()->selectMultiple($name, $options)->label('Select Multiple');
+form()->rupiah('harga', $defaultValue);
 ```
 
+Menampilkan inputan angka dengan format ribuan secara otomatis, memanfaatkan http://autonumeric.org/.
 
+### Date & Time
 
-### Select Date & Select Date Time
+#### Date
+
+``` php
+form()->date($name, $value)->label('Birthday');
+```
+#### Datepicker
+
+Tanggal saja.
+
+``` php
+form()->datepicker($name, $value, $format);
+
+// $format bisa diisi sesuai format yang disebutkan di https://www.php.net/manual/en/function.date.php
+
+// To convert localized format to standard (SQL) datetime format, you can use Jenssegers\Date\Date library (already included):
+// Jenssegers\Date\Date::createFromFormat('d F Y', '12 februari 2000')->startOfDay()->toDateTimeString();
+// Jenssegers\Date\Date::createFromFormat('d F Y', '12 februari 2000')->startOfDay()->toDateString();
+```
+
+#### Datepicker with time
+
+Tanggal dan waktu.
+
+```php
+form()->datepicker()->withTime();
+```
+
+#### Timepicker
+
+Hanya dropdown waktu saja, tanpa tanggal.
+
+``` php
+form()->timepicker($name, $value);
+```
+
+#### Select Date & Select Date Time
 
 ``` php
 form()->selectDate('myDate', $startYear, $endYear)->label('Birth Date');
@@ -198,123 +293,107 @@ Route::post('myForm', ['middleware' => ['web', 'selectdate:myDate'], function ()
 }]);
 ```
 
-### Select Range
+### Select/Dropdown
+#### Select (Dropdown) Single Value
+``` php
+form()->select($name, $options)->label('Choose Country');
+form()->select($name, $options, $selected)->label('Choose Country');
+form()->select($name, $options)->placeholder('--Select--');
+form()->select($name, $options)->appendOption($key, $label);
+form()->select($name, $options)->prependOption($key, $label);
+```
+
+#### Select Multiple (Tagging)
+
+```php
+form()->selectMultiple($name, $options, $selected)->label('Select Multiple');
+```
+
+
+#### Select Range
 ``` php
 form()->selectRange($name, $begin, $end)->label('Number of child');
 ```
 
-### Select Month
+#### Select Month
 ``` php
 form()->selectMonth($name, $format = '%B')->label('Month');
 ```
 
-### Radio
-``` php
-$checked = true;
-form()->radio($name, $value, $checked)->label('Item Label');
+#### Dropdown DB
+
+```php
+$query = 'SELECT id, name from provinsi order by name';
+form()->dropdownDB('provinsi', $query, $keyColumn = 'id', $valueColumn = 'name');
 ```
 
-### Radio Group
-``` php
-$values = ['apple' => 'Apple', 'banana' => 'Banana'];
-$checkedValue = 'banana';
-form()->radioGroup($name, $values, $checkedValue)->label('Select Fruit');
+Dengan kode diatas, maka opsi dropdown akan diisi secara otomatis menggunakan hasil raw query ke database. Satu lagi, Anda bisa membuat *chained dropdown* secara mudah dengan memanfaatkan method `dependency()`:
+
+```php
+$query = 'SELECT id, name from kabupaten where provinsi_id = %s'
+form()->dropdownDB('kabupaten', $query, 'id', 'name')->dependency('provinsi');
 ```
 
-### Checkbox
-``` php
-form()->checkbox($name, $value, $checked)->label('Remember Me');
-```
+Setiap kali dropdown provinsi berubah nilainya, maka dropdown kabupaten juga akan di-update opsinya sesuai provinsi terpilih. 
 
-### Checkbox Group
-``` php
-$values = ['apple' => 'Apple', 'banana' => 'Banana'];
-$checkedValue = 'banana';
-form()->checkboxGroup($name, $values, $checkedValue)->label('Select Fruit');
-```
+*Under the hood*, **ID** dari provinsi akan dikirim ke server via AJAX, dan query untuk dropdown kabupaten akan dijalankan dengan mengganti placeholder **%s** dengan **ID** provinsi tersebut.
 
-### File 
+### File
 
-Standard HTML.
+#### Standar HTML  File Input
 
 ``` php
 form()->file($name);
 ```
-### Uploader
+
+#### Uploader
 
 Wrapper untuk library [fileuploader](https://innostudio.de/fileuploader/documentation/).
 
 ```php
-{!! form()->uploader('files')->limit(10)->extensions(['jpg', 'png']) !!}
+{!! 
+  form()
+  ->uploader('files')
+  ->limit($maxUploadedFile) //optional, defaul to 1 (single file upload)
+  ->extensions(['jpg', 'png']) // optional, default to null (all files allowed)
+  ->fileMaxSize($sizeInMB)  //optional, default to 1000 MB 
+  ->mediaUrl($customURL) //optional, default to route("media::store"), handled by Laravolt
+!!}
 ```
 
 
+### Rich Text Editor (WYSIWYG)
 
-### Input Wrapper
-
-``` php
-form()->input($name, $defaultvalue);
-form()->input($name, $defaultvalue)->appendIcon('search');
-form()->input($name, $defaultvalue)->prependIcon('users');
-form()->input($name, $defaultvalue)->appendLabel($label);
-form()->input($name, $defaultvalue)->prependLabel($label);
-form()->input($name, $defaultvalue)->type("password");
-```
-Reference: http://semantic-ui.com/elements/input.html
-
-### Datepicker
-
-Tanggal saja.
-
-``` php
-form()->datepicker($name, $value, $format);
-
-// $format bisa diisi sesuai format yang disebutkan di https://www.php.net/manual/en/function.date.php
-
-// To convert localized format to standard (SQL) datetime format, you can use Jenssegers\Date\Date library (already included):
-// Jenssegers\Date\Date::createFromFormat('d F Y', '12 februari 2000')->startOfDay()->toDateTimeString();
-// Jenssegers\Date\Date::createFromFormat('d F Y', '12 februari 2000')->startOfDay()->toDateString();
-```
-
-### Datepicker with time
-
-Tanggal dan waktu.
-
-```php
-form()->datepicker()->withTime();
-```
-
-### Timepicker
-
-Hanya dropdown waktu saja, tanpa tanggal.
-
-``` php
-form()->timepicker($name, $value);
-```
-
-### Redactor
+#### Redactor
 
 ``` php
 form()->redactor($name, $value);
 
 //Additional Methods
-->mediaUrl($url) //custom URL to handle file upload, default to route("media::store")
+form()->redactor($name, $value)->mediaUrl($url); //custom URL to handle file upload, default to route("media::store")
 ```
 
-### Hidden
-``` php
-form()->hidden($name, $value);
-```
 
-### Button
+
+### Action
+
+#### Button
+
 ``` php
 form()->button($value);
 ```
+#### Link
 
-### Submit
+``` php
+form()->link($label, $url);
+```
+
+#### Submit
 ``` php
 form()->submit($value);
 ```
+
+
 
 ### Model Binding
 
