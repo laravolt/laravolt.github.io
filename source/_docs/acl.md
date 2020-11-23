@@ -74,8 +74,6 @@ Ada 2 metode pengecekan hak akses yang biasa dilakukan:
 if (auth()->user()->hasRole(['Administrator'])) {
   // allow to access
 }
-
-// else, redirect to previous page
 ```
 
 ```php
@@ -84,8 +82,6 @@ if (auth()->user()->hasRole(['Administrator'])) {
 if (auth()->user()->can('see_dashboard')) {
     // allow to access
 }
-
-// else, redirect to previous page
 ```
 
 Lalu ada perubahan requirement. Selain Administrator, Direktur RS juga bisa melihat dashboard.
@@ -96,8 +92,6 @@ Lalu ada perubahan requirement. Selain Administrator, Direktur RS juga bisa meli
 if (auth()->user()->hasRole(['Administrator', 'Direktur RS'])) {
   // allow to access
 }
-
-// else, redirect to previous page
 ```
 
 ```php
@@ -106,8 +100,6 @@ if (auth()->user()->hasRole(['Administrator', 'Direktur RS'])) {
 if (auth()->user()->can('see_dashboard')) {
     // allow to access
 }
-
-// else, redirect to previous page
 ```
 
 Anda bisa melihat, tidak ada perubahan kode jika kita melakukan pengecekan dengan Permission.
@@ -127,3 +119,4 @@ Sebaliknya, jika pengecekan dilakukan terhadap Role, setiap kali ada perubahan k
 > **Fixed Permissions, Dynamic Roles**
 >
 > Permission itu fix jumlah dan namanya, sesuai definisi fitur aplikasi. Role itu dinamis, Admin bisa menambah atau mengurangi sesuai kebutuhan. Ketika ada perubahan requirement terkait hak akses, maka yang perlu dilakukan hanyalah mengubah mapping role-permission.
+
