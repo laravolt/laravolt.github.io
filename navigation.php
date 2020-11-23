@@ -28,7 +28,7 @@ return [
     // ],
     'Packages'      => [
         'children' => [
-            // 'ACL'           => 'docs/acl',
+            'ACL'           => 'docs/acl',
             // 'Auth'          => 'docs/auth',
             // 'Avatar'        => 'docs/avatar',
             // 'Indonesia'     => 'docs/indonesia',
