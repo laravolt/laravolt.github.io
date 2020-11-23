@@ -60,6 +60,8 @@ File config/app.php, ket. "Category" adalah nama tabel
  ]
 ```
 
+Run `composer dumpautoload`
+
 ## Custom Template
 
 Template yang tersedia saat ini dibuat khusus untuk admin panel laravolt. Untuk membuat custom template, ikut langkah berikut:
