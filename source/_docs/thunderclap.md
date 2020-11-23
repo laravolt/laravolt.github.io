@@ -27,7 +27,38 @@ Ada kalanya kode yang dihasilkan oleh thunderclap tetap harus dimodifikasi terle
 
 `php artisan laravolt:clap --table=users --template=custom --force`
 
+Registrasikan module pada composer.json dan config/app.php
 
+File composer.json
+
+```PHP
+   "autoload": {
+ 	"psr-4": {
+ 		"App\\": "app/",
+ 		"Modules\\": "modules" //Tambahkan disini
+ 	},
+ 	....
+ },
+ ....
+```
+
+File config/app.php, ket. "Category" adalah nama tabel
+
+```PHP
+ 'providers' => [
+ 	....
+ 	 /*
+     * Package Service Providers...
+     */
+     
+     Modules\Category\Providers\CategoryServiceProvider::class,
+         
+    /*
+     * Application Service Providers...
+     */
+    ....
+ ]
+```
 
 ## Custom Template
 
