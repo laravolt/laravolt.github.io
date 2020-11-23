@@ -27,7 +27,7 @@ Ada kalanya kode yang dihasilkan oleh thunderclap tetap harus dimodifikasi terle
 
 `php artisan laravolt:clap --table=users --template=custom --force`
 
-Registrasikan module pada composer.json dan config/app.php
+Registrasikan module pada composer.json dan config/app.php 
 
 File composer.json
 
