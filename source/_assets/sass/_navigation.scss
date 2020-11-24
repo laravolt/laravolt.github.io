@@ -1,35 +1,35 @@
 .nav-menu {
-    @apply .-mt-12;
-    @apply .-mx-8;
-    @apply .mb-8;
-    @apply .pb-4;
-    @apply .pt-8;
-    @apply .px-4;
-    @apply .shadow;
-    @apply .text-center;
-    @apply .bg-white;
+    @apply -mt-12;
+    @apply -mx-8;
+    @apply mb-8;
+    @apply pb-4;
+    @apply pt-8;
+    @apply px-4;
+    @apply shadow;
+    @apply text-center;
+    @apply bg-white;
 
     @screen lg {
-        @apply .-mx-4;
-        @apply .block;
-        @apply .border-b-0;
-        @apply .bg-transparent;
-        @apply .mt-1;
-        @apply .pl-0;
-        @apply .pr-4;
-        @apply .pt-6;
-        @apply .shadow-none;
-        @apply .w-1/3;
-        @apply .text-left;
+        @apply -mx-4;
+        @apply block;
+        @apply border-b-0;
+        @apply bg-transparent;
+        @apply mt-1;
+        @apply pl-0;
+        @apply pr-4;
+        @apply pt-6;
+        @apply shadow-none;
+        @apply w-1/3;
+        @apply text-left;
     }
 }
 
 .nav-menu__item {
-    @apply .block;
-    @apply .list-none;
-    @apply .no-underline;
-    @apply .mt-0;
-    @apply .py-1;
-    @apply .px-2;
-    @apply .text-gray-900;
+    @apply block;
+    @apply list-none;
+    @apply no-underline;
+    @apply mt-0;
+    @apply py-1;
+    @apply px-2;
+    @apply text-gray-900;
 }
