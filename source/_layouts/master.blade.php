@@ -31,7 +31,6 @@
             @include('_components.ga')
         @endif
 
-        <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|Aleo:300,400,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{{ mix('css/main.css', 'assets/build') }}">
 
         @if ($page->docsearchApiKey && $page->docsearchIndexName)

@@ -29,7 +29,8 @@ h6 {
 }
 
 h1 {
-    @apply text-5xl;
+    @apply font-black;
+    @apply text-6xl;
 }
 
 h2 {
@@ -37,6 +38,7 @@ h2 {
 }
 
 h3 {
+    @apply font-normal;
     @apply text-3xl;
 }
 
@@ -46,6 +48,7 @@ h4 {
 }
 
 h5 {
+    @apply font-normal;
     @apply text-xl;
 }
 
