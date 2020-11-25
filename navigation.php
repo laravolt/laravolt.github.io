@@ -1,22 +1,23 @@
 <?php
 
 return [
-    'Prolog'        => [
+    'Prolog' => [
         'children' => [
-            'Introduction'         => 'docs/introduction',
-            'Installation'         => 'docs/installation',
+            'Introduction' => 'docs/introduction',
+            'Installation' => 'docs/installation',
             'Building Application' => 'docs/building-application',
-            'Customizing The UI'   => 'docs/customizing-the-ui',
+            'Customizing The UI' => 'docs/customizing-the-ui',
         ],
     ],
-    'Guideline'     => [
+    'Guideline' => [
         'children' => [
+            'Naming Things' => 'guidelines/naming-things',
             'File Permissions' => 'docs/file-permissions',
-            'Git'              => 'guidelines/git',
-            'Model'            => 'guidelines/model',
-            'View'             => 'guidelines/view',
-            'Controller'       => 'guidelines/controller',
-            'Route'            => 'guidelines/route',
+            'Git' => 'guidelines/git',
+            'Model' => 'guidelines/model',
+            'View' => 'guidelines/view',
+            'Controller' => 'guidelines/controller',
+            'Route' => 'guidelines/route',
         ],
     ],
     // 'Deployment'           => 'docs/deployment',
@@ -26,9 +27,9 @@ return [
     //         'Membuat Helper' => 'docs/snippets/membuat-helper',
     //     ],
     // ],
-    'Packages'      => [
+    'Packages' => [
         'children' => [
-            'ACL'           => 'docs/acl',
+            'ACL' => 'docs/acl',
             // 'Auth'          => 'docs/auth',
             // 'Avatar'        => 'docs/avatar',
             // 'Indonesia'     => 'docs/indonesia',
@@ -36,8 +37,8 @@ return [
             'Lookup' => 'docs/lookup',
             'SemanticForm' => 'docs/semantic-form',
             // 'Setting'       => 'docs/setting',
-            'Suitable'     => 'docs/suitable',
-            'Thunderclap'  => 'docs/thunderclap',
+            'Suitable' => 'docs/suitable',
+            'Thunderclap' => 'docs/thunderclap',
         ],
     ],
     'Surat Terbuka' => [
@@ -55,12 +56,12 @@ return [
             'Multiple File Upload' => 'studi-kasus/multiple-file-upload',
         ],
     ],
-    'Epilog'        => [
+    'Epilog' => [
         'children' => [
-            'Kontribusi'        => 'guidelines/contribution',
+            'Kontribusi' => 'guidelines/contribution',
             'Panduan Penulisan' => 'guidelines/typography',
-            'Hak Cipta'         => '#',
-            'Logo'              => '#',
+            'Hak Cipta' => '#',
+            'Logo' => '#',
         ],
     ],
 ];

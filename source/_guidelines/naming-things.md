@@ -11,16 +11,17 @@ section: content
 | What                     | Penulisan                                                    | Contoh                                                       |
 | ------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | Variable                 | camelCase                                                    | $userId                                                      |
-| Class Property           | camelCase                                                    | private $accessToken                                         |
-| Class Method             | camelCase                                                    | $postRepository->featuredArticle()                           |
-| Global Helper            | snake_case                                                   | format_rupiah()                                              |
-| Model                    | StudlyCase<br />Kata Benda                                   | User<br />UserProfile                                        |
-| View File                | kebab-case                                                   | laporan-harian.blade.php                                     |
-| Resource Controller      | StudlyCase<br />Kata Benda<br />Sufiks `Controller`          | UserController<br />BukuTamuController                       |
-| Single Action Controller | StudlyCase<br />Kata Kerja<br />Sufiks `Controller`          | ClearCacheController<br />LogoutController<br />DownloadLaporanHarianController |
+| Class property           | camelCase                                                    | private $accessToken                                         |
+| Class method             | camelCase                                                    | $postRepository->featuredArticle()                           |
+| Global helper            | snake_case                                                   | format_rupiah()                                              |
+| Model                    | StudlyCase<br />**Kata Benda**                               | User<br />UserProfile                                        |
+| View file                | kebab-case                                                   | laporan-harian.blade.php                                     |
+| View file (partial)      | kebab-case **diawali underscore**                            | _tabel-pegawai.blade.php                                     |
+| Resource controller      | StudlyCase<br />**Kata Benda**<br />Sufiks `Controller`      | UserController<br />BukuTamuController                       |
+| Single action controller | StudlyCase<br />**Kata Kerja**<br />Tanpa Sufiks `Controller` | ClearCache<br />Logout<br />DownloadLaporanHarian            |
 | Route URL                | kebab-case                                                   | https://javan.co.id/lowongan-kerja                           |
-| Route Name               | kebab-case<br />Antara resource dan action dipisahkan dot (".") | Route::get('lowongan-kerja', 'LowonganKerjaController@index')->name('lowongan-kerja.index'); |
-| Route Parameter          | camelCase                                                    | Route::get('lowongan-kerja/{lowonganKerja}', 'LowonganKerjaController@index'); |
-| Config File              | kebab-case                                                   | config/dynamic-form.php                                      |
-| Config Key               | snake_case                                                   | `'allowed_types' => ['text', 'textarea', 'select’]`          |
-| Artisan Command          | kebab-case                                                   | `php artisan generate-laporan`                               |
+| Route name               | kebab-case<br />**Antara resource dan action dipisahkan dot (".")** | Route::get('lowongan-kerja', 'LowonganKerjaController@index')->name('lowongan-kerja.index'); |
+| Route parameter          | camelCase                                                    | Route::get('lowongan-kerja/{lowonganKerja}', 'LowonganKerjaController@index'); |
+| Config file              | kebab-case                                                   | config/dynamic-form.php                                      |
+| Config key               | snake_case                                                   | `'allowed_types' => ['text', 'textarea', 'select’]`          |
+| Artisan command          | kebab-case                                                   | `php artisan generate-laporan`                               |
