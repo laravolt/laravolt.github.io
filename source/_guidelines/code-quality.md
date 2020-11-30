@@ -37,6 +37,8 @@ composer require friendsofphp/php-cs-fixer --dev
 
 ### Pemakaian
 
+> 🌟 Jalankan perintah-perintah berikut ini dari folder aplikasi.
+
 Melakukan *fixing* otomatis:
 
 ```bash
@@ -47,6 +49,26 @@ Melakukan pengecekan saja tanpa *fixing*, tambahkan opsi `--dry-run`:
 
 ```bash
 vendor/bin/php-cs-fixer fix --dry-run --diff --diff-format udiff
+```
+
+Jika command-nya terlalu panjang untuk diingat, tambahkan shortcut/alias ke composer.json:
+
+```json
+"scripts": {
+ "cs-check": [
+    "vendor/bin/php-cs-fixer fix --dry-run --diff --diff-format udiff"
+  ],
+  "cs-fix": [
+    "vendor/bin/php-cs-fixer fix --diff --diff-format udiff"
+  ]
+}
+```
+
+Selanjutnya, kita cukup memanggil alias yang sudah didefinisikan di atas:
+
+```bash
+composer cs-check
+composer cs-fix
 ```
 
 
