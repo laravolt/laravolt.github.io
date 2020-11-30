@@ -210,7 +210,7 @@ $finder = Finder::create()
         $project_path.'/app',
         $project_path.'/config',
         $project_path.'/database',
-        $project_path.'/modules/Pengaduan/Controllers',
+        $project_path.'/modules',
         $project_path.'/resources',
         $project_path.'/routes',
         $project_path.'/tests',
