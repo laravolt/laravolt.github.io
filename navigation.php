@@ -11,6 +11,7 @@ return [
     ],
     'Guideline' => [
         'children' => [
+            'Code Quality' => 'guidelines/code-quality',
             'Naming Things' => 'guidelines/naming-things',
             'File Permissions' => 'docs/file-permissions',
             'Git' => 'guidelines/git',
