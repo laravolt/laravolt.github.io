@@ -17,6 +17,13 @@ Pesan di atas adalah contoh hasil *static code anlysis* dengan **Larastan** terh
 
 Kemampuan dan energi *code reviewer* (manusia) ada batasnya. Hal ini yang kadang menyebabkan kode yang buruk masih bisa lolos reviu dan naik ke *production*. Untuk itulah peran *tools* sepert Larastan menjadi sangat penting untuk menjaga kualitas kode. Selain karena bukan manusia (jadi tidak ada kata lelah), melakukan reviu kode dengan menggunakan *tools* juga lebih obyektif karena ada seperangkat *rules* yang terdefinisi dan telah disepakati sebelumnya.
 
+Code reviewer bisa fokus mengurusi hal-hal penting lainnya, seperti:
+
+1. Penamaan
+2. Algoritmat
+3. Arsitektur *Class*
+4. Dan hal-hal lain yang butuh *wisdom*.
+
 ## Code Style
 
 ### Tujuan
