@@ -20,7 +20,7 @@ Kemampuan dan energi *code reviewer* (manusia) ada batasnya. Hal ini yang kadang
 Code reviewer bisa fokus mengurusi hal-hal penting lainnya, seperti:
 
 1. Penamaan
-2. Algoritmat
+2. Algoritma
 3. Arsitektur *Class*
 4. Dan hal-hal lain yang butuh *wisdom*.
 
