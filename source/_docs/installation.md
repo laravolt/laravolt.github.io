@@ -27,22 +27,50 @@ Laravolt membutuhkan [Composer](https://getcomposer.org/) dan koneksi internet u
 
 > Kamu tidak perlu ~~ganteng atau cantik~~ akun GitHub untuk mulai menggunakan Laravolt. Meskipun... Hari gini ngaku programmer tapi ga punya akun github?
 
-
-
 **Laravolt platform** adalah sebuah package, oleh sebab itu kamu harus sudah punya aplikasi Laravel dulu sebelumnya. Instalasi Laravel bisa dibaca di [dokumentasi resminya](https://laravel.com/docs/master#installing-laravel).
 
 Jika aplikasi Laravel sudah siap, jalankan perintah berikut untuk menambahkan Laravolt:
 
+
+
+### 1. Install package
+
 ```bash
 composer require laravolt/laravolt:dev-master
 ```
+
+
+
+### 2. Install dan compile assets
+
+Agar bisa digunakan, Laravolt perlu generated assets.
+
+
+#### Untuk npm user
+
+```bash
+npm install && npm run dev
+```
+
+
+#### Untuk yarn user
+
+```bash
+yarn add vue-template-compiler --dev --production=false && yarn run dev
+```
+
+> Tambah dependency `vue-template-compiler` dan compile assets yang diperlukan.
+> Agar ketika running `yarn` tidak pindah ke `npm` untuk menambah dependency yang kurang.
+
+
+
+### 3. Setup laravolt
 
 Beberapa file perlu digenerate dan disesuaikan agar Laravolt berjalan dengan baik. Cukup jalankan perintah di bawah ini, Laravolt akan melakukannya untukmu:
 
 ```bash
 php artisan ui laravolt
 ```
-
 
 
 Selanjutnya, jangan lupa menjalakan migration:
@@ -52,25 +80,8 @@ php artisan migrate
 ```
 
 
-### Install dan compile Assets
 
-Agar bisa digunakan, Laravolt perlu generated assets.
-
-```bash
-yarn install
-yarn run dev
-```
-
-atau
-
-```bash
-npm install
-npm run dev
-```
-
-
-
-### Login Admin
+### 4. Administrator
 
 Untuk menambahkan user dengan role admin, bisa menjalankan perintah:
 
@@ -86,7 +97,7 @@ php artisan laravolt:admin Admin admin@laravolt.dev secret
 
 
 
-### Local Development
+### 5. Local Development
 
 Sebagaimana diketahui, untuk menjalankan aplikasi PHP dibutuhkan sebuah ***web server***. Jika kamu sudah meng-install PHP, maka kamu bisa memanfaatkan server bawaan PHP. Cukup jalankan perintah:
 
@@ -101,6 +112,7 @@ Jika membutuhkan development server yang lebih lengkap dan bisa diutak-atik, sil
 1. [Laragon](https://laragon.org/)
 2. [XAMPP](https://www.apachefriends.org/index.html)
 3. [WampServer](http://www.wampserver.com/en)
-4. [Laravel Homestead](https://laravel.com/docs/5.8/homestead)
-5. [Laravel Valet](https://laravel.com/docs/5.8/valet)
+4. [Laravel Homestead](https://laravel.com/docs/8.x/homestead)
+5. [Laravel Valet](https://laravel.com/docs/8.x/valet)
 6. [Vessel (Docker for Laravel)](https://vessel.shippingdocker.com/)
+6. [Laradock)](https://laradock.io/)
