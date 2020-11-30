@@ -263,7 +263,8 @@ https://www.sonarlint.org/
 
 ### Instalasi
 
-[TODO] lengkapi panduan instalasi
+- https://blog.javan.co.id/meningkatkan-code-quality-dengan-plugin-sonarlint-di-intellij-idea-36705b6cd8fa
+- https://blog.javan.co.id/cara-mudah-meningkatkan-kualitas-kode-menggunakan-sonar-37c6f8e0239b
 
 ### Pemakaian
 
