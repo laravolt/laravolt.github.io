@@ -258,7 +258,7 @@ includes:
     - ./vendor/nunomaduro/larastan/extension.neon
 
 parameters:
-	level: neon
+	level: 5
 	paths:
 		- app
 		- modules
