@@ -47,6 +47,11 @@ return [
             // 'Untuk CEO'                  => 'docs/for-ceo',
             'Untuk System Analyst' => 'docs/for-system-analyst',
             'PHP: Security & Performance' => 'docs/php-security-and-performance',
+            'Untuk Programmer' => [
+                'children' => [
+                    'Pengguna VSCode' => 'tools/vscode'
+                ]
+            ]
         ],
     ],
     'Studi Kasus' => [
