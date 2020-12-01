@@ -11,6 +11,7 @@ return [
     ],
     'Guideline' => [
         'children' => [
+            'Editor & IDE' => 'guidelines/editor-ide',
             'Naming Things' => 'guidelines/naming-things',
             'File Permissions' => 'docs/file-permissions',
             'Git' => 'guidelines/git',
@@ -47,7 +48,6 @@ return [
             // 'Untuk CEO'                  => 'docs/for-ceo',
             'Untuk System Analyst' => 'docs/for-system-analyst',
             'PHP: Security & Performance' => 'docs/php-security-and-performance',
-            'Programmer VSCode' => 'tools/vscode',
         ],
     ],
     'Studi Kasus' => [
