@@ -25,3 +25,4 @@ section: content
 | Config file              | kebab-case                                                   | config/dynamic-form.php                                      |
 | Config key               | snake_case                                                   | `'allowed_types' => ['text', 'textarea', 'select’]`          |
 | Artisan command          | kebab-case                                                   | `php artisan generate-laporan`                               |
+| Table name               | snake_case<br />**Kata Benda**<br />Bisa diberi prefik untuk ***grouping*** | pegawai <br />master_provinsi<br />master_kabupaten<br />    |
