@@ -270,6 +270,11 @@ parameters:
 		- app
 		- modules
 		- tests
+	ignoreErrors:
+	    - '#Access to an undefined property *#'
+	reportUnmatchedIgnoredErrors: false
+		
+		
 ```
 
 ### Pemakaian
