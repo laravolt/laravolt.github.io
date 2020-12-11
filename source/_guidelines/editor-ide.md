@@ -69,9 +69,23 @@ Link: https://marketplace.visualstudio.com/items?itemName=SonarSource.sonarlint-
 
 Dengan *extension* ini kita bisa meningkatkan kualitas dari kode yang kita buat, dengan catatan kita memenuhi semua rekomendasi yang diberikan.
 
+#### GitLens
+Link: https://gitlens.amod.io/
+
+Ekstensi GitLens memudahkan kita berinteraksi dengan git. Beberapa fitur yang disediakan:
+1. Navigasi _file_ sesuai history git.
+2. _Git blame & authorship_, menyediakan informasi commit beserta siapa author yang terakhir kali mengubah file ataupun baris kode tertentu.
+3. Visualisasi git _branch_.
+
 ## PHPStorm
 
 Link: https://www.jetbrains.com/phpstorm/
 
-[TODO]
+Untuk menambahkan plugins, silakan buka men Preferences > Plugins > Marketplace.
 
+PHPStorm sudah dibekali dengan banyak fitur bawaan sehingga kita hanya perlu menambahkan beberapa plugin saja, antara lain:
+1. Laravel
+2. SonarLint
+3. Php Inspection (EA Extended)
+4. WakaTime (opsional, statistik personal)
+5. Code with me (_collaborative coding_)
