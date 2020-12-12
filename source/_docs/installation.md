@@ -79,6 +79,28 @@ Selanjutnya, jangan lupa menjalakan migration:
 php artisan migrate
 ```
 
+#### Tambahkan disks
+
+Agar semua menu di Laravolt bisa diakses tanpa ada masalah,
+kita perlu menambahkan `disks` baru di `config/filesystems.php`.
+
+```php
+<?php
+
+return [
+    ...
+    'disks' => [
+
+        'local-backup' => [
+            # karena masih development kita pakai driver local
+            'driver' => 'local',
+            'root' => storage_path('backup'),
+        ],
+        ...
+    ];
+];
+
+```
 
 
 ### 4. Administrator
