@@ -336,7 +336,25 @@ form()->dropdownDB('kabupaten', $query, 'id', 'name')->dependency('provinsi');
 
 Setiap kali dropdown provinsi berubah nilainya, maka dropdown kabupaten juga akan di-update opsinya sesuai provinsi terpilih. 
 
-*Under the hood*, **ID** dari provinsi akan dikirim ke server via AJAX, dan query untuk dropdown kabupaten akan dijalankan dengan mengganti placeholder **%s** dengan **ID** provinsi tersebut.
+> *Under the hood*, **ID** dari provinsi akan dikirim ke server via AJAX, dan query untuk dropdown kabupaten akan dijalankan dengan mengganti placeholder **%s** dengan **ID** provinsi tersebut.
+
+**Prepopulate Child Dropdown**
+
+_By default_, hanya _parent dropdown_ yang akan melakukan query ketika halaman di-_load_ pertama kali. Query untuk _child dropdown_ baru dijalankan ketika value _parent_-nya berubah. Namun ada kalanya opsi dari _child dropdown_ juga perlu di-_generate_ di awal, misalnya ketika membuat halaman edit.
+
+Sebagai contoh, jika sebelumnya pengguna sudah memilih provinsi dan kabupaten, maka kita bisa menampilkan _selected value_ di awal dengan cara seperti berikut:
+
+```php
+$selectedProvinsi = 1;
+$selectedKabupaten = 56;
+
+$queryProvinsi = 'SELECT id, name from provinsi order by name';
+form()->dropdownDB('provinsi', $query, $keyColumn = 'id', $valueColumn = 'name')->value(selectedProvinsi);
+
+$queryKabupaten = 'SELECT id, name from kabupaten where provinsi_id = %s'
+form()->dropdownDB('kabupaten', $query, 'id', 'name')->value($selectedKabupaten)->dependency('provinsi', selectedProvinsi);
+```
+Bisa dilihat, kita hanya perlu mengeset value masing-masing dropdown dengan `->value($selectedValue)` dan menambahkan parameter kedua di _method_ `->dependency('provinsi', $selectedProvinsi)`. Dengan cara ini, opsi kedua dropdown akan di-_populate_ di awal dan _selected value_-nya bisa diset seperti biasa.
 
 ### File
 
