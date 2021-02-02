@@ -69,7 +69,7 @@ form()->open()->route('post.store');
 // Field lainnya disini...
 
 // Tombol submit
-form()->submi('Save');
+form()->submit('Save');
 
 // Menutup form
 form()->close();
