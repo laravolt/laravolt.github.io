@@ -36,7 +36,7 @@ Jika aplikasi Laravel sudah siap, jalankan perintah berikut untuk menambahkan La
 ### 1. Install package
 
 ```bash
-composer require laravolt/laravolt:dev-master
+composer require laravolt/laravolt:^4.2
 ```
 
 
