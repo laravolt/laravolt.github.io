@@ -571,7 +571,7 @@ Beberapa method tambahan yang tersedia:
 ```php
 RestfulButton::make('users')->only("view", "edit");
 
-RestfulButton::make('users')->excep("delete");
+RestfulButton::make('users')->except("delete");
 ```
 
 
