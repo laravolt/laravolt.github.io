@@ -4,7 +4,60 @@ return [
     'v5' => [
         'Prolog' => [
             'children' => [
-                'Introduction' => 'introduction',
+                'Why Laravolt?' => '#',
+                'Installation' => '#',
+                'Hello World' => '#',
+                'Sponsorship' => '#',
+            ],
+        ],
+        'Skeleton' => [
+            'children' => [
+                'Authentication' => '#',
+                'Registration' => '#',
+                'Reset Password' => '#',
+                'Email Activation' => '#',
+                'Edit Profile' => '#',
+            ],
+        ],
+        'Built In Features' => [
+            'children' => [
+                'User Management' => '#',
+                'General Settings' => '#',
+                'Appearance' => '#',
+                'Lookup' => '#',
+                'Database Monitor' => '#',
+                'Log Viewer' => '#',
+                'Audit Trail' => '#',
+                'Quick Switcher' => '#',
+                'Mail Keeper' => '#',
+                'User Avatar' => '#',
+                'Media Manager' => '#',
+            ],
+        ],
+        'UI Components' => [
+            'children' => [
+                'Chart & Visualization' => '#',
+                'Table View' => '#',
+                'List View' => '#',
+                'Detail View' => '#',
+                'Form Builder' => '#',
+                'BPMN Viewer' => '#',
+            ],
+        ],
+        'Standalone Packages' => [
+            'children' => [
+                'User Avatar Generator' => '#',
+                'Metabase Dashboard Viewer' => '#',
+                'Camunda API Client' => '#',
+                'Data Wilayah Indonesia' => '#',
+            ],
+        ],
+        'Epilog' => [
+            'children' => [
+                'Kontribusi' => '#',
+                'Panduan Penulisan' => '#',
+                'Hak Cipta' => '#',
+                'Logo' => '#',
             ],
         ],
     ],
@@ -56,8 +109,6 @@ return [
             'children' => [
                 'Kontribusi' => 'guidelines/contribution',
                 'Panduan Penulisan' => 'guidelines/typography',
-                'Hak Cipta' => '#',
-                'Logo' => '#',
             ],
         ],
     ],

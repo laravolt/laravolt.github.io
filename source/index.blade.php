@@ -8,7 +8,7 @@
 
             <h2 id="intro-powered-by-jigsaw" class="font-light mt-4">{{ $page->siteDescription }}</h2>
 
-            <p class="text-lg">Laravolt menyediakan fitur standard sebuah sistem informasi. Arsitektur Laravolt memaksamu berpikir modular sehingga sebuah fitur (modul) bisa digunakan di proyek lain dengan mudah. </p>
+            <p class="text-lg">Laravolt menyediakan fitur standard sebuah sistem informasi dan membantu mempercepat pembuatan fitur baru dengan <i>code generator</i> yang disediakan. Jika kamu sudah kenal Laravel, maka kamu sudah bisa Laravolt. </p>
 
             <div class="flex my-10">
                 <a href="/docs/{{ $page->selectedVersion() }}" title="{{ $page->siteName }} getting started" class="bg-indigo-700 hover:bg-indigo-800 text-white hover:text-white rounded mr-4 py-2 px-6">Baca Dokumentasi</a>
@@ -26,7 +26,7 @@
 
             <h3 id="intro-laravel" class="text-2xl text-indigo-darkest mb-0">CRUD Builder</h3>
 
-            <p>Membuat CRUD hanya dalam hitungan detik. Kode yang dihasilkan sangat eksplisit, mudah dimodifikasi, dan <i>developer friendly</i>.</p>
+            <p>Membuat CRUD hanya dalam hitungan detik, lengkap dengan <i>full featured datatable</i> dan SPA-like navigation.</p>
         </div>
 
         <div class="mb-8 mx-3 px-2 md:w-1/3">
@@ -34,7 +34,7 @@
 
             <h3 id="intro-markdown" class="text-2xl text-indigo-darkest mb-0">Unified Interface</h3>
 
-            <p>Admin panel yang minimalis, ringan, dan elegan, didukung puluhan komponen siap pakai. Laravolt menyediakan standard UI sehingga Anda bisa fokus pada UX.</p>
+            <p>Admin panel yang minimalis, ringan, dan elegan, didukung puluhan komponen siap pakai. Laravolt menyediakan standard UI sehingga Kamu bisa fokus pada UX.</p>
         </div>
 
         <div class="mx-3 px-2 md:w-1/3">
@@ -50,7 +50,7 @@
 
             <h3 id="intro-mix" class="text-2xl text-indigo-darkest mb-0">BPMN Integration</h3>
 
-            <p>Ketika proses bisnis aplikasi tidak lagi sederhana, Laravolt menyediakan dukungan untuk BPMN <i>engine</i> seperti Camunda dan Joget.</p>
+            <p>Ketika proses bisnis aplikasi tidak lagi sederhana, Laravolt menyediakan dukungan untuk BPMN <i>engine</i> seperti Camunda.</p>
         </div>
     </div>
 </section>
