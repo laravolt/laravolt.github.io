@@ -1,29 +1,45 @@
 <?php
 
+use Illuminate\Support\Str;
+
 return [
-    'baseUrl' => 'http://localhost',
+    'baseUrl' => 'http://localhost:3000',
     'production' => false,
     'siteName' => 'Laravolt',
     'siteDescription' => 'Platform untuk mengembangkan sistem informasi dalam 2 minggu',
-
-    // collections
-    'collections' => ['docs', 'guidelines', 'snippets', 'studi-kasus'],
-
-    // navigation menu
+    'prettyUrls' => true,
+    'versions' => [
+        'v4' => '4.x',
+        'v5' => '5.x',
+    ],
+    'defaultVersion' => 'v5',
+    'selectedVersion' => function ($page) {
+        return explode('/', $page->getPath())[2] ?? $page->defaultVersion;
+    },
     'navigation' => require('navigation.php'),
 
-    // helpers
     'isActive' => function ($page, $path) {
-        return ends_with(trimPath($page->getPath()), trimPath($path));
+        return str_ends_with(trimPath($page->getPath()), trimPath($path));
+    },
+    'isDocs' => function ($page) {
+        return (explode('/', $page->getPath())[1] ?? null) === 'docs';
     },
     'isActiveParent' => function ($page, $menuItem) {
         if (is_object($menuItem) && $menuItem->children) {
-            return $menuItem->children->contains(function ($child) use ($page) {
-                return trimPath($page->getPath()) == trimPath($child);
-            });
+            return $menuItem->children->contains(
+                function ($child) use ($page) {
+                    return trimPath($page->getPath()) === trimPath($child);
+                }
+            );
         }
     },
     'url' => function ($page, $path) {
-        return starts_with($path, 'http') ? $path : '/' . trimPath($path);
+        return (Str::startsWith($path, 'http://') || Str::startsWith($path, 'https://')) ? $path : '/'.trimPath($path);
+    },
+    'isUrl' => function ($page, $path) {
+        return Str::startsWith($path, 'http://') || Str::startsWith($path, 'https://');
+    },
+    'link' => function ($page, $path) {
+        return $page->baseUrl.'/docs/'.$page->selectedVersion().'/'.$path.($page->prettyUrls ? '' : '.html');
     },
 ];

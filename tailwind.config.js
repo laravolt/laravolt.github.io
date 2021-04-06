@@ -16,8 +16,9 @@ module.exports = {
             ],
         },
     },
-    theme: {
+    variants: {
         extend: {
-        },
-    },
+            display: ['responsive', 'group-hover'],
+        }
+    }
 }

@@ -7,7 +7,7 @@ section: content
 
 # View
 
-1. View tidak boleh mengandung *logic*. Pindahkan *logic* ke ***[helper](/docs/snippets/membuat-helper)*** atau ***Model***.
+1. View tidak boleh mengandung *logic*. Pindahkan *logic* ke helper.
 2. Jika view sudah terlalu kompleks, manfaatkan `@include` dan `@component` untuk memecahnya.
 3. Manfaatkan ***Service Injection*** ketika:
    - View akan dipakai di beberapa tempat.
@@ -26,7 +26,7 @@ Dalam sebuah CMS, tanggal artikel dibuat biasanya diambil dari kolom `created_at
 ```php+HTML
 @foreach($artikel as $item)
 	<div>
-  	<h3>{{ $item->title }}</h3>  
+  	<h3>{{ $item->title }}</h3>
     <small>{{ date('d F Y', strtotime($item->created_at)) }}</small>
 	</div>
 @endforeach
@@ -35,7 +35,7 @@ Dalam sebuah CMS, tanggal artikel dibuat biasanya diambil dari kolom `created_at
 ##### show.blade.php
 
 ```php+HTML
-<h3>{{ $item->title }}</h3>  
+<h3>{{ $item->title }}</h3>
 <small>{{ date('d F Y', strtotime($item->created_at)) }}</small>
 <div>
   {!! $item->content !!}
@@ -49,11 +49,11 @@ Solusi di atas berjalan dengan baik, hingga kemudian ada kebutuhan untuk menggan
 Tambahkan accessor di model Artikel:
 
 ```php
-class Artikel extends Model 
+class Artikel extends Model
 {
     public function getDateFormattedAttribute()
     {
-     	return date('d F Y', strtotime($this->created_at)); 
+     	return date('d F Y', strtotime($this->created_at));
     }
 }
 ```
@@ -65,7 +65,7 @@ Bersihkan view:
 ```php+HTML
 @foreach($artikel as $item)
 	<div>
-  	<h3>{{ $item->title }}</h3>  
+  	<h3>{{ $item->title }}</h3>
     <small>{{ $item->date_formatted }}</small>
 	</div>
 @endforeach
@@ -74,7 +74,7 @@ Bersihkan view:
 ##### show.blade.php
 
 ```php+HTML
-<h3>{{ $item->title }}</h3>  
+<h3>{{ $item->title }}</h3>
 <small>{{ $item->date_formatted }}</small>
 <div>
   {!! $item->content !!}
@@ -88,7 +88,7 @@ Meskipun tidak ada aturan khusus terkait penamaan fungsi accessor, kami merekome
 ```php
 $model->title // Jelas ini dari kolom title, mari cek DB
 $model->excerpt // Cek DB, lho kok tidak ada kolom `excerpt`? Oo, ini accessor, mari buka file
-  
+
 $model->present_excerpt // Ok, ini pasti acccessor, mari buka file
 ```
 

@@ -48,12 +48,11 @@
                         <h1 class="text-lg md:text-2xl text-blue-900 font-semibold hover:text-blue-dark my-0 pr-4">{{ $page->siteName }}</h1>
                     </a>
                 </div>
-
+                @if($page->isDocs())
                 <div class="flex flex-1 justify-end items-center text-right md:pl-10">
-                    @if ($page->docsearchApiKey && $page->docsearchIndexName)
-                        @include('_nav.search-input')
-                    @endif
+                    @include('_nav.versions')
                 </div>
+                @endif
             </div>
 
             @yield('nav-toggle')

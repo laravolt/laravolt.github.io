@@ -8,7 +8,7 @@
 <section class="container max-w-5xl mx-auto px-6 md:px-8 py-4">
     <div class="flex flex-col lg:flex-row">
         <nav id="js-nav-menu" class="nav-menu hidden lg:block my-0 mr-6">
-            @include('_nav.menu', ['items' => $page->navigation])
+            @include('_nav.menu', ['items' => $page->navigation[$page->selectedVersion()]])
         </nav>
 
         <div class="documentation markdown w-full break-words pb-16 lg:pl-4" v-pre>
