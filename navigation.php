@@ -5,7 +5,7 @@ return [
         'Prolog' => [
             'children' => [
                 'Why Laravolt?' => '#',
-                'Installation' => '#',
+                'Installation' => 'installation',
                 'Hello World' => '#',
                 'Sponsorship' => '#',
             ],
