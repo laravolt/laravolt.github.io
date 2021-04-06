@@ -12,7 +12,7 @@
         </nav>
 
         <div class="documentation markdown w-full break-words pb-16 lg:pl-4" v-pre>
-            {!! $page->content !!}
+            @yield('content')
         </div>
     </div>
 </section>

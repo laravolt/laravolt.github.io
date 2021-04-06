@@ -12,7 +12,7 @@ return [
         'v4' => '4.x',
         'v5' => '5.x',
     ],
-    'defaultVersion' => 'v5',
+    'defaultVersion' => 'v4',
     'selectedVersion' => function ($page) {
         return explode('/', $page->getPath())[2] ?? $page->defaultVersion;
     },
