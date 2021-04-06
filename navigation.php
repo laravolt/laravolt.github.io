@@ -46,10 +46,10 @@ return [
         ],
         'Standalone Packages' => [
             'children' => [
-                'User Avatar Generator' => '#',
-                'Metabase Dashboard Viewer' => '#',
-                'Camunda API Client' => '#',
-                'Data Wilayah Indonesia' => '#',
+                'laravolt/avatar' => '#',
+                'laravolt/metabase' => '#',
+                'laravolt/camunda' => '#',
+                'laravolt/indonesia' => '#',
             ],
         ],
         'Epilog' => [
