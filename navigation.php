@@ -4,10 +4,10 @@ return [
     'v5' => [
         'Prolog' => [
             'children' => [
-                'Why Laravolt?' => '#',
+                'Why Laravolt?' => 'introduction',
                 'Installation' => 'installation',
-                'Hello World' => '#',
-                'Sponsorship' => '#',
+                'Hello World' => 'hello-world',
+                // 'Sponsorship' => '#',
             ],
         ],
         'Skeleton' => [
@@ -17,6 +17,14 @@ return [
                 'Reset Password' => '#',
                 'Email Activation' => '#',
                 'Edit Profile' => '#',
+            ],
+        ],
+        'Admin Panel' => [
+            'children' => [
+                'Anatomy' => '#',
+                'Sidebar Menu' => '#',
+                'Action Button' => '#',
+                'ACL' => '#',
             ],
         ],
         'Built In Features' => [

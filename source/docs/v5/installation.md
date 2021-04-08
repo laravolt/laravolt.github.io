@@ -11,16 +11,17 @@ section: content
 
 1. PHP >= 8.0
 1. Laravel >= 8.0
-2. MySQL, MariaDB, PostgreSQL, atau SQLite
-3. BCMath PHP Extension
-4. Ctype PHP Extension
-5. GD PHP Extension
-6. JSON PHP Extension
-7. Mbstring PHP Extension
-8. OpenSSL PHP Extension
-9. PDO PHP Extension
-10. Tokenizer PHP Extension
-11. XML PHP Extension
+1. MySQL, MariaDB, atau PostgreSQL
+1. PHP Extensions:
+    - BCMath
+    - Ctype
+    - GD
+    - JSON
+    - Mbstring
+    - OpenSSL
+    - PDO
+    - Tokenizer
+    - XML
 
 ## Instalasi Laravolt
 
@@ -78,12 +79,11 @@ Selanjutkan aplikasimu bisa diakses di http://localhost:8000. Login dengan user 
 
 Selamat, kamu berhasil meng-install Laravolt!
 
-Jika membutuhkan development server yang lebih lengkap dan bisa diutak-atik, silakan mencoba beberapa alternatif berikut ini:
+Jika membutuhkan development server yang lebih lengkap dan _robust_, silakan mencoba beberapa alternatif berikut ini:
 
+0. [Laravel Sail (docker)](https://laravel.com/docs/master/sail)
 1. [Laragon](https://laragon.org/)
 2. [XAMPP](https://www.apachefriends.org/index.html)
 3. [WampServer](http://www.wampserver.com/en)
-4. [Laravel Homestead](https://laravel.com/docs/8.x/homestead)
 5. [Laravel Valet](https://laravel.com/docs/8.x/valet)
-6. [Vessel (Docker for Laravel)](https://vessel.shippingdocker.com/)
-6. [Laradock)](https://laradock.io/)
+6. [Laradock (docker)](https://laradock.io/)
