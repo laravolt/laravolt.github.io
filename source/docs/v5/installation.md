@@ -34,7 +34,7 @@ Jika aplikasi Laravel sudah siap, lanjutkan dengan langkah-langkah berikut:
 ### 1. Install Package
 
 ```bash
-composer require laravolt/laravolt
+composer require laravolt/laravolt:dev-master
 ```
 
 ### 2. Setup Laravolt
