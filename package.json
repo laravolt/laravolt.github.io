@@ -27,7 +27,7 @@
     "name": "laravolt.github.io",
     "dependencies": {
         "autoprefixer": "^9.5.1",
-        "postcss": "^7.0.35",
+        "postcss": "^8.2.10",
         "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.1"
     }
 }
