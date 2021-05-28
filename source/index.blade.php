@@ -48,9 +48,9 @@
         <div class="mx-3 px-2 md:w-1/3">
             <img src="/assets/img/icons8-workflow-100.png" class="h-16 w-16" alt="stack icon">
 
-            <h3 id="intro-mix" class="text-2xl text-indigo-darkest mb-0">BPMN Integration</h3>
+            <h3 id="intro-mix" class="text-2xl text-indigo-darkest mb-0">Workflow</h3>
 
-            <p>Ketika proses bisnis aplikasi tidak lagi sederhana, Laravolt menyediakan dukungan untuk BPMN <i>engine</i> seperti Camunda.</p>
+            <p>Ketika proses bisnis aplikasi tidak lagi sederhana, Laravolt menyediakan dukungan untuk <i>workflow engine</i> seperti Camunda.</p>
         </div>
     </div>
 </section>
