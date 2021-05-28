@@ -27,19 +27,20 @@ return [
                 'ACL' => '#',
             ],
         ],
-        'Built In Features' => [
+        'Features' => [
             'children' => [
-                'User Management' => '#',
-                'General Settings' => '#',
                 'Appearance' => '#',
-                'Lookup' => '#',
-                'Database Monitor' => '#',
-                'Log Viewer' => '#',
                 'Audit Trail' => '#',
-                'Quick Switcher' => '#',
+                'Avatar' => '#',
+                'Database Monitor' => '#',
+                'General Settings' => '#',
+                'Log Viewer' => '#',
+                'Lookup' => '#',
                 'Mail Keeper' => '#',
-                'User Avatar' => '#',
                 'Media Manager' => '#',
+                'Quick Switcher' => '#',
+                'User Management' => '#',
+                'Workflow' => 'workflow',
             ],
         ],
         'UI Components' => [
