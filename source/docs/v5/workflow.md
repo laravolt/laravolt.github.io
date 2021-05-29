@@ -10,8 +10,6 @@ section: content
 ## Prasyarat
 - Sudah bisa login sebagai Admin aplikasi.
 - Sudah memahami konsep BPMN dan Camunda Engine.
-- Sudah memahami cara menambah menu sidebar.
-- Sudah memahami cara membuat form dari config file.
 
 ## Overview
 Laravolt Workflow mampu menyediakan antarmuka untuk mengeksekusi diagram BPMN, memanfaatkan [Camunda REST API](https://docs.camunda.org/manual/latest/), sehingga sebuah proses bisnis bisa divalidasi dengan lebih cepat.
@@ -73,7 +71,27 @@ return [
 ];
 
 ```
-Berdasar file konfigurasi di atas, Modul sudah bisa diakses di `localhost/workflow/module/rekrutmen/instances`.
+Berdasar file konfigurasi di atas, Modul sudah bisa diakses di URL `localhost/workflow/module/rekrutmen/instances`.
+
+## Menambah Menu
+Agar URL lebih mudah diakses, kita bisa menambahkannya ke menu. Caranya, buat file `config/laravolt/menu/app.php` dengan isian:
+```php
+<?php
+
+return [
+    'App' => [
+        'menu' => [
+            'Rekrutmen' => [
+                'route' => ['workflow::module.instances.index', 'rekrutmen'],
+                'icon'  => 'inbox'
+            ],
+        ],
+    ],
+];
+
+```
+Silakan sesuaikan sendiri label `Rekrutmen`, route _key_ `rekrutmen`, dan icon `inbox` sesuai kebutuhan aplikasi.
+
 
 ## Mendefinisikan Form
 Untuk setiap BPMN yang di-import ke aplikasi, kita perlu mendefinisikan _form fields_ untuk semua Start Event dan User Task yang ditemui.
@@ -97,13 +115,16 @@ return [
 ```
 Pada contoh di atas, `StartEvent_1` adalah ID dari Start Event pada BPMN rekrutmen. Definisi form bisa ditambahkan pada bagian `form_schema`. `full_name` adalah nama variable yang akan disimpan di aplikasi (dan dikirim ke Camunda Engine). Sesuaikan dengan kebutuhan aplikasi.
 
+> ID dari Start Event dan User Task bisa dilihat dengan cara membuka file BPMN menggunakan aplikasi Camunda Modeler.
+
 Setelah form untuk Start Event sudah didefinisikan semua, kamu bisa membuka kembali halaman `localhost/workflow/module/rekrutmen/instances` dan memulai proses baru dengan menekan tombol **+ New**.
 
-Silakan diisi dan disubmit. Jika berhasil, maka data yang diisikan akan tampil di halaman sebelumnya. Tekan tombol **Action** untuk melanjutkan proses hingga tidak ada lagi form yang bisa diisi (proses selesai).
+Silakan diisi dan disubmit. Jika berhasil, maka data yang diisikan akan tampil di halaman sebelumnya. 
 
 Silakan melanjutkan pendefinisian form untuk User Task yang lain. Sebagai referensi, form definisi lengkap untuk BPMN rekrutmen bisa dilihat di https://gist.github.com/uyab/8cbd4bf94b5842646852b12ee42b853d.
 
 Kita bisa melihat, selain `text` ada beberapa jenis field lain yang sudah disediakan oleh Laravolt Workflow, antara lain:
+
 - `email`
 - `textarea`
 - `datepicker`
@@ -115,6 +136,9 @@ Kita bisa melihat, selain `text` ada beberapa jenis field lain yang sudah disedi
 - `redactor`
 
 Silakan bereksplorasi :)
+
+Jika semua form sudah didefinisikan, tekan tombol **Action** untuk melanjutkan proses hingga tidak ada lagi form yang bisa diisi (proses selesai).
+
 
 ## Menampilkan Data Dengan Tabel
 Setelah berhasil mengeksekusi BPMN, langkah berikutnya adalah mengatur informasi apa saja yang perlu ditampilkan ke dalam tabel. Untuk kasus sederhana, kita cukup mendefinisikan `table_variables` di Modul yang sudah dibuat. Untuk kasus yang lebih kompleks, kita bisa membuat custom Table View sendiri.
@@ -137,10 +161,18 @@ return [
 Semua field yang kita definisikan di `form_schema` bisa dipakai sebagai `table_variables`. Silakan mencoba.
 
 ### Custom Table View
+[TODO]
 ### Filtering
+[TODO]
 ### Searching
+[TODO]
 ### Sorting
+[TODO]
 ## Advance
+[TODO]
 ### Form Listener
+[TODO]
 ### Public Form
+[TODO]
 ### Task Assignment
+[TODO]
