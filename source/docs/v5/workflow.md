@@ -8,11 +8,13 @@ section: content
 # Workflow
 
 ## Prasyarat
+- Sudah berhasil melakukan instalasi Laravolt.
 - Sudah bisa login sebagai Admin aplikasi.
 - Sudah memahami konsep BPMN dan Camunda Engine.
 
 ## Overview
-Laravolt Workflow mampu menyediakan antarmuka untuk mengeksekusi diagram BPMN, memanfaatkan [Camunda REST API](https://docs.camunda.org/manual/latest/), sehingga sebuah proses bisnis bisa divalidasi dengan lebih cepat.
+Laravolt Workflow menyediakan antarmuka (GUI) untuk mengeksekusi diagram BPMN, memanfaatkan [Camunda REST API](https://docs.camunda.org/manual/latest/), sehingga sebuah proses bisnis bisa dijalankan dan divalidasi dengan lebih cepat.
+
 ## Installation
 Pastikan kamu sudah meng-install package Laravolt Camunda dan mempersiapkan konfigurasinya.
 ```bash
