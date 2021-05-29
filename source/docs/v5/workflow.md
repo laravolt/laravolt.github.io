@@ -44,11 +44,17 @@ Jalankan `php artisan laravolt:workflow:check` untuk memastikan koneksi ke Camun
 
 ## Import BPMN
 Login ke aplikasi sebagai Admin, pilih menu Workflow > BPMN, klik tombol Tambah.
+
 ![Empty Definition](../assets/uploads/workflow/table-bpmn-definitions-empty.png)
-Pilih salah satu BPMN yang ingin di-import. Pastikan kamu sudah men-deploy BPMN tersebut dari Camunda Modeler sebelumnya.
+
+Pilih salah satu BPMN yang ingin di-import. BPMN yang ditampilkan disini adalah BPMN yang sudah di-deploy ke Camunda Engine sebelumnya.
+
 ![Import BPMN](../assets/uploads/workflow/table-import-bpmn.png)
+
 Selesai. 
+
 ![BPMN imported](../assets/uploads/workflow/table-bpmn-definitions-imported.png)
+
 Selanjutkan kita perlu mendefinisikan Modul untuk mengeksekusi BPMN tersebut.
 
 ## Menambah Modul
@@ -56,10 +62,80 @@ Setelah BPMN berhasil di-import, kita perlu mendefinisikan Modul untuk bisa meng
 
 Pertama-tama, tambahkan sebuah file `config/workflow-modules/rekrutmen.php`. Sesuaikan nama file `rekrutmen.php` dengan proses bisnis aplikasi.
 
+###### config/workflow-modules/rekrutmen.php
+```php
+<?php
+
+return [
+    'process_definition_key' => 'proc_bl_rekrutmen',
+    'name' => 'Rekrutmen Pegawai',
+    'tasks' => [],
+];
+
+```
+Berdasar file konfigurasi di atas, Modul sudah bisa diakses di `localhost/workflow/module/rekrutmen/instances`.
+
 ## Mendefinisikan Form
-### Available Fields
+Untuk setiap BPMN yang di-import ke aplikasi, kita perlu mendefinisikan _form fields_ untuk semua Start Event dan User Task yang ditemui.
+
+Buka kembali file `rekrutmen.php`, lalu tambahkan:
+```php
+return [
+    'process_definition_key' => 'proc_bl_rekrutmen',
+    'name' => 'Rekrutmen Pegawai',
+    'tasks' => [
+        'StartEvent_1' => [
+            'form_schema' => [
+                'full_name' => [
+                    'type' => 'text',
+                    'label' => 'Nama Pelamar',
+                ],
+            ],
+        ],
+    ],
+];
+```
+Pada contoh di atas, `StartEvent_1` adalah ID dari Start Event pada BPMN rekrutmen. Definisi form bisa ditambahkan pada bagian `form_schema`. `full_name` adalah nama variable yang akan disimpan di aplikasi (dan dikirim ke Camunda Engine). Sesuaikan dengan kebutuhan aplikasi.
+
+Setelah form untuk Start Event sudah didefinisikan semua, kamu bisa membuka kembali halaman `localhost/workflow/module/rekrutmen/instances` dan memulai proses baru dengan menekan tombol **+ New**.
+
+Silakan diisi dan disubmit. Jika berhasil, maka data yang diisikan akan tampil di halaman sebelumnya. Tekan tombol **Action** untuk melanjutkan proses hingga tidak ada lagi form yang bisa diisi (proses selesai).
+
+Silakan melanjutkan pendefinisian form untuk User Task yang lain. Sebagai referensi, form definisi lengkap untuk BPMN rekrutmen bisa dilihat di https://gist.github.com/uyab/8cbd4bf94b5842646852b12ee42b853d.
+
+Kita bisa melihat, selain `text` ada beberapa jenis field lain yang sudah disediakan oleh Laravolt Workflow, antara lain:
+- `email`
+- `textarea`
+- `datepicker`
+- `checkbox`
+- `boolean`
+- `radioGroup`
+- `dropdown`
+- `uploader`
+- `redactor`
+
+Silakan bereksplorasi :)
+
 ## Menampilkan Data Dengan Tabel
+Setelah berhasil mengeksekusi BPMN, langkah berikutnya adalah mengatur informasi apa saja yang perlu ditampilkan ke dalam tabel. Untuk kasus sederhana, kita cukup mendefinisikan `table_variables` di Modul yang sudah dibuat. Untuk kasus yang lebih kompleks, kita bisa membuat custom Table View sendiri.
+
 ### Mendefinisikan Kolom Yang Ditampilkan
+Buka kembali file `rekrutmen.php`, lalu tambahkan `table_variables`:
+###### config/workflow-modules/rekrutmen.php
+```php
+<?php
+
+return [
+    'process_definition_key' => 'proc_bl_rekrutmen',
+    'name' => 'Rekrutmen Pegawai',
+    'table_variables' => ['full_name', 'job_title'],
+    'tasks' => [...]
+    
+];
+
+```
+Semua field yang kita definisikan di `form_schema` bisa dipakai sebagai `table_variables`. Silakan mencoba.
+
 ### Custom Table View
 ### Filtering
 ### Searching
