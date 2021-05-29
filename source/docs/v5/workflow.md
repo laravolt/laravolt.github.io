@@ -94,6 +94,7 @@ return [
 ```
 Silakan sesuaikan sendiri label `Rekrutmen`, route _key_ `rekrutmen`, dan icon `inbox` sesuai kebutuhan aplikasi.
 
+> Icon yang tersedia bisa dilihat di https://fontawesome.com/icons?d=gallery&p=2&s=duotone&m=pro
 
 ## Mendefinisikan Form
 Untuk setiap BPMN yang di-import ke aplikasi, kita perlu mendefinisikan _form fields_ untuk semua Start Event dan User Task yang ditemui.
