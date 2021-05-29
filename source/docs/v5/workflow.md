@@ -60,9 +60,9 @@ Selanjutkan kita perlu mendefinisikan Modul untuk mengeksekusi BPMN tersebut.
 ## Menambah Modul
 Setelah BPMN berhasil di-import, kita perlu mendefinisikan Modul untuk bisa mengeksekusi BPMN tersebut. Anggap saja membuat Modul ini seperti kita membuat halaman baru. Bedanya, kita tidak perlu membuat Route, Controller, View, ataupun Model satu persatu tetapi cukup dengan mendefinisikan sebuah file konfigurasi.
 
-Pertama-tama, tambahkan sebuah file `config/workflow-modules/rekrutmen.php`. Sesuaikan nama file `rekrutmen.php` dengan proses bisnis aplikasi.
+Pertama-tama, tambahkan sebuah file `config/laravolt/workflow-modules/rekrutmen.php`. Sesuaikan nama file `rekrutmen.php` dengan proses bisnis aplikasi.
 
-###### config/workflow-modules/rekrutmen.php
+###### config/laravolt/workflow-modules/rekrutmen.php
 ```php
 <?php
 
@@ -148,7 +148,7 @@ Setelah berhasil mengeksekusi BPMN, langkah berikutnya adalah mengatur informasi
 
 ### Mendefinisikan Kolom Yang Ditampilkan
 Buka kembali file `rekrutmen.php`, lalu tambahkan `table_variables`:
-###### config/workflow-modules/rekrutmen.php
+###### config/laravolt/workflow-modules/rekrutmen.php
 ```php
 <?php
 
