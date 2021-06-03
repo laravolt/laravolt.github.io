@@ -45,8 +45,8 @@ return [
         ],
         'UI Components' => [
             'children' => [
+                'Table' => 'table',
                 'Chart & Visualization' => '#',
-                'Table View' => '#',
                 'List View' => '#',
                 'Detail View' => '#',
                 'Form Builder' => '#',
