@@ -153,6 +153,8 @@ Class Listener bisa dibuat dengan memanfaatkan perintah:
 ```bash
 php artisan make:listener AttachUserId
 ```
+File yang di-_generate_ bisa dilihat di folder `app/Listeners`.
+
 Untuk event `ProcessInstanceStarting`:
 ```php
 <?php
@@ -197,7 +199,7 @@ class MyListener
     }
 }
 ```
-Daftarkan ke file konfigurasi:
+Lalu daftarkan Listener yang sudah dibuat ke event yang sesuai:
 ###### config/laravolt/workflow-modules/rekrutmen.php
 ```php
 return [
