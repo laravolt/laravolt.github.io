@@ -55,6 +55,25 @@ atau
 ### HTTP Client
 
 ## Column Types
+### Avatar
+### Boolean
+### Button
+### Checkall
+### Date
+### DateTime
+### Html
+### Id
+### Label
+### MultipleValues
+### Number
+### Raw
+### RestfulButton
+### RowNumber
+### Text
+### Url
+### View
+
+## Custom Column
 
 ## Style
 ## Searching
