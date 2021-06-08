@@ -2470,16 +2470,16 @@
         },
         {
             "name": "tightenco/jigsaw",
-            "version": "v1.3.36",
+            "version": "v1.3.37",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tighten/jigsaw.git",
-                "reference": "e905076cdf3f217492505b3c3f58d063b70ab11d"
+                "reference": "7ae660d48c160df368ddff5dfa02992c4fa5440a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tighten/jigsaw/zipball/e905076cdf3f217492505b3c3f58d063b70ab11d",
-                "reference": "e905076cdf3f217492505b3c3f58d063b70ab11d",
+                "url": "https://api.github.com/repos/tighten/jigsaw/zipball/7ae660d48c160df368ddff5dfa02992c4fa5440a",
+                "reference": "7ae660d48c160df368ddff5dfa02992c4fa5440a",
                 "shasum": ""
             },
             "require": {
@@ -2537,9 +2537,9 @@
             ],
             "support": {
                 "issues": "https://github.com/tighten/jigsaw/issues",
-                "source": "https://github.com/tighten/jigsaw/tree/v1.3.36"
+                "source": "https://github.com/tighten/jigsaw/tree/v1.3.37"
             },
-            "time": "2021-02-19T19:47:38+00:00"
+            "time": "2021-04-30T12:20:57+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
