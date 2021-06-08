@@ -157,22 +157,227 @@ public function data()
 ```
 ## Column Types
 ### Avatar
+Kolom `Avatar` digunakan untuk menampilkan gambar avatar secara otomatis dari **inisial**. Pada contoh di bawah ini, inisial dari email akan digunakan untuk menghasilkan gambar avatar yang sesuai.
+```php
+use Laravolt\Suitable\Columns\Avatar;
+
+public function columns(): array
+{
+    return [
+        Avatar::make('email', 'Avatar'),
+    ];
+}
+```
+Dokumentasi lengkap tentang `Avatar` bisa dibaca di https://github.com/laravolt/avatar.
 ### Boolean
+Kolom `Boolean` digunakan untuk menampilkan nilai **_true_** atau **_false_** dalam bentuk ikon. Nilai yang tidak bertipe `boolean` akan di-_casting_ secara otomatis ke tipe `(bool)`.
+```php
+use Laravolt\Suitable\Columns\Boolean;
+
+public function columns(): array
+{
+    return [
+        Boolean::make('is_active'),
+    ];
+}
+```
 ### Button
+Kolom `Button` digunakan untuk menambahkan tombol yang berfungsi sebagai navigasi untuk berpindah ke halaman lain.
+
+```php
+use Laravolt\Suitable\Columns\Button;
+
+public function columns(): array
+{
+    return [
+        Button::make('permalink', 'Info')->label('Profile')->icon('external link'),
+    ];
+}
+```
+Pada contoh di atas, `permalink` berisi sebuah url yang valid, baik itu hardcoded "http://example.com" atau hasil dari pemanggilan fungsi `route()` atau `url()` di Laravel:
+```php
+class User extends Model 
+{
+    public function getPermalinkAttribute()
+    {
+        return route('users.show', $this->id);
+    }
+}
+```
+`Button::make()` juga menerima `Closure` untuk meng-generate url secara dinamis ketika pemanggilan:
+```php
+use Laravolt\Suitable\Columns\Button;
+
+public function columns(): array
+{
+    return [
+        // bisa memakai sintaks baru (arrow function)
+        Button::make(fn ($user) => route('users.show', $user['id'])),
+
+        // atau cara lama yang lebih panjang
+        Button::make(
+            function ($user) {
+                return route('users.show', $user['id']);
+            }
+        ),    
+    ];
+}
+```
+
 ### Checkall
+Kolom `Checkall` digunakan untuk menambahkan **checkbox** di setiap baris yang selanjutnya bisa digunakan sebagai _multiple selection_. ID yang  telah dipilih (dicentang) selanjutnya bisa dikirim sebagai parameter ketika kita mendefinisikan `Table Action`.
+
+```php
+use Laravolt\Suitable\Columns\Checkall;
+
+public function columns(): array
+{
+    return [
+        Checkall::make('id'),
+    ];
+}
+```
 ### Date
+```php
+use Laravolt\Suitable\Columns\Date;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
 ### DateTime
+```php
+use Laravolt\Suitable\Columns\DateTime;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
 ### Html
+```php
+use Laravolt\Suitable\Columns\Html;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
 ### Id
+```php
+use Laravolt\Suitable\Columns\Id;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
+### Image
+```php
+use Laravolt\Suitable\Columns\Image;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
+
 ### Label
+```php
+use Laravolt\Suitable\Columns\Label;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
 ### MultipleValues
+```php
+use Laravolt\Suitable\Columns\MultipleValues;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
 ### Number
+```php
+use Laravolt\Suitable\Columns\Number;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
 ### Raw
+```php
+use Laravolt\Suitable\Columns\Raw;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
 ### RestfulButton
+```php
+use Laravolt\Suitable\Columns\RestfulButton;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
 ### RowNumber
+```php
+use Laravolt\Suitable\Columns\RowNumber;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
 ### Text
+```php
+use Laravolt\Suitable\Columns\Text;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
 ### Url
+```php
+use Laravolt\Suitable\Columns\Url;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
 ### View
+```php
+use Laravolt\Suitable\Columns\View;
+
+public function columns(): array
+{
+    return [
+    ];
+}
+```
 
 ## Custom Column
 
@@ -186,3 +391,4 @@ public function data()
 ## Export
 ## Pooling
 ## Query String
+## Table Action
