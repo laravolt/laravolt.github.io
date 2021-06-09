@@ -36,17 +36,17 @@ Laravel tidak menyediakan command untuk meng-generate view. Oleh sebab itu, kamu
 di `resources/views/dashboard.blade.php` dan mengisinya dengan potongan kode berikut:
 
 ```php
-<x-laravolt::layout.app title="Dashboard">
+<x-volt-app title="Dashboard">
 
-    // Konten
+    Hello world!
 
-</x-laravolt::layout.app>
+</x-volt-app>
 ```
 
 Atau, kamu bisa memanggil fitur tambahan dari Laravolt untuk membuat file view dengan lebih cepat:
 
 ```bash
-php artisan make:view dashboard
+php artisan make:view dashboard --title=Dashboard
 ```
 
 ## Menambahkan Route
