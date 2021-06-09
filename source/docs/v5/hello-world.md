@@ -32,7 +32,7 @@ class DashboardController extends Controller
 ```
 ## Membuat View
 
-Laravel tidak menyediakan command untuk meng-generate view. Oleh sebab itu, kamu bisa membuat file view secara manual
+Kamu bisa membuat file view secara manual
 di `resources/views/dashboard.blade.php` dan mengisinya dengan potongan kode berikut:
 
 ```php
@@ -43,7 +43,7 @@ di `resources/views/dashboard.blade.php` dan mengisinya dengan potongan kode ber
 </x-volt-app>
 ```
 
-Atau, kamu bisa memanggil fitur tambahan dari Laravolt untuk membuat file view dengan lebih cepat:
+Atau, kamu bisa memanggil perintah `php artisan make:view`:
 
 ```bash
 php artisan make:view dashboard --title=Dashboard
