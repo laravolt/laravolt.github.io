@@ -238,42 +238,65 @@ public function columns(): array
 }
 ```
 ### Date
+Kolom `Date` digunakan untuk mengubah tanggal dari database dengan format format `2021-06-02` menjadi tanggal yang lebih manusiawi untuk dibaca, yaitu **2 Juni 2021**.
 ```php
 use Laravolt\Suitable\Columns\Date;
 
 public function columns(): array
 {
     return [
+        Date::make('created_at'),
     ];
 }
 ```
+Ada _method_ tambahan yang tersedia untuk tipe kolom `Date`, yaitu:
+
+- `format(string $format)` dimana $format adalah string yang sesuai dengan format yang diterima oleh [Moment.js](https://momentjs.com/).
+- `timezone(string $timezone)` untuk melakukan konversi otomatis tanggal ke timezone yang sesuai. Daftar timezone yang valid bisa dilihat di [dokumentasi resmi PHP](https://www.php.net/manual/en/timezones.php). Jika tidak memanggil `timezone()` secara eksplisit, maka konversi ke timezone akan dilakukan dengan melihat:
+    - Atribut `timezone` dari user yang sedang login: `auth()->user()->timezone`.
+    - Jika null, timezone akan dilihat dari `config('app.timezone')`.
+
 ### DateTime
+Mirip seperti kolom `Date`, `DateTime` mengubah nilai **2021-06-02 22:54:00** menjadi **2 Juni 2021 pukul 22.45**.
 ```php
 use Laravolt\Suitable\Columns\DateTime;
 
 public function columns(): array
 {
     return [
+        DateTime::make('created_at'),   
     ];
 }
 ```
+_Method_ `format()` dan `timezone()` juga tersedia, dengah _behaviour_ yang sama dengan kolom `Date`.
 ### Html
+Kolom `Html` digunakan jika konten yang akan ditampilkan mengandung _tag_ HTML, dan kita ingin menampilkannya sesuai format HTML.
 ```php
-use Laravolt\Suitable\Columns\Html;
+public function data()
+{
+    return [
+        ['bio' => '<b>Strong</b> <i>foo</i>'],
+    ];
+}
 
 public function columns(): array
 {
     return [
+        Html::make('bio')
     ];
 }
 ```
+Pada contoh di atas, tabel akan menampilkan konten sebagai "**Strong** _foo_". Kolom ini biasa digunakan ketika data yang disimpan berasar dari **WYSIWYG** atau **_rich text editor_** seperti  redactor dan tinymce.
+
 ### Id
+Kolom `Id` digunakan untuk menampilkan primary key dari sebuah model Eloquent. Di balik layar, kolom ini akan memanggil `getKey()`. Jadi pastikan hanya menggunakan kolom ini ketika sumber data berasal dari Eloquent.
 ```php
 use Laravolt\Suitable\Columns\Id;
 
 public function columns(): array
 {
     return [
+      Id::make(),
     ];
 }
 ```
