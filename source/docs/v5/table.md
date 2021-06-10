@@ -20,8 +20,7 @@ class UserTable extends TableView
 {
     public function data()
     {
-        // WARNING: tanpa perlu memanggil get() atau paginate() di akhir
-        return App\Models\User::where('status', 'ACTIVE');
+        return \App\Models\User::where('status', 'ACTIVE')->paginate();
     }
 
     public function columns(): array
@@ -94,10 +93,10 @@ use App\Models\User;
 
 public function data()
 {
-    return User::query()->whereNull('deleted_at');
+    return User::whereNull('deleted_at')->paginate();
 }
 ```
-Jika tidak membutuhkan paginasi, kita bisa langsung memanggil `get()` atau `all()`:
+Jika tidak membutuhkan paginasi, kita bisa langsung memanggil `get()`:
 ```php
 use App\Models\User;
 
@@ -106,42 +105,20 @@ public function data()
     return User::query()->whereNull('deleted_at')->get();
 }
 ```
-&nbsp;
-```php
-use App\Models\User;
-
-public function data()
-{
-    return User::all();
-}
-```
 
 ### Query Builder
 Jika Eloquent bukan pilihanmu dan lebih memilih Query Builder, kita tetap bisa menerapkan hal yang sama:
 ```php
-use App\Models\User;
-
 public function data()
 {
-    return \DB::table('users')->whereNull('email'); // paginate() dihandle oleh Laravolt Table
+    return \DB::table('users')->whereNull('email')->paginate();
 }
 ```
 &nbsp;
 ```php
-use App\Models\User;
-
 public function data()
 {
     return \DB::table('users')->get(); // tanpa paginasi
-}
-```
-&nbsp;
-```php
-use App\Models\User;
-
-public function data()
-{
-    return \DB::table('users')->all(); // tanpa paginasi
 }
 ```
 
