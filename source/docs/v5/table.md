@@ -339,35 +339,45 @@ public function columns(): array
 
 
 ### MultipleValues
-```php
-use Laravolt\Suitable\Columns\MultipleValues;
+//TODO
 
-public function columns(): array
-{
-    return [
-    ];
-}
-```
 ### Number
+Kolom `Number` digunakan untuk menampilkan sebuah _value_ dalam format angka yang lebih manusiawi. Sebagai contoh, sebuah nilai 1000000 akan secara otomatis diubah menjadi **1.000.000** dan ditampilkan **rata kanan**.
+
 ```php
 use Laravolt\Suitable\Columns\Number;
 
 public function columns(): array
 {
     return [
+        Number::make('gaji',)
     ];
 }
 ```
+Format angka yang saat ini digunakan adalah format yang umum dipakai di Indonesia.
+
 ### Raw
+Kolom `Raw` digunakan untuk menampilkan sebuah `value` **apa adanya** (_unescaped)_, tanpa melewati fungsi `htmlspecialchars`. Hati-hati ketika menggunakan `Raw` untuk sebuah _value_ yang berasal dari inputan _user_, karena ada peluang terjadinya _**Cross Site Scripting (XSS)**_.
+
 ```php
 use Laravolt\Suitable\Columns\Raw;
+
+public function data()
+{
+    return [
+        ['bio' => '<b>Strong</b><script>alert("foo")</script>'],
+    ];
+}
 
 public function columns(): array
 {
     return [
+        Raw::make('bio'),
     ];
 }
 ```
+Pada contoh di atas, kita akan mendapatkan sebuah tulisan **Strong** (dalam huruf tebal) dan kode Javascript untuk menampilkan _alert_ akan dieksekusi oleh _browser_.
+
 ### RestfulButton
 ```php
 use Laravolt\Suitable\Columns\RestfulButton;
@@ -379,45 +389,75 @@ public function columns(): array
 }
 ```
 ### RowNumber
+Kolom `RowNumber` digunakan untuk menampilkan nomor baris secara terurut, dimulai dari 1. 
+
 ```php
 use Laravolt\Suitable\Columns\RowNumber;
 
 public function columns(): array
 {
     return [
+        RowNumber::make(),
     ];
 }
 ```
 ### Text
+Kolom `Text` digunakan untuk menampilkan value secara aman, terhindar dari **_Cross Site Scripting (XSS)_**, memanfaatkan fungsi `htmlspecialchars` bawaan PHP.
 ```php
 use Laravolt\Suitable\Columns\Text;
+
+public function data()
+{
+    return [
+        ['bio' => '<b>Strong</b><script>alert("foo")</script>'],
+    ];
+}
 
 public function columns(): array
 {
     return [
+        Text::make('bio'),      
     ];
 }
 ```
+Pada contoh di atas, "bio" akan ditampilkan apa adanya sesuai teks yang tertulis:
+```text
+<b>Strong</b><script>alert("foo")</script>
+```
+
 ### Url
+Kolom `Url` digunakan untuk menampilkan sebuah URL secara otomatis menjadi _link_ yang bisa diklik.
 ```php
 use Laravolt\Suitable\Columns\Url;
 
 public function columns(): array
 {
     return [
+        Url::make('website),
     ];
 }
 ```
 ### View
+Ketika tampilan semakin kompleks, kita bisa memanfaatkan kolom `View` untuk memindahkan _logic_ untuk merender isi sebuah kolom ke sebuah file blade terpisah.
 ```php
 use Laravolt\Suitable\Columns\View;
 
 public function columns(): array
 {
     return [
+        View::make('address)
     ];
 }
 ```
+###### resources/views/address.blade.php
+```php
+//TODO
+```
+
+### Text vs Raw vs Html
+Ada tiga kolom yang bisa digunakan untuk menampilkan konten yang berasal dari WYSIWYG dan mengandung tag HTML (dan Javascript). Berikut ini adalah perbedaan dari ketiganya:
+
+//TODO add table perbanding
 
 ## Custom Column
 
