@@ -294,15 +294,50 @@ public function columns(): array
 - `alt(string $text)` untuk mengatur atribut `alt` (alternate text).
 
 ### Label
+Kolom `Label` digunakan untuk menampilkan sebuah nilai agar terlihat lebih mencolok. Contoh nilai yang cocok ditampilkan sebagai `Label` antara lain: status, kategori, jenis, tipe, dan sejenisnya.
+
 ```php
 use Laravolt\Suitable\Columns\Label;
 
 public function columns(): array
 {
     return [
+        Label::make('status'),
     ];
 }
 ```
+Untuk menambahkan warna kepada `Label`, bisa memanfaatkan _method_ `addClass`:
+
+```php
+use Laravolt\Suitable\Columns\Label;
+
+public function columns(): array
+{
+    return [
+        Label::make('status')->addClass('green'),
+    ];
+}
+```
+
+Ada beberapa class yang bisa dipakai untuk menentukan warna `Label`, yaitu `red`, `orange`, `yellow`, `olive`, `green`, `teal`, `blue`, `violet`, `purple`, `pink`, `brown`, `grey`, `black`.
+
+Pada prakteknya, ada kebutuhan untuk memberikan warna yang berbeda untuk setiap _value_. Hal ini bisa dilakukan dengan memanfaatkan _method_ `map()`:
+
+```php
+use Laravolt\Suitable\Columns\Label;
+
+public function columns(): array
+{
+    return [
+        Label::make('status')->map([
+            'active' => 'green',
+            'banned' => 'red',
+        ]),
+    ];
+}
+```
+
+
 ### MultipleValues
 ```php
 use Laravolt\Suitable\Columns\MultipleValues;
