@@ -306,7 +306,7 @@ public function columns(): array
     ];
 }
 ```
-Untuk menambahkan warna kepada `Label`, bisa memanfaatkan _method_ `addClass`:
+Untuk menambahkan kelas CSS kepada `Label`, bisa memanfaatkan _method_ `addClass`:
 
 ```php
 use Laravolt\Suitable\Columns\Label;
@@ -314,12 +314,12 @@ use Laravolt\Suitable\Columns\Label;
 public function columns(): array
 {
     return [
-        Label::make('status')->addClass('green'),
+        Label::make('status')->addClass('green small'),
     ];
 }
 ```
 
-Ada beberapa class yang bisa dipakai untuk menentukan warna `Label`, yaitu `red`, `orange`, `yellow`, `olive`, `green`, `teal`, `blue`, `violet`, `purple`, `pink`, `brown`, `grey`, `black`.
+Ada beberapa kelas **_built in_**  yang bisa dipakai untuk menentukan warna sebuah `Label`, yaitu `red`, `orange`, `yellow`, `olive`, `green`, `teal`, `blue`, `violet`, `purple`, `pink`, `brown`, `grey`, `black`.
 
 Pada prakteknya, ada kebutuhan untuk memberikan warna yang berbeda untuk setiap _value_. Hal ini bisa dilakukan dengan memanfaatkan _method_ `map()`:
 
