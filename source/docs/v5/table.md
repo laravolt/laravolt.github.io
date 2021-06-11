@@ -121,7 +121,7 @@ public function data()
     return \DB::table('users')->get(); // tanpa paginasi
 }
 ```
-
+  
 ### Response Dari HTTP Client
 Untuk mendapatkan sumber data langsung dari API, kita bisa memanfaatkan [HTTP Client](https://laravel.com/docs/master/http-client) bawaan Laravel:
 ```php
@@ -284,9 +284,14 @@ use Laravolt\Suitable\Columns\Image;
 public function columns(): array
 {
     return [
+      Image::make('profile_picture')
     ];
 }
 ```
+`Method` tambahan yang tersedia:
+- `height(int $sizeInPixel)` untuk mengatur tinggi gambar.
+- `width(int $sizeInPixel)` untuk mengatur lebar gambar.
+- `alt(string $text)` untuk mengatur atribut `alt` (alternate text).
 
 ### Label
 ```php
