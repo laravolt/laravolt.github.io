@@ -337,10 +337,6 @@ public function columns(): array
 }
 ```
 
-
-### MultipleValues
-//TODO
-
 ### Number
 Kolom `Number` digunakan untuk menampilkan sebuah _value_ dalam format angka yang lebih manusiawi. Sebagai contoh, sebuah nilai 1000000 akan secara otomatis diubah menjadi **1.000.000** dan ditampilkan **rata kanan**.
 
@@ -441,6 +437,15 @@ Pada contoh di atas, "bio" akan ditampilkan apa adanya sesuai teks yang tertulis
 ```text
 <b>Strong</b><script>alert("foo")</script>
 ```
+### Text vs Html vs Raw
+Ada tiga kolom yang bisa digunakan untuk menampilkan konten yang berasal dari WYSIWYG dan mengandung tag HTML (dan Javascript). Berikut ini adalah perbedaan dari ketiganya:
+
+| Kolom|      Output                                      |      Keterangan                            |
+| -----| ------------------------------------------------- | ------------------------------------------------- |
+| Text      |    `<b>Strong</b> <script>alert("foo")</script>`   |   Paling aman, menampilkan teks apa adanya.   |
+| Html | **Strong** `<script>alert("foo")</script>` | Jika hanya ingin mengeksekusi tag HTML saja. |
+| Raw  |      **Strong** (dan muncul alert di browser)    |    Jika ingin mengeksekusi sepenuhnya kode HTML dan Javascript.    |
+
 
 ### Url
 Kolom `Url` digunakan untuk menampilkan sebuah URL secara otomatis menjadi _link_ yang bisa diklik.
@@ -462,23 +467,20 @@ use Laravolt\Suitable\Columns\View;
 public function columns(): array
 {
     return [
-        View::make('address)
+        View::make('profil')
     ];
 }
 ```
-###### resources/views/address.blade.php
-```php
-//TODO
+Lalu buat sebuah file blade `profil.blade.php`:
+###### resources/views/profil.blade.php
+```html
+<dl>
+    <dt>Name</dt>
+    <dd>{{ $data->name }}</dd>
+    <dt>Email</dt>
+    <dd>{{ $data->email }}</dd>
+</dl>
 ```
-
-### Text vs Html vs Raw
-Ada tiga kolom yang bisa digunakan untuk menampilkan konten yang berasal dari WYSIWYG dan mengandung tag HTML (dan Javascript). Berikut ini adalah perbedaan dari ketiganya:
-
-| Kolom|      Output                                      |      Keterangan                            |
-| -----| ------------------------------------------------- | ------------------------------------------------- |
-| Text      |    `<b>Strong</b> <script>alert("foo")</script>`   |   Paling aman, menampilkan teks apa adanya.   |
-| Html | **Strong** `<script>alert("foo")</script>` | Jika hanya ingin mengeksekusi tag HTML saja. |
-| Raw  |      **Strong** (dan muncul alert di browser)    |    Jika ingin mengeksekusi sepenuhnya kode HTML dan Javascript.    |
 
 ## Custom Column
 
