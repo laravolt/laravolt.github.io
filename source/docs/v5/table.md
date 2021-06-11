@@ -121,7 +121,7 @@ public function data()
     return \DB::table('users')->get(); // tanpa paginasi
 }
 ```
-  
+
 ### Response Dari HTTP Client
 Untuk mendapatkan sumber data langsung dari API, kita bisa memanfaatkan [HTTP Client](https://laravel.com/docs/master/http-client) bawaan Laravel:
 ```php
@@ -379,15 +379,32 @@ public function columns(): array
 Pada contoh di atas, kita akan mendapatkan sebuah tulisan **Strong** (dalam huruf tebal) dan kode Javascript untuk menampilkan _alert_ akan dieksekusi oleh _browser_.
 
 ### RestfulButton
+Kolom `RestfulButton` digunakan untuk membuat tombol-tombol standard sebuah proses _create-read-update-delete_ atau **CRUD**. Kita hanya perlu mendefinisikan _resource name_ untuk kemudian dihasilkan tiga buat tombol **show**, **edit**, dan **destroy**. 
 ```php
 use Laravolt\Suitable\Columns\RestfulButton;
 
 public function columns(): array
 {
     return [
+        RestfulButton::make('users'),
     ];
 }
 ```
+Pada contoh kode di atas, ketiga tombol yang dihasilkan akan memiliki route:
+
+- show: `route('users.show', <id>)`
+- edit: `route('users.edit', <id>)`
+- destroy: `route('users.destroy', <id>)`
+
+`<id>` otomatis diambil dari _primary key_ _object_ yang bersangkutan. Oleh sebab itu, `RestfulButton` **hanya bisa dipakai jika sumber data berasal dari Eloquent**.
+
+_Method_ tambahan yang tersedia:
+
+- `only($action1, $action2)` jika hanya ingin menampilkan aksi tertentu saja, misalnya `only('show')`.
+- `except($action1, $action2)` jika ingin menghilangkan tombol tertentu, misalnya `except('destroy')`.
+
+Untuk memahami lebih lanjut tentang _resource controller_, silakan membaca [dokumentasi resmi dari Laravel](https://laravel.com/docs/8.x/controllers#resource-controllers).
+
 ### RowNumber
 Kolom `RowNumber` digunakan untuk menampilkan nomor baris secara terurut, dimulai dari 1. 
 
@@ -454,10 +471,14 @@ public function columns(): array
 //TODO
 ```
 
-### Text vs Raw vs Html
+### Text vs Html vs Raw
 Ada tiga kolom yang bisa digunakan untuk menampilkan konten yang berasal dari WYSIWYG dan mengandung tag HTML (dan Javascript). Berikut ini adalah perbedaan dari ketiganya:
 
-//TODO add table perbanding
+| Kolom|      Output                                      |      Keterangan                            |
+| -----| ------------------------------------------------- | ------------------------------------------------- |
+| Text      |    `<b>Strong</b> <script>alert("foo")</script>`   |   Paling aman, menampilkan teks apa adanya.   |
+| Html | **Strong** `<script>alert("foo")</script>` | Jika hanya ingin mengeksekusi tag HTML saja. |
+| Raw  |      **Strong** (dan muncul alert di browser)    |    Jika ingin mengeksekusi sepenuhnya kode HTML dan Javascript.    |
 
 ## Custom Column
 
