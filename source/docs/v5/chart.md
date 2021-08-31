@@ -16,11 +16,9 @@ php artisan make:chart DailyRegistration
 ```
 Selanjutnya, cukup definisikan sumber data dan olah lebih lanjut agar formatnya sesuai dengan contoh yang diberikan:
 ```php
-class DailyRegistration extends Chart
+class DailyRegistration extends Line
 {
     public string $title = 'Foo';
-
-    public string $type = self::LINE;
 
     public function series(): array
     {
@@ -103,21 +101,62 @@ public function height(): int
 
 ## Chart Type
 
-Untuk mengubah tipe chart yang ditampilkan, cukup ubah atribut `$type` dengan nilai yang sesuai:
+Untuk mengubah tipe chart yang ditampilkan, cukup ubah base class yang di-*extends*. Saat ini tipe chart yang tersedia adalah:
+
+- Laravolt\Charts\Bar
+- Laravolt\Charts\Line
+- Laravolt\Charts\Area
+- Laravolt\Charts\Donut
+
+### Bar
 
 ```php
-//protected string $type = self::AREA;
-//protected string $type = self::BAR;
-//protected string $type = self::DONUT;
-protected string $type = self::LINE;
+use Laravolt\Charts\Bar;
+
+class DailyRegistration extends Bar
+{
+    
+}
 ```
 
-Saat ini Laravolt Chart mendukung tipe chart berikut:
 
-- Area
-- Bar
-- Donut
-- Line
+
+### Line
+
+```php
+use Laravolt\Charts\Line;
+
+class DailyRegistration extends Line
+{
+    
+}
+```
+
+
+
+### Area
+
+```php
+use Laravolt\Charts\Area;
+
+class DailyRegistration extends Area
+{
+    
+}
+```
+
+
+
+### Donut
+
+```php
+use Laravolt\Charts\Donut;
+
+class DailyRegistration extends Donut
+{
+    
+}
+```
 
 
 
