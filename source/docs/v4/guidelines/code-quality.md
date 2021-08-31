@@ -49,13 +49,13 @@ composer require friendsofphp/php-cs-fixer --dev
 Melakukan *fixing* otomatis:
 
 ```bash
-vendor/bin/php-cs-fixer fix --diff --diff-format udiff
+vendor/bin/php-cs-fixer fix --diff
 ```
 
 Melakukan pengecekan saja tanpa *fixing*, tambahkan opsi `--dry-run`:
 
 ```bash
-vendor/bin/php-cs-fixer fix --dry-run --diff --diff-format udiff
+vendor/bin/php-cs-fixer fix --dry-run --diff
 ```
 
 Jika command-nya terlalu panjang untuk diingat, tambahkan shortcut/alias ke composer.json:
@@ -63,10 +63,10 @@ Jika command-nya terlalu panjang untuk diingat, tambahkan shortcut/alias ke comp
 ```json
 "scripts": {
  "cs-check": [
-    "vendor/bin/php-cs-fixer fix --dry-run --diff --diff-format udiff"
+    "vendor/bin/php-cs-fixer fix --dry-run --diff"
   ],
   "cs-fix": [
-    "vendor/bin/php-cs-fixer fix --diff --diff-format udiff"
+    "vendor/bin/php-cs-fixer fix --diff"
   ]
 }
 ```
@@ -78,7 +78,8 @@ composer cs-check
 composer cs-fix
 ```
 
-
+> Script di atas berlaku untuk php-cs-fixer versi 3. Untuk versi 2, Anda mungkin perlu menambahkan flag `--diff-format udiff`.
+> Dokumentasi lebih lengkap bisa dibaca di https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/3.0/UPGRADE-v3.md#cli-options.
 
 ### Konfigurasi
 
