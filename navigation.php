@@ -47,10 +47,11 @@ return [
             'children' => [
                 'Table' => 'table',
                 'Chart' => 'chart',
-                'List View' => '#',
-                'Detail View' => '#',
-                'Form Builder' => '#',
-                'BPMN Viewer' => '#',
+                'Statistic' => 'statistic',
+                // 'List View' => '#',
+                // 'Detail View' => '#',
+                // 'Form Builder' => '#',
+                // 'BPMN Viewer' => '#',
             ],
         ],
         'Standalone Packages' => [
