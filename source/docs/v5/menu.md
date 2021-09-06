@@ -14,6 +14,16 @@ Laravolt melakukan pendekatan *config file* untuk menampilkan menu di sidebar, d
 
 Laravolt secara otomatis akan membaca folder `config/laravolt/menu` untuk melihat konfigurasi menu.
 
+Secara singkat, anatomi dari menu adalah:
+
+- Grup 1
+  - Menu 1
+  - Menu 2
+    - Sub menu 2.1
+    - Sub menu 2.2
+  - Menu 3
+- Grup 2
+
 ## Mendaftarkan Menu
 Buat sebuah file baru `config/laravolt/menu/app.php`:
 ```php
