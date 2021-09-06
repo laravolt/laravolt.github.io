@@ -22,7 +22,7 @@ return [
         'Admin Panel' => [
             'children' => [
                 'Anatomy' => '#',
-                'Sidebar Menu' => '#',
+                'Menu' => 'menu',
                 'Action Button' => '#',
                 'ACL' => '#',
             ],
