@@ -306,7 +306,7 @@ form()->select($name, $options)->prependOption($key, $label);
 #### Select Multiple (Tagging)
 
 ```php
-form()->selectMultiple($name, $options, $selected)->label('Select Multiple');
+form()->select($name, $options, $selected)->multiple()->label('Select Multiple');
 ```
 
 
