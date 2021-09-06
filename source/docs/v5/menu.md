@@ -87,6 +87,23 @@ return [
 
 Hanya tersedia di level grup. Berfungsi untuk menentukan urutan menu.
 
+```php
+<?php
+
+return [
+    'Menu Utama' => [
+        'order' => 2,
+        'menu' => [
+            // ...
+        ],
+    ],
+];
+
+
+```
+
+
+
 ### route
 
 ```php
@@ -103,8 +120,6 @@ Jika kamu tidak terbiasa menggunakan ***named routes***, maka cukup tuliskan har
 'url' => 'posts/create',
 ```
 
-
-
 ### active
 
 Berfungsi untuk menentukan entri menu mana yang perlu diset *active* dan *expanded*. Bisa menggunakan wildcard.
@@ -116,6 +131,10 @@ Berfungsi untuk menentukan entri menu mana yang perlu diset *active* dan *expand
 ### icon
 
 Mengatur ikon yang akan ditampilkan. Ikon yang bisa digunakan bisa dilihat di https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=duotone&m=pro. Laravolt sudah memiliki lisensi resmi Font Awesome 5 Pro.
+
+```php
+'icon' => 'users',
+```
 
 Untuk saat ini hanya menu level satu yang bisa menampilkan ikon sedangkan label kategori (grup menu) dan sub menu tidak bisa.
 
