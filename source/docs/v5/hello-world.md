@@ -1,5 +1,5 @@
 ---
-title: Hello World
+rtitle: Hello World
 description: Creating your first page in Laravolt
 extends: _layouts.documentation
 section: content

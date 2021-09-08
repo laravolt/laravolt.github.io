@@ -6,19 +6,20 @@ return [
             'children' => [
                 'Why Laravolt?' => 'introduction',
                 'Installation' => 'installation',
+                'Starter Kit' => 'starter-kit',
                 'Hello World' => 'hello-world',
                 // 'Sponsorship' => '#',
             ],
         ],
-        'Skeleton' => [
-            'children' => [
-                'Authentication' => '#',
-                'Registration' => '#',
-                'Reset Password' => '#',
-                'Email Activation' => '#',
-                'Edit Profile' => '#',
-            ],
-        ],
+        // 'Skeleton' => [
+        //     'children' => [
+        //         'Authentication' => '#',
+        //         'Registration' => '#',
+        //         'Reset Password' => '#',
+        //         'Email Activation' => '#',
+        //         'Edit Profile' => '#',
+        //     ],
+        // ],
         'Admin Panel' => [
             'children' => [
                 'Anatomy' => '#',
