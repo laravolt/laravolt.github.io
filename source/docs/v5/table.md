@@ -6,7 +6,10 @@ section: content
 ---
 
 # Table
+![image-20211002210333023](https://cdn.statically.io/gh/laravolt/storage/master/2021/10/image-20211002210333023-k5QGay.png)
+
 ## Intro
+
 Laravolt Table menyediakan UI untuk menampilkan data dalam bentuk tabular lengkap dengan fitur penunjang sebuah datatable seperti searching, sorting, dan filtering. Laravolt Table berbasis [Livewire](https://laravel-livewire.com/), sehingga interaksi dapat dilakukan tanpa full page refresh. Tidak perlu khawatir juga dengan Javascript karena semua tetek bengek terkait UI sudah ditangani oleh Laravolt. Kita cukup koding PHP-nya saja.
 
 ## Membuat Tabel
@@ -374,6 +377,20 @@ public function columns(): array
 ```
 Pada contoh di atas, kita akan mendapatkan sebuah tulisan **Strong** (dalam huruf tebal) dan kode Javascript untuk menampilkan _alert_ akan dieksekusi oleh _browser_.
 
+Jika membutuhkan *custom logic* yang lebih leluasa, maka jenis kolom `Raw` juga bisa menerima *Closure*:
+
+```php
+// Menampilkan list of roles dari seorang user, dipisahkan dengan koman
+Raw::make(
+    function ($user) {
+        return $user->roles->implode('name', ', ');
+    },
+    'Roles'
+),
+```
+
+
+
 ### RestfulButton
 Kolom `RestfulButton` digunakan untuk membuat tombol-tombol standard sebuah proses _create-read-update-delete_ atau **CRUD**. Kita hanya perlu mendefinisikan _resource name_ untuk kemudian dihasilkan tiga buat tombol **show**, **edit**, dan **destroy**. 
 ```php
@@ -484,12 +501,145 @@ Lalu buat sebuah file blade `profil.blade.php`:
 
 ## Custom Column
 
+Jika kamu tidak menemukan jenis Column yang sesuai, maka `Raw` merupakan pilihan pertama untuk menampilkan data dengan *custom logic* buatan sendiri. 
+
+Jika *custom logic* tersebut dibutuhkan di beberapa tempat, dan kamu ingin menerapkan prinsip ***Don't Repeat Yourself (DRY)***, maka membuat sebuah Class khusus untuk *custom column* menjadi pilihan yang lebih bijak.
+
+Berikut ini adalah kerangka dari sebuah *custom column* yang berfungsi untuk melakukan *masking* terhadap data yang ditampilkan:
+
+```php
+<?php
+
+namespace App\Tables\Columns;
+
+use Laravolt\Suitable\Columns\Column;
+use Laravolt\Suitable\Columns\ColumnInterface;
+
+class MaskColumn extends Column implements ColumnInterface
+{
+    public function cell($cell, $collection, $loop)
+    {
+        return \Str::mask($cell->{$this->field});
+    }
+}
+
+```
+
+Yang perlu dibuat hanyalah sebuah *class* yang *extends* `Column` (base class), mengimplementasikan *ColumnInterface*, dan mendefinisikan *logic* untuk menampilkan data pada fungsi *cell($cell, $collection, $loop)*.
+
+**`$cell`** merupakan item dari Colllection  (bisa Eloquent model atau obyek lain) yang saat ini akan ditampilkan di dalam *cell* dari sebuah tabel.
+
+**`$collection`** adalah keseluruhan data (Collection).
+
+**`$loop`** berisi informasi tentang *looping*, sesuai [dokumentasi dari Laravel](https://laravel.com/docs/master/blade#the-loop-variable).
+
+Pada contoh di atas, *custom column* disimpan di `app/tables/columns`. Ini bukan aturan baku. Silakan sesuaikan namespace sesuai struktur aplikasimu.
+
 ## Style
+
+TBD
+
 ## Searching
+
+### Search Query
+
+Ketika pengguna mengetikkan sesuatu di kolom pencarian (searchbox), maka isian tersebut akan otomatis di-*binding* ke properti `$search`, sehingga kita bisa mengaksesnya dengan memanggil `$this->search`.
+
+Berikut ini contoh kode untuk melakukan pencarian berdasar nama:
+
+```php
+class UserTable extends TableView
+{
+    public function data()
+    {
+        return \App\Models\User::where('status', 'ACTIVE')
+            ->whereLike(['name', 'email'], $this->search)
+            ->paginate();
+    }
+}
+```
+
+>  `whereLike` merupakan *method* tambahan dari Laravolt untuk melakukan pencarian ke beberapa kolom sekaligus dengan mekanisme `where <kolom> like "%<keyword>%"`. Untuk data yang banyak, query ini bisa jadi tidak optimal. Silakan buat sendiri *logic* pencarian sesuai kebutuhan.
+
 ### Show/Hide Searchbox
+
+```php
+class UserTable extends TableView
+{
+    public bool $showSearchbox = false; // default to "true"
+}
+```
+
+
+
 ### Search Debounce
+
+Setiap kali User mengetikkan sesuatu di searchbox, query pencarian akan otomatis dijalankan dengan mekanisme AJAX. Debounce adalah mekanisme **menunggu beberapa saat** hingga User dianggap benar-benar sudah berhenti mengetik, baru kemudian dilakukan query untuk mengupdate data yang ditampilkan.
+
+```php
+class UserTable extends TableView
+{
+	public int $searchDebounce = 1000; // in miliseconds, default to 300
+}
+```
+
+
+
 ## Sorting
+
+Ketika mendefinisikan tabel, kita bisa menambahkan fungsi `sortable()` pada setiap kolom yang terdefinisi. Secara otomatis, kolom tersebut akan bisa diklik.
+
+```php
+class UserTable extends TableView
+{
+    public function data()
+    {
+        return \App\Models\User::where('status', 'ACTIVE')->paginate();
+    }
+
+    public function columns(): array
+    {
+        return [
+            Text::make('nama', 'Nama')->sortable(),
+            Text::make('email', 'Email')->sortable(),            
+        ];
+    }
+}
+```
+
+Tapi jangan lupa, kita juga perlu melakukan modifikasi *query* agar data yang dihasilkan juga ikut terurut. Laravolt sudah menyediakan Trait `AutoSort` untuk meng-*handle* kebutuhan tersebut.
+
+Pertama-tama, pastikan Model yang menjadi sumber data sudah menggunakan `AutoSort`:
+
+```php
+namespace App\Models;
+
+use Laravolt\Suitable\AutoSort;
+
+class User extends Model
+{
+    use AutoSort;
+}
+```
+
+Selanjutnya, kita cukup memanggil fungsi *autoSort()* ketika melakukan *query* pengambilan data:
+
+```php
+class UserTable extends TableView
+{
+    public function data()
+    {
+        return \App\Models\User::where('status', 'ACTIVE')
+            ->autoSort($this->sortPayload())
+            ->paginate();
+    }
+}
+```
+
+
+
 ## Filtering
+
 ## Pagination
 ## Export
 ## Pooling
