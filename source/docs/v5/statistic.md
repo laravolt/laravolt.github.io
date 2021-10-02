@@ -9,7 +9,7 @@ section: content
 ## Intro
 Statistic merupakan Livewire Component yang berfungsi menampilkan *single value* data dalam bentuk yang menarik, disertai dengan label dan ikon.
 
-![image-20210903093515083](../assets/uploads/statistic-preview.png)
+![image-20210903093515083](https://cdn.statically.io/gh/laravolt/storage/master/2021/10/statistic-preview-br07F2.png)
 
 ## Membuat Statistic
 Karena berbasis Livewire, maka semua Statistic disimpan di folder `app\Http\Livewire\Statistic`. Untuk membuat Statistic baru, cukup jalankan perintah `make:statistic`:

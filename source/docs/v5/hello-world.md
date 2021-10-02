@@ -12,7 +12,7 @@ Tidak ada perubahan struktur folder. Tidak ada perubahan artisan command. Tidak 
 Jika kamu bisa Laravel, maka kamu juga bisa Laravolt.
 
 ## Membuat Halaman Baru
-![image-20210907081648058](https://cdn.jsdelivr.net/gh/laravolt/storage@master/2021/10/hello-world-dashboard-5KoTRO.png)
+![image-20210907081648058](https://cdn.statically.io/gh/laravolt/storage/master/2021/10/hello-world-dashboard-spWIgC.png)
 
 Anggaplah kita akan membuat sebuah halaman dashboard yang nantinya bisa diakses lewat menu samping. Berikut ini adalah langkah-langkah yang perlu dilakukan.
 
