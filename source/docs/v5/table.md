@@ -644,4 +644,41 @@ class UserTable extends TableView
 ## Export
 ## Pooling
 ## Query String
+
+Setiap kali User melakukan interaksi dengan Table, maka ***state*** saat ini akan disimpan sebagai *query string*. Sebagai contoh, setelah mencari data dengan keyword "foo", maka URL dari browser akan otomatis berubah menjadi:
+
+```http
+/users?search=foo
+```
+
+Keuntungan yang didapat dengan menyimpan ***state*** secara eksplisit di URL antara lain:
+
+1. User bisa membagi URL saat ini dengan mudah.
+1. Ketika User me-refresh browser, data yang ditampilkan akan sesuai dengan ***state*** terakhir. 
+
+Berikut ini adalah ***state*** yang secara otomatis akan mengubah *query string* di *browser*:
+
+```php
+protected $queryString = [
+    'page' => ['except' => 1],
+    'search' => ['except' => ''],
+    'sort' => ['except' => null],
+    'direction',
+    'perPage' => ['except' => self::DEFAULT_PER_PAGE],
+];
+```
+
+Silakan pelajari [dokumentasi resmi dari Livewire](https://laravel-livewire.com/docs/2.x/query-string) terkait *query string*.
+
+Namun, jika karena suatu hal kamu tidak menginginkan *behaviour* di atas (misalnya ketika harus menampilkan 2 tabel dalam satu halaman yang sama), maka cukup kosongkan properti `$queryString` :
+
+```php
+class UserTable extends TableView
+{
+    protected $queryString = [];   
+}
+```
+
+Selanjutnya, setiap kali User berinteraksi dengan tabel (*searching, sorting, filtering, pagination*), URL browser tidak akan ikut berubah.
+
 ## Table Action
