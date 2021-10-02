@@ -11,6 +11,10 @@ class DecorateContent
 {
     public function handle(Jigsaw $jigsaw)
     {
+        echo PHP_EOL;
+        echo "DECORATE CONTENT";
+        echo PHP_EOL;
+
         $jigsaw->getCollections()->each->map(function (CollectionItem $page) use ($jigsaw) {
             $content = $page->getContent();
 

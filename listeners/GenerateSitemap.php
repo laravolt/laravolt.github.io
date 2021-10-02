@@ -16,6 +16,10 @@ class GenerateSitemap
 
     public function handle(Jigsaw $jigsaw)
     {
+        echo PHP_EOL;
+        echo "GENERATE SITEMAP";
+        echo PHP_EOL;
+
         $baseUrl = $jigsaw->getConfig('baseUrl');
 
         if (! $baseUrl) {
