@@ -535,10 +535,6 @@ Yang perlu dibuat hanyalah sebuah *class* yang *extends* `Column` (base class), 
 
 Pada contoh di atas, *custom column* disimpan di `app/tables/columns`. Ini bukan aturan baku. Silakan sesuaikan namespace sesuai struktur aplikasimu.
 
-## Style
-
-TBD
-
 ## Searching
 
 ### Search Query
@@ -640,9 +636,241 @@ class UserTable extends TableView
 
 ## Filtering
 
+Filtering berfungsi untuk melakukan pencarian dengan lebih ***exact***. Ketika ingin menambahkan Filtering, usahakan sumber data tabel masih berupa Query Builder. Hal ini diperlukan karena *logic* Filtering akan diterapkan setelah pemanggilan `data()`.
+
+```php
+class UserTable extends TableView
+{
+    public function data()
+    {
+        // NOT OK
+        return \App\Models\User::get();
+
+        // NOT OK
+        return \App\Models\User::paginate();
+
+        // OK
+        return \App\Models\User::query();
+        
+        // OK
+        return \App\Models\User::where('status', 'ACTIVE');
+    }
+}
+```
+
+Untuk menambahkan Filter, buat sebuah *class* dengan skeleton seperti berikut:
+
+```php
+<?php
+
+namespace App\Tables\Filters;
+
+use Laravolt\Ui\Filters\TextFilter;
+
+class EmailFilter extends TextFilter
+{
+    protected string $label = 'Email';
+
+    public function apply($data, $value)
+    {
+        if ($value) {
+            $data->where('email', $value);
+        }
+
+        return $data;
+    }
+}
+
+```
+
+Kamu bisa mengubah *logic* query pada *method* `apply` sesuai kebutuhan. Pada contoh di atas, dilakukan filtering secara *exact match*.
+
+Lalu tambahkan *class* tersebut pada *method* `filters()` dari `Table`:
+
+```php
+class UserTable extends TableView
+{
+    public function data()
+    {
+        return \App\Models\User::where('status', 'ACTIVE');
+    }
+
+    public function filters(): array
+    {
+        return [
+            new EmailFilter(),
+        ];
+    }
+}
+```
+
+Kira-kira hasilnya seperti berikut ini:
+
+![image-20211003212947424](https://cdn.statically.io/gh/laravolt/storage/master/2021/10/image-20211003212947424-rEVmUN.png)
+
+### Built-in Filter
+
+Ada beberapa jenis Filter yang sudah tersedia dan tinggal di-*extends* saja, yaitu:
+
+- TextFilter
+- DropdownFilter
+- CheckboxFilter
+- DateFilter
+
+#### Text Filter
+
+###### app/Tables/Filters/EmailFilter.php
+
+```php
+<?php
+
+namespace App\Tables\Filters;
+
+use Laravolt\Ui\Filters\TextFilter;
+
+class EmailFilter extends TextFilter
+{
+    protected string $label = 'Email';
+
+    public function apply($data, $value)
+    {
+        if ($value) {
+            $data->where('email', $value);
+        }
+
+        return $data;
+    }
+}
+```
+
+
+
+#### Dropdown Filter
+
+![image-20211003213815998](https://cdn.statically.io/gh/laravolt/storage/master/2021/10/image-20211003213815998-V8Eycb.png)
+
+###### app/Tables/Filters/RoleFilter.php
+
+```php
+<?php
+
+namespace App\Tables\Filters;
+
+use App\Models\Role;
+use Laravolt\Ui\Filters\DropdownFilter;
+
+class RoleFilter extends DropdownFilter
+{
+    protected string $label = 'Roles';
+
+    public function apply($data, $value)
+    {
+        if ($value) {
+            $data->whereHas('roles', fn ($query) => $query->where('id', $value));
+        }
+
+        return $data;
+    }
+
+    public function options(): array
+    {
+        return Role::query()->pluck('name', 'id')->prepend('All Roles', '0')->toArray();
+    }
+}
+```
+
+
+
+#### Checkbox Filter
+
+![image-20211003213844901](https://cdn.statically.io/gh/laravolt/storage/master/2021/10/image-20211003213844901-t469HS.png)
+
+###### app/Tables/Filters/StatusFilter.php
+
+```php
+<?php
+
+namespace App\Tables\Filters;
+
+use Laravolt\Ui\Filters\CheckboxFilter;
+
+class StatusFilter extends CheckboxFilter
+{
+    protected string $label = 'Status';
+
+    public function apply($data, $value)
+    {
+        $status = collect($value)->filter()->values()->toArray();
+        if (! empty($status)) {
+            $data->whereIn('status', $status);
+        }
+
+        return $data;
+    }
+
+    public function options(): array
+    {
+        return [
+            'ACTIVE' => 'ACTIVE',
+            'PENDING' => 'PENDING',
+        ];
+    }
+}
+
+```
+
+
+
+#### Date Filter
+
+![image-20211003213928740](https://cdn.statically.io/gh/laravolt/storage/master/2021/10/image-20211003213928740-ksvUUP.png)
+
+###### app/Tables/Filters/RegisteredFilter.php
+
+```php
+<?php
+
+namespace App\Tables\Filters;
+
+use Laravolt\Ui\Filters\DateFilter;
+
+class RegisteredFilter extends DateFilter
+{
+    protected string $label = 'Registered At';
+
+    public function apply($data, $value)
+    {
+        if ($value) {
+            $data->where('created_at', $value);
+        }
+
+        return $data;
+    }
+}
+```
+
+
+
 ## Pagination
-## Export
-## Pooling
+
+Pagination akan ditampilkan secara otomatis sesuai sumber data yang dikembalikan pada *method* `data()`. Kustomisasi Pagination bisa dilakukan dengan mengubah beberapa properti:
+
+```php
+class UserTable extends TableView
+{
+    // mengubah default jumlah data yang ditampilkan di tiap halaman
+	private const DEFAULT_PER_PAGE = 15;    
+    
+    // mengubah opsi data yang ditampilkan di tiap halaman
+    protected array $perPageOptions = [5, 15, 30, 50, 100, 250];
+    
+    // jika ingin mengubah view
+    protected $paginationView = 'laravolt::pagination.livewire.simple';
+}
+```
+
+
+
 ## Query String
 
 Setiap kali User melakukan interaksi dengan Table, maka ***state*** saat ini akan disimpan sebagai *query string*. Sebagai contoh, setelah mencari data dengan keyword "foo", maka URL dari browser akan otomatis berubah menjadi:
@@ -680,5 +908,3 @@ class UserTable extends TableView
 ```
 
 Selanjutnya, setiap kali User berinteraksi dengan tabel (*searching, sorting, filtering, pagination*), URL browser tidak akan ikut berubah.
-
-## Table Action
