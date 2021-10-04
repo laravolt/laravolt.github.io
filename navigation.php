@@ -11,21 +11,23 @@ return [
                 // 'Sponsorship' => '#',
             ],
         ],
-        // 'Skeleton' => [
-        //     'children' => [
-        //         'Authentication' => '#',
-        //         'Registration' => '#',
-        //         'Reset Password' => '#',
-        //         'Email Activation' => '#',
-        //         'Edit Profile' => '#',
-        //     ],
-        // ],
         'Admin Panel' => [
             'children' => [
                 'Anatomy' => '#',
                 'Menu' => 'menu',
                 'Action Button' => '#',
-                'ACL' => '#',
+                'ACL' => 'acl',
+            ],
+        ],
+        'UI Components' => [
+            'children' => [
+                'Table' => 'table',
+                'Chart' => 'chart',
+                'Statistic' => 'statistic',
+                // 'List View' => '#',
+                // 'Detail View' => '#',
+                // 'Form Builder' => '#',
+                // 'BPMN Viewer' => '#',
             ],
         ],
         'Features' => [
@@ -44,33 +46,22 @@ return [
                 'Workflow' => 'workflow',
             ],
         ],
-        'UI Components' => [
-            'children' => [
-                'Table' => 'table',
-                'Chart' => 'chart',
-                'Statistic' => 'statistic',
-                // 'List View' => '#',
-                // 'Detail View' => '#',
-                // 'Form Builder' => '#',
-                // 'BPMN Viewer' => '#',
-            ],
-        ],
-        'Standalone Packages' => [
-            'children' => [
-                'laravolt/avatar' => '#',
-                'laravolt/metabase' => '#',
-                'laravolt/camunda' => '#',
-                'laravolt/indonesia' => '#',
-            ],
-        ],
-        'Epilog' => [
-            'children' => [
-                'Kontribusi' => '#',
-                'Panduan Penulisan' => '#',
-                'Hak Cipta' => '#',
-                'Logo' => '#',
-            ],
-        ],
+        // 'Standalone Packages' => [
+        //     'children' => [
+        //         'laravolt/avatar' => '#',
+        //         'laravolt/metabase' => '#',
+        //         'laravolt/camunda' => '#',
+        //         'laravolt/indonesia' => '#',
+        //     ],
+        // ],
+        // 'Epilog' => [
+        //     'children' => [
+        //         'Kontribusi' => '#',
+        //         'Panduan Penulisan' => '#',
+        //         'Hak Cipta' => '#',
+        //         'Logo' => '#',
+        //     ],
+        // ],
     ],
     'v4' => [
         'Prolog' => [
