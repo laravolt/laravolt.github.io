@@ -66,28 +66,7 @@ Atau, cara yang lebih singkat tanpa perlu menjawab pertanyaan satu persatu:
 php artisan laravolt:admin Administrator admin@laravolt.dev secret
 ```
 
-### 5. Middleware
-
-Daftarkan dua buah Middleware ke file `app\Http\Kernel.php`:
-```php
-protected $middlewareGroups = [
-    'web' => [
-        // Middleware lain bawaan Laravel disini
-        ...
-        // Tambahkan middleware Laravolt di paling akhir
-        \Laravolt\Middleware\DetectFlashMessage::class,
-        \Laravolt\Middleware\CheckPassword::class,
-    ],
-
-    'api' => [
-        'throttle:api',
-        \Illuminate\Routing\Middleware\SubstituteBindings::class,
-    ],
-];
-
-```
-
-### 6. Local Development
+### 5. Local Development
 
 Sebagaimana diketahui, untuk menjalankan aplikasi PHP dibutuhkan sebuah ***web server***. Jika kamu sudah meng-install PHP, maka kamu bisa memanfaatkan server bawaan PHP. Cukup jalankan perintah:
 
