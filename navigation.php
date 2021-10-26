@@ -46,6 +46,15 @@ return [
                 // 'Workflow' => 'workflow',
             ],
         ],
+        'Guideline' => [
+            'children' => [
+                'Code Quality' => 'code-quality',
+                'Controller' => 'controller',
+                'Editor & IDE' => 'editor-ide',
+                'Naming Things' => 'naming-things',
+                'Routes' => 'routes',
+            ],
+        ],
         // 'Standalone Packages' => [
         //     'children' => [
         //         'laravolt/avatar' => '#',
