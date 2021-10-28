@@ -197,6 +197,12 @@ Untuk field yang berjenis **Relationship**, nilai default-nya adalah `false`. Un
 ### Boolean
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::BOOLEAN,
+    'name' => 'approved',
+    'label' => 'Apakah Disetujui?',
+],
+
 ```
 
 
@@ -204,6 +210,11 @@ Untuk field yang berjenis **Relationship**, nilai default-nya adalah `false`. Un
 ### Checkbox
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::CHECKBOX,
+    'name' => 'remember',
+    'label' => 'Remember Me',
+],
 ```
 
 
@@ -211,70 +222,130 @@ Untuk field yang berjenis **Relationship**, nilai default-nya adalah `false`. Un
 ### Checkbox Group
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::CHECKBOX_GROUP,
+    'name' => 'pendidikan',
+    'label' => 'Pendidikan Terakhir',
+    'options' => ['sd', 'smp', 'sma', 'S1'],
+    'inline' => false, // false (default value) or true
+],
 ```
 
 
 ### Color
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::COLOR,
+    'name' => 'color',
+    'label' => 'Color',
+],
 ```
 
 
 ### Date
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::DATE,
+    'name' => 'date',
+    'label' => 'Date',
+],
 ```
 
 
 ### Date Picker
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::DATE_PICKER,
+    'name' => 'datepicker',
+    'label' => 'Date Picker',
+],
 ```
 
 
 ### Datetime Picker
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::DATETIME_PICKER,
+    'name' => 'datetimepicker',
+    'label' => 'Datetime Picker',
+],
 ```
 
 
 ### Dropdown
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::DROPDOWN,
+    'name' => 'dropdown',
+    'label' => 'Dropdown',
+    'options' => [1 => 'SD', 2 => 'SMP', 3 => 'SMA'],
+],
 ```
 
 
 ### Dropdown Color
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::DROPDOWN_COLOR,
+    'name' => 'dropdown_color',
+    'label' => 'Dropdown Color',
+],
 ```
-
 
 ### Dropdown DB
 
+Dropdown dengan pilihan *option* yang didapat dari hasil query ke database.
+
 ```php
+[
+    'type' => \Laravolt\Fields\Field::DROPDOWN_DB,
+    'name' => 'dropdown_db',
+    'label' => 'Dropdown DB',
+    'query' => 'select id, name from users limit 10'
+],
 ```
 
 
 ### Email
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::EMAIL,
+    'name' => 'email',
+    'label' => 'Email',
+],
 ```
 
 
 ### Hidden
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::HIDDEN,
+    'name' => 'user_id',
+],
 ```
 
 
 ### Number
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::NUMBER,
+    'name' => 'number',
+    'label' => 'Number',
+],
 ```
 
-
 ### Multirow
+
+//TODO
 
 ```php
 ```
@@ -283,42 +354,79 @@ Untuk field yang berjenis **Relationship**, nilai default-nya adalah `false`. Un
 ### Password
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::PASSWORD,
+    'name' => 'password',
+    'label' => 'Password',
+],
 ```
 
 
 ### Radio Group
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::RADIO_GROUP,
+    'name' => 'radio_group',
+    'label' => 'Radio Group',
+    'options' => [1 => 'SD', 2 => 'SMP', 3 => 'SMA'],
+    'inline' => false, // false (default value) or true
+],
 ```
 
 
 ### Redactor
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::REDACTOR,
+    'name' => 'article',
+    'label' => 'Article',
+],
 ```
 
 
 ### Rupiah
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::RUPIAH,
+    'name' => 'rupiah',
+    'label' => 'Rupiah',
+],
 ```
 
 
 ### Text
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::TEXT,
+    'name' => 'text',
+    'label' => 'Text',
+],
 ```
 
 
 ### Textarea
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::TEXTAREA,
+    'name' => 'textarea',
+    'label' => 'Textarea',
+],
 ```
 
 
 ### Time
 
 ```php
+[
+    'type' => \Laravolt\Fields\Field::TIME,
+    'name' => 'time',
+    'label' => 'Time (Standard Browser)',
+],
 ```
 
 
