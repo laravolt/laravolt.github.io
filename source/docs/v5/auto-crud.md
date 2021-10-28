@@ -7,26 +7,37 @@ section: content
 
 # AutoCRUD
 
-## Konsep
+## Overview
 
 Create, Read, Update, Delete merupakan salah satu fitur yang paling sering dijumpai dalam pengembangan sistem informasi. Ciri-ciri dari fitur CRUD adalah:
 
-1. Ada 1 halaman berisi list of data, biasanya ditampilkan dalam bentuk datatable lengkap dengan searching, sorting, dan paginasi.
-1. Ada tombol untuk menambah, mengedit, dan menghapus data
-1. Bisa mengekspor data ke format Excel atau PDF.
+1. Ada halaman berisi list of data, biasanya ditampilkan dalam bentuk datatable lengkap dengan searching, sorting, dan paginasi.
+1. Ada tombol untuk menambah, mengedit, dan menghapus data.
 
-Dengan AutoCRUD, fitur-fitur di atas tidak perlu dikoding sama sekali. Cukup definisikan field-field apa saja yang perlu ditampilkan dari sebuah Eloquent Model, dan simsalabim, sebuah fitur CRUD yang lengkap sudah bisa diakses lewat aplikasi.
+Dengan AutoCRUD, fitur-fitur di atas tidak perlu dikoding sama sekali. Cukup **"definisikan"** field apa saja yang perlu ditampilkan dari sebuah Eloquent Model dan secara otomatis sebuah fitur CRUD yang lengkap sudah bisa diakses lewat aplikasi, tanpa koding.
 
-AutoCRUD membutuhkan dua hal agar bisa berfungsi dengan baik:
+AutoCRUD hanya membutuhkan dua hal berikut:
 
-1. Model yang sudah didefinisikan sebelumnya, lengkap dengan *relationship*-nya.
-1. File konfigurasi untuk mengatur bagaimana field ditampilkan.
+1. Eloquent Model lengkap dengan relationship-nya.
+1. File konfigurasi untuk **"mendefinisikan"** field yang ditampilkan.
+
+
 
 ## Model
 
-Fitur CRUD biasanya berlaku untuk sebuah tabel di database, dan untuk setiap tabel tersebut biasanya sudah dibuat juga Model-nya.
+```php
+class User extends Model
+{
+    public function country()
+    {
+        return $this->belongsTo("App\\Models\\Country");
+    }
+}
+```
 
-## Konfigurasi
+
+
+## Configuration
 
 ###### config/laravolt/auto-crud-resources/user.php
 
@@ -67,17 +78,17 @@ Kelas Eloquent Model yang akan dipanggil untuk setiap aksi CRUD yang dilakukan.
 Mendefinisikan field-field apa saja yang perlu ditampilkan. Entri minimal yang wajib ada adalah `name`, `type`, dan `label`:
 
 ```php
-'name' => '',
-'type' => '',
-'label' => '',
+'name' => 'fullname',
+'type' => 'text',
+'label' => 'Nama Lengkap',
 ```
 
 
 
-Kita bisa merujuk ke interface `Laravolt\Fields\Field` untuk melihat `type` yang tersedia:
+Kita bisa merujuk ke interface `\Laravolt\Fields\Field` untuk melihat `type` yang tersedia:
 
 ```php
-// Form Elements
+// Input Elements
 \Laravolt\Fields\Field::BOOLEAN;
 \Laravolt\Fields\Field::CHECKBOX;
 \Laravolt\Fields\Field::CHECKBOX_GROUP;
@@ -127,36 +138,52 @@ Untuk setiap field, opsi berikut ini bisa digunakan untuk mengatur apakah field 
 
 ### Sorting
 
-Untuk mengatur apakah sebuah field bisa di-sort atau tidak, bisa menggunakan opsi `sortable`. By default `sortable` akan bernilai `true`. Untuk men-disable *sorting*, kita tinggal mengeset dengan nilai `false`:
+Untuk mengatur apakah sebuah field bisa di-sort atau tidak, bisa menggunakan opsi `sortable`. Untuk field berjenis **Input Elements**, by default `sortable` akan bernilai `true`. Untuk men-disable *sorting*, kita tinggal mengeset dengan nilai `false`:
 
 ```php
 'sortable' => false,
 ```
 
-Untuk field yang berjenis relationship, nilai default-nya adalah `false`. Untuk meng-enable sorting, kita perlu mengesetnya dengan nama kolom yang akan digunakan untuk sorting pada *related table*:
+Untuk field yang berjenis **Relationship**, nilai default-nya adalah `false`. Untuk meng-enable sorting, kita perlu mengesetnya dengan nama kolom yang akan digunakan untuk sorting pada *related table*:
 
 ```php
-// sort by country.name
+// sort by kolom "name" pada tabel "countries" (atau apapun nama tabelnya, sesuai definisi di relationshipnya)
 'type' => Laravolt\Fields\Field::BELONGS_TO,
 'name' => 'country',
 'sortable' => 'name',
 'label' => 'Country',
 ```
 
+Ketika menambahkan sorting pada field Relationship, kita juga perlu menambahkan trait `Laravolt\Suitable\AutoSort` pada model asalnya, yaitu`\App\Models\User`:
 
+```php
+use Laravolt\Suitable\AutoSort;
+
+class User extends Model
+{
+    use AutoSort;
+    
+    public function country()
+    {
+        return $this->belongsTo("App\\Models\\Country");
+    }
+}
+```
+
+Trait `AutoSort` akan secara otomatis memodifikasi *query* agar bisa melakukan sorting pada related tabel dengan mekanisme join.
 
 ### Searching
 
-Untuk mengatur apakah sebuah field bisa di-search atau tidak, bisa menggunakan opsi `searchable`. By default `searchable` akan bernilai `true`. Jika ingin menghapus kolom dari daftar pencarian, kita tinggal mengesetnya dengan nilai `false`:
+Untuk mengatur apakah sebuah field bisa di-search atau tidak, bisa menggunakan opsi `searchable`. Untuk field berjenis **Input Elements**, by default `searchable` akan bernilai `true`. Jika ingin menghapus kolom dari daftar pencarian, kita tinggal mengesetnya dengan nilai `false`:
 
 ```php
 'searchable' => false,
 ```
 
-Untuk field yang berjenis relationship, nilai default-nya adalah `false`. Untuk meng-enable pencarian pada related table, kita perlu mengesetnya dengan nama kolom yang sesuai:
+Untuk field yang berjenis **Relationship**, nilai default-nya adalah `false`. Untuk meng-enable pencarian pada related table, kita perlu mengesetnya dengan nama kolom yang sesuai:
 
 ```php
-// pencarian juga akan dilakukan pada kolom country.name
+// pencarian juga akan dilakukan pada kolom countries.name
 'type' => Laravolt\Fields\Field::BELONGS_TO,
 'name' => 'country',
 'searchable' => 'name',
@@ -167,48 +194,144 @@ Untuk field yang berjenis relationship, nilai default-nya adalah `false`. Untuk 
 
 ## Field Types (Schema)
 
-Setiap jenis field bisa memiliki atribut tambahan yang spesifik sesuai dengan fungsinya. Mari kita bahas satu per satu.
-
 ### Boolean
+
+```php
+```
+
+
 
 ### Checkbox
 
+```php
+```
+
+
+
 ### Checkbox Group
+
+```php
+```
+
 
 ### Color
 
+```php
+```
+
+
 ### Date
+
+```php
+```
+
 
 ### Date Picker
 
+```php
+```
+
+
 ### Datetime Picker
+
+```php
+```
+
 
 ### Dropdown
 
+```php
+```
+
+
 ### Dropdown Color
+
+```php
+```
+
 
 ### Dropdown DB
 
+```php
+```
+
+
 ### Email
+
+```php
+```
+
 
 ### Hidden
 
+```php
+```
+
+
 ### Number
+
+```php
+```
+
 
 ### Multirow
 
+```php
+```
+
+
 ### Password
+
+```php
+```
+
 
 ### Radio Group
 
+```php
+```
+
+
 ### Redactor
+
+```php
+```
+
 
 ### Rupiah
 
+```php
+```
+
+
 ### Text
+
+```php
+```
+
 
 ### Textarea
 
+```php
+```
+
+
 ### Time
 
+```php
+```
+
+
 ### Uploader
+
+```php
+[
+    'name' => 'profile_picture',
+    'type' => \Laravolt\Fields\Field::UPLOADER,
+    'label' => 'Profile Picture',
+    'limit' => 1, // jumlah maksimal file yang bisa diupload
+    'extensions' => ['jpg', 'png'],
+    'fileMaxSize' => 5, // dalam MB    
+],
+```
+
