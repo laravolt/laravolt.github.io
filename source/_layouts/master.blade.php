@@ -75,5 +75,7 @@
                 </li>
             </ul>
         </footer>
+
+        @include('_components.tawkto')
     </body>
 </html>
