@@ -153,6 +153,18 @@ Untuk field yang berjenis **Relationship**, nilai default-nya adalah `false`. Un
 'sortable' => 'name',
 'label' => 'Country',
 ```
+By default field `Laravolt\Fields\Field::BELONGS_TO` akan menampilkan data dari model relasinya dalam format JSON. Untuk mengubahnya, tambahkan public method **display()** pada Model relasinya.
+
+```php
+class Country extends Model
+{
+    public function display()
+    {
+        //menampilkan data dari kolom nama
+        return $this->name;
+    }
+}
+```
 
 Ketika menambahkan sorting pada field Relationship, kita juga perlu menambahkan trait `Laravolt\Suitable\AutoSort` pada model asalnya, yaitu`\App\Models\User`:
 
