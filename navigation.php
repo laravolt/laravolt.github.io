@@ -51,6 +51,7 @@ return [
                 'Code Quality' => 'code-quality',
                 'Controller' => 'controller',
                 'Editor & IDE' => 'editor-ide',
+                'Git Workflow' => 'git',
                 'Naming Things' => 'naming-things',
                 'Routes' => 'routes',
             ],
