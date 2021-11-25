@@ -56,6 +56,11 @@ return [
                 'Routes' => 'routes',
             ],
         ],
+        'How To' => [
+            'children' => [
+                'Membuat Authorized Menu' => 'membuat-authorized-menu',
+            ],
+        ],
         // 'Standalone Packages' => [
         //     'children' => [
         //         'laravolt/avatar' => '#',
