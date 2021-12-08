@@ -61,6 +61,12 @@ return [
                 'Membuat Authorized Menu' => 'membuat-authorized-menu',
             ],
         ],
+        'Soal Latihan' => [
+            'children' => [
+                'Manajemen Portal Berita' => 'latihan-manajemen-portal-berita',
+                'Website Portal Berita' => 'latihan-website-portal-berita',
+            ],
+        ],
         // 'Standalone Packages' => [
         //     'children' => [
         //         'laravolt/avatar' => '#',
