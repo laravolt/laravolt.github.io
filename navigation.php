@@ -63,8 +63,8 @@ return [
         ],
         'Soal Latihan' => [
             'children' => [
-                'Manajemen Portal Berita' => 'latihan-manajemen-portal-berita',
-                'Website Portal Berita' => 'latihan-website-portal-berita',
+                'Portal Berita' => 'latihan-portal-berita',
+                // 'Website Portal Berita' => 'latihan-website-portal-berita',
             ],
         ],
         // 'Standalone Packages' => [
