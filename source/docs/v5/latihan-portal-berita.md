@@ -69,7 +69,7 @@ Secara umum, user story yang bisa dilakukan oleh masing-masing aktor antara lain
 
 ## Mission
 
-### :peanuts: Level 1 
+### 🚲 Level 1 
 
 1. Kerjakan sesuai minimum requirements di atas
 1. Tambahkan seeder untuk mengisi data awal sebanyak 1000 berita dengan masing-masing memiliki 100 komentar
@@ -77,14 +77,14 @@ Secara umum, user story yang bisa dilakukan oleh masing-masing aktor antara lain
 1. Beri nama aplikasi sesuai pilihan Anda, lalu push source code ke GitHub
 1. Deploy aplikasi ke [heroku](https://www.heroku.com/)
 
-### :seedling: Level 2
+### 🛵 Level 2
 
 1. Admin bisa mengekspor berita dan komentar dalam format Excel
 1. Admin bisa memfilter data yang ditampilkan di dashboard berdasar periode tertentu (tanggal awal - tanggal akhir)
 1. Writer hanya bisa mengelola berita miliknya sendiri
 1. Writer mendapat email notifikasi jika ada komentar baru di berita yang ditulisnya
 
-### :sunflower: Level 3
+### 🚗 Level 3
 
 1. Admin bisa mengatur beberapa setting terkait website melalui admin panel:
    1. Nama dan deskripsi website
@@ -93,7 +93,7 @@ Secara umum, user story yang bisa dilakukan oleh masing-masing aktor antara lain
 1. Buat 1 tema tambahan untuk website dan bisa diubah oleh Admin melalui admin panel. Multi theme bisa menggunakan library https://github.com/qirolab/laravel-themer.
 1. Admin bisa melihat traffic pengunjung website melaui dashboard aplikasi, memanfaatkan library https://github.com/spatie/laravel-analytics.
 
-### :sun_with_face: Level 4
+### 🏎️ Level 4
 
 1. Source code aplikasi lolos PHPStan level 9
 1. Integration test
