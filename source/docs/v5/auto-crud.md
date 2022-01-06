@@ -16,14 +16,37 @@ Create, Read, Update, Delete merupakan salah satu fitur yang paling sering dijum
 
 Dengan AutoCRUD, fitur-fitur di atas tidak perlu dikoding sama sekali. Cukup **"definisikan"** field apa saja yang perlu ditampilkan dari sebuah Eloquent Model dan secara otomatis sebuah fitur CRUD yang lengkap sudah bisa diakses lewat aplikasi, tanpa koding.
 
-AutoCRUD hanya membutuhkan dua hal berikut:
+## Installation
 
-1. Eloquent Model lengkap dengan relationship-nya.
+### Aktifkan AutoCRUD
+
+Pastikan `auto-crud` telah di-enable:
+
+###### config/laravolt/platform.php
+
+```php
+<?php
+
+return [
+    'middleware' => ['web', 'auth'],
+    'features' => [
+        'auto-crud' => true,
+    ],
+];
+```
+
+
+
+Definisikan model
+
+1. 
 1. File konfigurasi untuk **"mendefinisikan"** field yang ditampilkan.
 
 
 
-## Model
+### Model
+
+Definisikan Eloquent Model lengkap dengan ***relationship***-nya. Model disini adalah kelas [Eloquent](https://laravel.com/docs/master/eloquent) biasa, sama seperti yang biasa kita definisikan di Laravel. Model digunakan untuk berinteraksi dengan database dalam proses CRUD.
 
 ```php
 class User extends Model
@@ -35,9 +58,17 @@ class User extends Model
 }
 ```
 
+Relationship ini bersifat opsional, tapi akan sangat berguna ketika ada 2 model atau lebih yang saling berhubungan, misalnya Post dan Category. Silakan pelajari dokumentasi resmi Laravel tentang [Eloquent Relationship](https://laravel.com/docs/master/eloquent-relationships).
 
+### Daftarkan File Konfigurasi
 
-## Configuration
+Buat sebuah file konfigurasi baru di folder `config/laravolt/auto-crud-resources`. File konfigurasi mendefinisikan field apa saja yang akan ditampilkan di:
+
+- form, termasuk validasinya.
+- tabel, termasuk `flag` searchable dan  sortable.
+- detail page.
+
+Berikuti ini contoh minimal sebuah file konfigurasi untuk membuat CRUD berdasar model User:
 
 ###### config/laravolt/auto-crud-resources/user.php
 
@@ -64,6 +95,10 @@ return [
     ],
 ];
 ```
+
+
+
+## Available Options
 
 ### `label`
 
@@ -201,6 +236,18 @@ Untuk field yang berjenis **Relationship**, nilai default-nya adalah `false`. Un
 'searchable' => 'name',
 'label' => 'Country',
 ```
+
+
+
+### Form Validation
+
+Untuk menambahkan validasi, cukup tambahkan "rules":
+
+```php
+'rules' => ['required', 'size:10'],
+```
+
+[Semua validasi yang tersedia di Laravel](https://laravel.com/docs/master/validation#available-validation-rules) bisa diterapkan disini.
 
 
 
