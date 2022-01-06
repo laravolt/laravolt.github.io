@@ -35,15 +35,6 @@ return [
 ];
 ```
 
-
-
-Definisikan model
-
-1. 
-1. File konfigurasi untuk **"mendefinisikan"** field yang ditampilkan.
-
-
-
 ### Model
 
 Definisikan Eloquent Model lengkap dengan ***relationship***-nya. Model disini adalah kelas [Eloquent](https://laravel.com/docs/master/eloquent) biasa, sama seperti yang biasa kita definisikan di Laravel. Model digunakan untuk berinteraksi dengan database dalam proses CRUD.
