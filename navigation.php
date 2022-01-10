@@ -59,6 +59,7 @@ return [
         'How To' => [
             'children' => [
                 'Membuat Authorized Menu' => 'membuat-authorized-menu',
+                'Integrasi React' => 'integrasi-react',
             ],
         ],
         'Soal Latihan' => [
