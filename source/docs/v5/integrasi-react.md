@@ -27,16 +27,17 @@ ReactDOM.render(
     document.getElementById('reactContainer')
 )
 ```
-3. 
-4. Tambahkan laravel mix untuk react pada file `webpack.mix.js`
+
+3. Tambahkan laravel mix untuk react pada file `webpack.mix.js`
 
 ```js
 mix.js('resources/js/react.js', 'public/js')
 ```
 
 
-6. Buat folder baru untuk komponen react dalam folder `resource/js`. Berikut adalah struktur foldernya.
+4. Buat folder baru untuk komponen react dalam folder `resource/js`. Berikut adalah struktur foldernya.
 
+```text
 - resource
     - js
         - react
@@ -44,8 +45,9 @@ mix.js('resources/js/react.js', 'public/js')
                 - QuoteOfTheDay.js
             - ReactIndex.js
         - react.js
+```
 
-7. Konfigurasi komponen
+5. Konfigurasi komponen
 
 ```
 import React from 'react';
@@ -72,7 +74,7 @@ const QuoteOfTheDay = () => {
 export default QuoteOfTheDay;
 ```
 
-8. Konfigurasi routesnya
+6. Konfigurasi routesnya
 
 ```
 import React from 'react';
@@ -92,7 +94,7 @@ const ReactIndex = () => {
 export default ReactIndex;
 ```
 
-9. Arahkan route yang ada pada file `resource/view/integration/react` menuju root file react yang ada di `resouce/js`
+7. Arahkan route yang ada pada file `resource/view/integration/react` menuju root file react yang ada di `resouce/js`
 
 ```
 <x-volt-app title="Sample React Component">
@@ -104,7 +106,7 @@ export default ReactIndex;
 </x-volt-app>
 ```
 
-10. Jalankan laravel mix
+8. Jalankan laravel mix
 
 ```
 npm run dev
