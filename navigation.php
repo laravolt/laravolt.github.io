@@ -24,6 +24,7 @@ return [
                 'Table' => 'table',
                 'Chart' => 'chart',
                 'Statistic' => 'statistic',
+                'Form' => 'form',
                 // 'List View' => '#',
                 // 'Detail View' => '#',
                 // 'Form Builder' => '#',
