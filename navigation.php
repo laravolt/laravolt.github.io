@@ -15,7 +15,7 @@ return [
             'children' => [
                 'Anatomy' => '#',
                 'Menu' => 'menu',
-                'Action Button' => '#',
+                'Action Button' => 'action-button',
                 'ACL' => 'acl',
             ],
         ],
