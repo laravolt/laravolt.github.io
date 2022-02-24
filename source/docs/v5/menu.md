@@ -140,7 +140,7 @@ Berfungsi untuk menentukan entri menu mana yang perlu diset *active* dan *expand
 
 ### icon
 
-Mengatur ikon yang akan ditampilkan. Ikon yang bisa digunakan bisa dilihat di https://fontawesome.com/v5.15/icons?d=gallery&p=2&s=duotone&m=pro. Laravolt sudah memiliki lisensi resmi Font Awesome 5 Pro.
+Mengatur ikon yang akan ditampilkan. Ikon yang bisa digunakan bisa dilihat di https://fontawesome.com/v5/search?s=duotone. Laravolt sudah memiliki lisensi resmi Font Awesome 5 Pro.
 
 ```php
 'icon' => 'users',

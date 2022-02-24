@@ -128,7 +128,7 @@ public function icon(): ?string
 
 ```
 
-Daftar lengkap ikon yang bisa dipakai bisa dilihat di https://fontawesome.com/icons?d=gallery&p=2&s=duotone&m=pro.
+Daftar lengkap ikon yang bisa dipakai bisa dilihat di https://fontawesome.com/v5/search?s=duotone.
 
 ## Title
 
