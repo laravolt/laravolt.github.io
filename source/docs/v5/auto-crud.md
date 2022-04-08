@@ -129,8 +129,11 @@ class UserCustomTable extends ResourceTable
 }
 
 ```
+Dokumentasi kolom bisa dilihat di https://laravolt.dev/docs/v5/table/.
 
 #### Tambahkan entri berikut ke file konfigurasi:
+
+###### config/laravolt/auto-crud-resources/user.php
 ```php
 return [
     ...    
