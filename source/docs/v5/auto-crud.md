@@ -67,6 +67,10 @@ Berikuti ini contoh minimal sebuah file konfigurasi untuk membuat CRUD berdasar 
 return [
     'label' => 'User',
     'model' => \App\Models\User::class,
+    
+    // optional, if you want to override the default Table
+    //'table' => \App\Http\Livewire\Table\UserCustomTable::class
+    
     'schema' => [
         [
             'name' => 'name',
@@ -88,6 +92,53 @@ return [
 ```
 
 
+## Customizing
+
+### Table
+
+#### Buat Tabel
+```bash
+php artisan make:table UserCustomTable
+```
+
+#### Definisikan Kolom
+Ubah skeleton class menjadi seperti di bawah ini:
+```php
+<?php
+
+namespace App\Http\Livewire\Table;
+
+use Laravolt\AutoCrud\Tables\ResourceTable;
+use Laravolt\Suitable\Columns\Label;
+
+class UserCustomTable extends ResourceTable
+{
+    protected function prepareColumns(): array
+    {
+        // keep default columns, call parent method
+        $columns = parent::prepareColumns();
+        
+        // or override and prepare columns from scratch
+        // $columns = [];
+        
+        // Definisikan kolom tambahan disini sesuai kebutuhan
+        $columns[] = Label::make('status', 'Status');
+
+        return $columns;
+    }
+}
+
+```
+
+#### Tambahkan entri berikut ke file konfigurasi:
+```php
+return [
+    ...    
+    'table' => \App\Http\Livewire\Table\UserCustomTable::class
+    ...
+];
+```
+#### Refresh Your Browser!
 
 ## Available Options
 
