@@ -55,6 +55,7 @@ return [
                 'Git Workflow' => 'git',
                 'Naming Things' => 'naming-things',
                 'Routes' => 'routes',
+                'Performance' => 'performance',
             ],
         ],
         'How To' => [
