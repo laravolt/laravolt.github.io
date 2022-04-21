@@ -156,3 +156,35 @@ Mengatur apakah sebuah menu perlu ditampilkan atau tidak, berdasar **Permissions
 'permissions' => [\App\Enum\Permissions::MANAGE_POST],
 ```
 
+## Dynamic Menu
+Untuk menambahkan menu secara dinamis, tambahkan contoh kode berikut ke method `boot()` di `AppServiceProvider`:
+```php
+    public function boot()
+    {
+        app('laravolt.menu.sidebar')->register(function (\Lavary\Menu\Builder $menu) {
+            // Menambahkan menu ke existing group
+            $group1 = $menu->get('system');
+            $group1->add('My Menu', 'my-menu')
+                ->data('icon', 'list')
+                ->data('order', 10)
+                ->data('permission', 'foo')
+                ->active("my-menu/*");
+
+            // Menambahkan group dan menu baru
+            $group2 = $menu->add('New Group');
+            $group2->add('My Menu 2', 'my-menu-2')
+                ->data('icon', 'list')
+                ->data('order', 10)
+                ->data('permission', 'foo')
+                ->active("my-menu-2/*");
+
+            // Menambahkan group, menu, dan sub menu
+            $group3 = $menu->add('Nested Menu');
+            $menu3 = $group3->add('My Menu 3')
+                ->data('icon', 'list')
+                ->data('order', 10)
+                ->data('permission', 'foo');
+            $menu3->add('Sub Menu A', '#');
+        });
+    }
+ ```
