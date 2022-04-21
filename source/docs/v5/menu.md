@@ -157,6 +157,7 @@ Mengatur apakah sebuah menu perlu ditampilkan atau tidak, berdasar **Permissions
 ```
 
 ## Dynamic Menu
+
 Untuk menambahkan menu secara dinamis, tambahkan contoh kode berikut ke method `boot()` di `AppServiceProvider`:
 
 ```php
@@ -188,4 +189,4 @@ public function boot()
         $menu3->add('Sub Menu A', '#');
     });
 }
- ```
+```
