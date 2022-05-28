@@ -41,14 +41,6 @@ Laravolt Form secara otomatis sudah menangani hal-hal berikut ini:
 - Preserve old input, jadi isian tidak hilang ketika terjadi error saat form disubmit
 - Model binding, otomatis mengisi form dari Eloquent model
 
-## Instalasi
-
-``` bash
-composer require laravolt/semantic-form
-```
-
-> 💡 Package ini sudah ter-*install* secara otomatis ketika Anda menginstall Laravolt.
-
 ## Cara Pemakaian
 
 ### Gambaran Umum
