@@ -153,14 +153,29 @@ Teks yang akan ditampilkan di menu.
 
 Kelas Eloquent Model yang akan dipanggil untuk setiap aksi CRUD yang dilakukan.
 
+### `restful_button`
+By default, setiap row akan memiliki tiga buah tombol detail, edit, dan delete (restful button). 
+Untuk menghilangkan tombol ini, ubah opsi `restful_button` menjadi `false`:
+
+```php
+'restful_button' => false,
+```
+
 ### `schema`
 
 Mendefinisikan field-field apa saja yang perlu ditampilkan. Entri minimal yang wajib ada adalah `name`, `type`, dan `label`:
 
 ```php
-'name' => 'fullname',
-'type' => 'text',
-'label' => 'Nama Lengkap',
+'schema' => [
+    [
+        'name' => 'fullname',
+        'type' => 'text',
+        'label' => 'Nama Lengkap',
+    ],
+    [
+        // others fields...
+    ]
+]
 ```
 
 
@@ -196,6 +211,7 @@ Kita bisa merujuk ke interface `\Laravolt\Fields\Field` untuk melihat `type` yan
 \Laravolt\Fields\Field::ACTION;
 \Laravolt\Fields\Field::BUTTON;
 \Laravolt\Fields\Field::HTML;
+\Laravolt\Fields\Field::RESTFUL_BUTTON;
 \Laravolt\Fields\Field::SEGMENT;
 \Laravolt\Fields\Field::SUBMIT;
 
@@ -489,6 +505,18 @@ Dropdown dengan pilihan *option* yang didapat dari hasil query ke database.
 ],
 ```
 
+### Restful Button
+
+```php
+[
+    'type' => \Laravolt\Fields\Field::RESTFUL_BUTTON,
+    'show_on_create' => false,
+    'show_on_edit' => false,
+    'show_on_detail' => false,
+    'only' => ['show'], // available options: 'show', 'edit', 'destroy'
+]
+```
+
 
 ### Rupiah
 
@@ -547,3 +575,19 @@ Dropdown dengan pilihan *option* yang didapat dari hasil query ke database.
 ],
 ```
 
+## Autofill Value
+Kita bisa menambahkan parameter di URL query string untuk memberikan nilai default kepada field tertentu.
+Misal, kita punya skema form seperti ini:
+```php
+[
+    'type' => \Laravolt\Fields\Field::TEXT,
+    'name' => 'name',
+    'label' => 'Name',
+],
+```
+
+Untuk memberi nilai awal pada form, kita bisa menambahkan query string seperti berikut:
+```
+http://localhost/resource/user/create?name=Rama
+```
+Ketika halaman create user pertama kali dibuka, maka field `name` secara otomatis akan terisi dengan value "Rama".
