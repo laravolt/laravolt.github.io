@@ -25,6 +25,7 @@ return [
                 'Chart' => 'chart',
                 'Statistic' => 'statistic',
                 'Form' => 'form',
+                'Flash Message (Toast)' => 'flash',
                 // 'List View' => '#',
                 // 'Detail View' => '#',
                 // 'Form Builder' => '#',
