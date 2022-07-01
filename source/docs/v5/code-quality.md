@@ -98,7 +98,7 @@ composer pint
 
 ### Tujuan
 
-Salah **Pint** mengharuskan spesifikasi khusus minimal PHP 8.0, kita bisa menggunakan **PHP-CS-Fixer** ini untuk *project* yang menggunakan < PHP 8.0 dan membuat konfigurasi yang sejalan dengan **Pint**.
+Dikarenakan **Pint** mengharuskan spesifikasi khusus minimal PHP 8.0, apabila ada *project* yang masih perlu menggunakan **PHP-CS-Fixer** karena masalah *compatibility* (masih menggunakan < PHP 8.0), kita bisa membuat konfigurasi **PHP-CS-Fixer** yang sejalan dengan **Pint**.
 
 ### Tools
 
