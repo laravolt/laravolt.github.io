@@ -356,6 +356,7 @@ Menemukan bug sebelum bug menemukan kita.
 
 ```bash
 composer require nunomaduro/larastan --dev
+composer require spaze/phpstan-disallowed-calls --dev 
 ```
 
 ### Konfigurasi
@@ -364,17 +365,22 @@ composer require nunomaduro/larastan --dev
 
 ```yaml
 includes:
-    - ./vendor/nunomaduro/larastan/extension.neon
+  - ./vendor/nunomaduro/larastan/extension.neon
+  - ./vendor/spaze/phpstan-disallowed-calls/extension.neon
 
 parameters:
-    level: 5
-    paths:
-        - app
-        - modules
-        - tests
-    ignoreErrors:
-        - '#Access to an undefined property *#'
-	reportUnmatchedIgnoredErrors: false
+  paths:
+    - app
+    - config
+
+  # The level 9 is the highest level
+  level: 8
+
+  disallowedFunctionCalls:
+    - function: 'env()'
+      message: 'use config() instead'
+      allowIn:
+        - config/*.php
 ```
 
 ### Pemakaian
