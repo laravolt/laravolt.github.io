@@ -17,6 +17,7 @@ return [
                 'Menu' => 'menu',
                 'Action Button' => 'action-button',
                 'ACL' => 'acl',
+                'Flash Message (Toast)' => 'flash',
             ],
         ],
         'Blade Components' => [
@@ -32,7 +33,6 @@ return [
                 'MediaLibrary' => 'blade/media-library',
                 'Panel' => 'blade/panel',
                 'Tab' => 'blade/tab',
-                'Titlebar' => 'blade/titlebar',
             ],
         ],
         'Livewire Components' => [
@@ -46,7 +46,6 @@ return [
         'Features' => [
             'children' => [
                 'Auto CRUD' => 'auto-crud',
-                'Flash Message (Toast)' => 'flash',
             ],
         ],
         'Guideline' => [
