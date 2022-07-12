@@ -288,6 +288,10 @@ Route::post('myForm', ['middleware' => ['web', 'selectdate:myDate'], function ()
 ### Select/Dropdown
 #### Select (Dropdown) Single Value
 ``` php
+$options = [
+    'id' => 'Indonesia',
+    'ms' => 'Malaysia',
+];
 form()->select($name, $options)->label('Choose Country');
 form()->select($name, $options, $selected)->label('Choose Country');
 form()->select($name, $options)->placeholder('--Select--');
@@ -298,6 +302,10 @@ form()->select($name, $options)->prependOption($key, $label);
 #### Select Multiple (Tagging)
 
 ```php
+$options = [
+    'id' => 'Indonesia',
+    'ms' => 'Malaysia',
+];
 form()->select($name, $options, $selected)->multiple()->label('Select Multiple');
 ```
 
