@@ -598,6 +598,10 @@ class UserTable extends TableView
         return [
             Text::make('nama', 'Nama')->sortable(),
             Text::make('email', 'Email')->sortable(),            
+            Raw::make(
+                fn ($data) => DateHelper::formatDate($data->birth_date),
+                'Tanggal Lahir'
+            )->sortable('birth_date'),
         ];
     }
 }
