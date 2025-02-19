@@ -24,6 +24,8 @@ php artisan make:table UserTable
 Selanjutnya, cukup definisikan sumber data dan kolom apa saja yang hendak dimunculkan:
 
 ```php
+use Laravolt\Suitable\Columns\Text;
+
 class UserTable extends TableView
 {
     public function data()
@@ -662,6 +664,8 @@ class UserTable extends TableView
 Ketika mendefinisikan tabel, kita bisa menambahkan fungsi `sortable()` pada setiap kolom yang terdefinisi. Secara otomatis, kolom tersebut akan bisa diklik.
 
 ```php
+use Laravolt\Suitable\Columns\Text;
+
 class UserTable extends TableView
 {
     public function data()
@@ -766,17 +770,20 @@ Kamu bisa mengubah _logic_ query pada _method_ `apply` sesuai kebutuhan. Pada co
 Lalu tambahkan _class_ tersebut pada _method_ `filters()` dari `Table`:
 
 ```php
+use App\Models\User;
+use App\Tables\Filters\EmailFilter;
+
 class UserTable extends TableView
 {
     public function data()
     {
-        return \App\Models\User::where('status', 'ACTIVE');
+        return User::where('status', 'ACTIVE'); // don't forget to import the class on top with "use"
     }
 
     public function filters(): array
     {
         return [
-            new EmailFilter(),
+            new EmailFilter(), // don't forget to import the class on top with "use"
         ];
     }
 }
