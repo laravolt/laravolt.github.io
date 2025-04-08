@@ -1,6 +1,93 @@
 <?php
 
 return [
+    'v6' => [
+        'Prolog' => [
+            'children' => [
+                'Why Laravolt?' => 'introduction',
+                'Installation' => 'installation',
+                'Starter Kit' => 'starter-kit',
+                'Hello World' => 'hello-world',
+                // 'Sponsorship' => '#',
+            ],
+        ],
+        'Admin Panel' => [
+            'children' => [
+                'Anatomy' => '#',
+                'Menu' => 'menu',
+                'Action Button' => 'action-button',
+                'ACL' => 'acl',
+                'Flash Message (Toast)' => 'flash',
+            ],
+        ],
+        'Blade Components' => [
+            'children' => [
+                'Brand Image' => 'blade/brand-image',
+                'Breadcrumb' => 'blade/breadcrumb',
+                'Button' => 'blade/button',
+                'Card' => 'blade/card',
+                'Form' => 'blade/form',
+                'Icon' => 'blade/icon',
+                'Link' => 'blade/link',
+                'LinkButton' => 'blade/link-button',
+                'MediaLibrary' => 'blade/media-library',
+                'Panel' => 'blade/panel',
+                'Tab' => 'blade/tab',
+            ],
+        ],
+        'Livewire Components' => [
+            'children' => [
+                'Table' => 'table',
+                'Chart' => 'chart',
+                'Statistic' => 'statistic',
+                'Form' => 'form',
+            ],
+        ],
+        'Features' => [
+            'children' => [
+                'Auto CRUD' => 'auto-crud',
+            ],
+        ],
+        'Guideline' => [
+            'children' => [
+                'Code Quality' => 'code-quality',
+                'Controller' => 'controller',
+                'Editor & IDE' => 'editor-ide',
+                'Git Workflow' => 'git',
+                'Naming Things' => 'naming-things',
+                'Routes' => 'routes',
+                'Performance' => 'performance',
+            ],
+        ],
+        'How To' => [
+            'children' => [
+                'Membuat Authorized Menu' => 'membuat-authorized-menu',
+                'Integrasi React' => 'integrasi-react',
+            ],
+        ],
+        'Soal Latihan' => [
+            'children' => [
+                'Portal Berita' => 'latihan-portal-berita',
+                // 'Website Portal Berita' => 'latihan-website-portal-berita',
+            ],
+        ],
+        // 'Standalone Packages' => [
+        //     'children' => [
+        //         'laravolt/avatar' => '#',
+        //         'laravolt/metabase' => '#',
+        //         'laravolt/camunda' => '#',
+        //         'laravolt/indonesia' => '#',
+        //     ],
+        // ],
+        // 'Epilog' => [
+        //     'children' => [
+        //         'Kontribusi' => '#',
+        //         'Panduan Penulisan' => '#',
+        //         'Hak Cipta' => '#',
+        //         'Logo' => '#',
+        //     ],
+        // ],
+    ],
     'v5' => [
         'Prolog' => [
             'children' => [
