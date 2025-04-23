@@ -6,9 +6,10 @@ section: content
 ---
 
 # Portal Berita
+
 ## Spesifikasi
 
-Buat sebuah aplikasi untuk mengelola website berita, semacam detik.com versi sederhana. 
+Buat sebuah aplikasi untuk mengelola website berita, semacam detik.com versi sederhana.
 
 ### Aktor
 
@@ -18,8 +19,6 @@ Aplikasi ini akan melibatkan empat aktor:
 1. Writer
 1. Member
 1. Guest
-
-
 
 ### User Story
 
@@ -69,7 +68,7 @@ Secara umum, user story yang bisa dilakukan oleh masing-masing aktor antara lain
 
 ## Mission
 
-### 🚲 Level 1 
+### 🚲 Level 1
 
 1. Kerjakan sesuai minimum requirements di atas
 1. Tambahkan seeder untuk mengisi data awal sebanyak 1000 berita dengan masing-masing memiliki 100 komentar
@@ -99,8 +98,8 @@ Secara umum, user story yang bisa dilakukan oleh masing-masing aktor antara lain
 1. Integration test
 1. Nilai Pagespeed Insight untuk website di atas 90
 
-
-
 ## Demo
 
-TBD
+Stay tuned for the next update.
+
+<!-- TODO: Make post to malescast.com -->
