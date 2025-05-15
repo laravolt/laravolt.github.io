@@ -49,7 +49,7 @@
                     </a>
                 </div>
                 <div class="flex-grow items-center text-center space-x-4 uppercase text-sm font-medium">
-                    <a href="https://docs.laravolt.dev" target="_blank">Docs</a>
+                    <a href="https://laravolt.dev" target="_blank">Docs</a>
                 </div>
                 <div class="flex-none flex-1 justify-end items-center text-right md:pl-10">
                     @include('_nav.versions')
