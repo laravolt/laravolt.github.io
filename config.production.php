@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'baseUrl' => 'https://laravolt.dev',
+    'baseUrl' => 'https://old.laravolt.dev',
     'production' => true,
 
     // DocSearch credentials
