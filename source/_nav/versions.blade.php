@@ -5,7 +5,7 @@
             @foreach($page->versions as $version => $label)
                 <option
                     @if($version == $page->selectedVersion()) selected @endif
-                    value="{{ $page->baseUrl . "/docs/" . $version }}">{{ $label }}
+                    value="{{ $page->baseUrl . "/docs/" . $version . "/introduction" }}">{{ $label }}
                 </option>
             @endforeach
         </select>
@@ -15,9 +15,3 @@
         </svg>
     </label>
 </form>
-
-@push('scripts')
-    <script>
-
-    </script>
-@endpush

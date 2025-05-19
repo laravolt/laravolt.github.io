@@ -11,7 +11,7 @@
             <p class="text-lg">Laravolt menyediakan fitur standard sebuah sistem informasi dan membantu mempercepat pembuatan fitur baru dengan <i>code generator</i> yang disediakan. Jika kamu sudah kenal Laravel, maka kamu sudah bisa Laravolt. </p>
 
             <div class="flex my-10">
-                <a href="/docs/{{ $page->selectedVersion() }}" title="{{ $page->siteName }} getting started" class="bg-indigo-700 hover:bg-indigo-800 text-white hover:text-white rounded mr-4 py-2 px-6">Baca Dokumentasi</a>
+                <a href="/docs/v5/introduction" title="{{ $page->siteName }} getting started" class="bg-indigo-700 hover:bg-indigo-800 text-white hover:text-white rounded mr-4 py-2 px-6">Baca Dokumentasi</a>
             </div>
         </div>
 
